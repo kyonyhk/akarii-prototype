@@ -1,0 +1,43 @@
+# Task ID: 8
+# Title: Implement Message Persistence with Automatic Embedding Generation
+# Status: pending
+# Dependencies: 5, 7
+# Priority: medium
+# Description: Create message storage system that automatically generates and stores embeddings for each message
+# Details:
+Modify sendMessage mutation to: 1) Generate embedding on client-side using OpenAI API, 2) Store message with embedding in Messages table, 3) Handle embedding generation failures gracefully. Implement batching for multiple rapid messages. Add retry logic for failed embedding generations. Create background job to backfill embeddings for messages without them.
+
+# Test Strategy:
+Verify embeddings are generated and stored for all new messages, test error handling when OpenAI API fails, confirm message still saves without embedding as fallback, and validate embedding quality
+
+# Subtasks:
+## 1. Implement client-side embedding generation integration [pending]
+### Dependencies: None
+### Description: Create embedding generation service that integrates with sendMessage flow
+### Details:
+Create embeddings service that calls OpenAI API during message sending. Integrate with existing sendMessage mutation to generate embeddings before storing message. Handle async embedding generation with proper loading states and user feedback.
+
+## 2. Implement message storage with embeddings in database [pending]
+### Dependencies: 8.1
+### Description: Modify Messages table operations to store and retrieve embeddings alongside message data
+### Details:
+Update sendMessage mutation to accept and store embedding vectors in Messages table. Ensure embeddings are properly serialized/deserialized. Create queries that can efficiently retrieve messages with their embeddings for similarity search operations.
+
+## 3. Implement error handling for embedding generation failures [pending]
+### Dependencies: 8.1
+### Description: Create robust error handling system for when embedding generation fails
+### Details:
+Implement graceful fallbacks when OpenAI API is unavailable or fails. Store messages without embeddings when generation fails, with flags for later retry. Add user-friendly error messaging and retry mechanisms. Ensure message sending never blocks on embedding failures.
+
+## 4. Implement batching for multiple rapid messages [pending]
+### Dependencies: 8.2, 8.3
+### Description: Create batching system to optimize embedding generation for rapid message sequences
+### Details:
+Implement message queuing system that batches multiple messages within short time windows. Create batch embedding generation to reduce API calls and improve performance. Handle partial batch failures and ensure message ordering is preserved.
+
+## 5. Create background embedding backfill system [pending]
+### Dependencies: 8.2, 8.3
+### Description: Implement background job system to generate embeddings for messages that lack them
+### Details:
+Create background task that identifies messages without embeddings and generates them asynchronously. Implement job queue with retry logic and rate limiting. Add monitoring and progress tracking for backfill operations. Ensure system can handle large volumes of historical messages.
+

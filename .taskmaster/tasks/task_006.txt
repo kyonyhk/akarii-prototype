@@ -1,0 +1,43 @@
+# Task ID: 6
+# Title: Implement Clerk + Convex JWT Integration
+# Status: pending
+# Dependencies: 3, 4
+# Priority: high
+# Description: Establish secure authentication flow between Clerk frontend and Convex backend using JWT tokens
+# Details:
+Configure Convex auth in convex/auth.config.ts with Clerk domain and issuer. Set up JWT verification in Convex functions using ctx.auth. Create user creation/lookup mutations that sync Clerk users with Convex Users table. Implement authentication middleware for protected Convex functions. Handle token refresh and validation errors.
+
+# Test Strategy:
+Verify JWT tokens are properly verified in Convex, test user creation on first login, confirm protected functions reject unauthenticated requests, and validate token refresh flow
+
+# Subtasks:
+## 1. Configure Convex auth configuration [pending]
+### Dependencies: None
+### Description: Set up Convex authentication configuration file with Clerk domain and issuer settings
+### Details:
+Create convex/auth.config.ts file with Clerk domain configuration. Set up JWT issuer URL and audience parameters. Configure authentication providers and token validation settings. Ensure proper environment variable integration for different deployment environments.
+
+## 2. Implement JWT verification setup [pending]
+### Dependencies: 6.1
+### Description: Create JWT token verification logic in Convex functions using ctx.auth
+### Details:
+Implement JWT token verification middleware in Convex functions. Set up ctx.auth usage patterns for protected functions. Create token validation utilities and error handling for invalid/expired tokens. Implement proper token parsing and claims extraction.
+
+## 3. Create user synchronization logic [pending]
+### Dependencies: 6.2
+### Description: Implement user creation and lookup mutations to sync Clerk users with Convex Users table
+### Details:
+Create user lookup and creation mutations that sync Clerk user data with Convex Users table. Implement user profile synchronization on first login. Handle user updates and profile changes from Clerk. Create utilities for mapping Clerk user IDs to Convex user records.
+
+## 4. Implement authentication middleware [pending]
+### Dependencies: 6.3
+### Description: Create authentication middleware for protecting Convex functions and routes
+### Details:
+Implement authentication middleware that wraps protected Convex functions. Create role-based access control utilities. Implement function decorators for easy authentication protection. Add proper error responses for unauthorized access attempts.
+
+## 5. Handle token lifecycle management [pending]
+### Dependencies: 6.4
+### Description: Implement token refresh handling and validation error management
+### Details:
+Implement token refresh flow handling in client and server. Create error handling for expired tokens and validation failures. Implement automatic token renewal logic. Add proper error boundaries and user feedback for authentication issues.
+

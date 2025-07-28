@@ -1,0 +1,49 @@
+# Task ID: 7
+# Title: Build Basic Chat UI with Real-time Functionality
+# Status: pending
+# Dependencies: 6
+# Priority: medium
+# Description: Create chat interface for single 'General' channel with real-time message sending and receiving
+# Details:
+Build chat UI components: MessageList, MessageInput, UserProfile. Implement Convex mutations for sending messages (sendMessage) and queries for fetching messages (getMessages). Set up real-time subscriptions using useQuery hook for live message updates. Create single workspace and 'General' channel on user first login. Add typing indicators and basic UX polish (message timestamps, user avatars, message status).
+
+# Test Strategy:
+Test real-time message sending/receiving between multiple browser tabs, verify message persistence, confirm typing indicators work, and validate UI responsiveness
+
+# Subtasks:
+## 1. Design component architecture and state management [pending]
+### Dependencies: None
+### Description: Plan and design the overall chat UI component structure, data flow, and state management approach
+### Details:
+Define component hierarchy (ChatContainer, MessageList, MessageInput, UserProfile), plan props interface, establish state management pattern for messages and UI states, design real-time data flow using Convex useQuery hooks
+
+## 2. Implement MessageList component with real-time updates [pending]
+### Dependencies: 7.1
+### Description: Create scrollable message list component that displays messages in real-time using Convex queries
+### Details:
+Build MessageList component with auto-scroll to bottom, implement message rendering with timestamps and user avatars, integrate Convex useQuery for real-time message fetching, handle loading states and empty states
+
+## 3. Build MessageInput component with typing indicators [pending]
+### Dependencies: 7.1
+### Description: Create message input component with send functionality and real-time typing indicators
+### Details:
+Implement controlled input with send button and Enter key handling, add typing indicator broadcast using Convex mutations, implement character limits and input validation, add message sending status feedback
+
+## 4. Create Convex mutations and queries for chat functionality [pending]
+### Dependencies: None
+### Description: Implement backend functions for sending messages, fetching messages, and managing typing indicators
+### Details:
+Create sendMessage mutation with user authentication, implement getMessages query with pagination, add typing indicator mutations (startTyping, stopTyping), ensure proper error handling and data validation
+
+## 5. Initialize workspace and General channel on first login [pending]
+### Dependencies: 7.4
+### Description: Implement automatic workspace and channel creation for new users
+### Details:
+Create initializeUserWorkspace function that runs on first login, automatically create default workspace and 'General' channel, ensure proper user-workspace-channel relationships, handle edge cases for existing users
+
+## 6. Add UX enhancements and polish [pending]
+### Dependencies: 7.2, 7.3
+### Description: Implement user experience improvements including avatars, message status, and responsive design
+### Details:
+Add user avatars to messages, implement message delivery status indicators, add responsive design for mobile/tablet, include message timestamps formatting, add smooth animations for new messages and typing indicators
+

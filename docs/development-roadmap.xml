@@ -1,0 +1,79 @@
+<roadmap title="Akarii • Development Roadmap" subtitle="From MVP to full RAG + memory management" organization="Akarii Labs">
+  <overview>
+    <waves>
+      <wave number="0" title="MVP" goal="Live chat → embeddings → top‑3 recall panel" backend="messages table + msg_vec index" frontend="1‑column chat + context panel" effort="✅ In progress (3 wks)" />
+      <wave number="1" title="Goal Cards + Drift" goal="Pin a goal, bot flags off‑track msgs" backend="objectives, alerts, botMessages tables, driftDetector plugin" frontend="Goal modal + pin bar, inline bot" effort="2 wks" />
+      <wave number="2" title="Bias & Contradiction" goal="Surface bias/conflicts" backend="biasDetector, contradictDetector plugins" frontend="Alert filter chips" effort="3 wks" />
+      <wave number="3" title="Power Metrics & Pulse" goal="Dominance stats + weekly digest" backend="nightly aggregateStats cron, stats table" frontend="#pulse channel, spark‑line" effort="3 wks" />
+      <wave number="4" title="Scale & Integrations" goal="Multi‑tenant + Slack ingest + Pinecone option" backend="vectorStore adapter, Slack OAuth tokens table" frontend="Workspace selector, install page" effort="4 wks" />
+    </waves>
+  </overview>
+
+  <details>
+    <wave number="0" title="MVP">
+      <done>Convex schema, client‑side embedding, top‑3 similarity</done>
+      <todo>Latency logs, 3‑user pilot</todo>
+    </wave>
+
+    <wave number="1" title="Goal Cards & Drift Detector">
+      <backend>
+        <step>Add objectives, alerts, botMessages tables</step>
+        <step>saveObjective mutation &amp; regex whisper</step>
+        <step>driftDetector plugin → write alert → insert botMessage</step>
+      </backend>
+      <frontend>
+        <step>Modal form (Goal + Why) &amp; pin bar</step>
+        <step>Grey bot avatar inline reply</step>
+      </frontend>
+    </wave>
+
+    <wave number="2" title="Bias & Contradiction Detectors">
+      <backend>
+        <step>Duplicate detector template → biasDetector (new prompt)</step>
+        <step>contradictDetector uses vector search + earlier decisions</step>
+      </backend>
+      <frontend>
+        <step>Alert filter chips (Drift | Bias | Conflict)</step>
+        <step>Thumbs‑up / thumbs‑down on alerts (collect feedback)</step>
+      </frontend>
+    </wave>
+
+    <wave number="3" title="Power Metrics & Weekly Pulse">
+      <backend>
+        <step>Nightly cron aggregateStats tallies words, interruptions</step>
+        <step>Store per‑user numbers in stats_daily</step>
+        <step>Monday 09:00 cron composes Pulse using GPT‑3.5</step>
+      </backend>
+      <frontend>
+        <step>Auto‑create #pulse channel</step>
+        <step>Render digest with spark‑line of dominance trend</step>
+      </frontend>
+    </wave>
+
+    <wave number="4" title="Multi‑Workspace, Slack Ingest, Pinecone Scale">
+      <backend>
+        <step>Add workspaceId filters + RLS</step>
+        <step>vectorStore interface: swap to Pinecone when &gt;2M vectors/workspace</step>
+        <step>Slack app manifest, OAuth &amp; slackToken table</step>
+        <step>Webhook endpoint: store Slack events → reuse detectors</step>
+      </backend>
+      <frontend>
+        <step>Workspace selector dropdown</step>
+        <step>Slack install page, status indicator</step>
+      </frontend>
+    </wave>
+  </details>
+
+  <calendar>
+    <month name="Aug 2025" focus="MVP pilot & Wave 1 build" milestone="First drift alert in prod chat" />
+    <month name="Sep 2025" focus="Wave 2" milestone="Bias alert precision ≥ 70 %" />
+    <month name="Oct 2025" focus="Wave 3" milestone="Weekly Pulse live for 3 teams" />
+    <month name="Nov–Dec 2025" focus="Wave 4" milestone="Slack beta + Pinecone migration decision" />
+  </calendar>
+
+  <notes>
+    <note>User feedback loop critical after each wave—thumbs‑up/down data will tune prompts</note>
+    <note>Latency budget must stay ≤ 2 s even with extra detectors (parallelise GPT calls)</note>
+    <note>Privacy—prepare single‑tenant story before Slack launch</note>
+  </notes>
+</roadmap>

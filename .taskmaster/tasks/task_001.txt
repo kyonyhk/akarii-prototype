@@ -1,0 +1,31 @@
+# Task ID: 1
+# Title: Initialize Task Master Project Structure
+# Status: pending
+# Dependencies: None
+# Priority: high
+# Description: Set up Task Master AI project structure and initialize development workflow for Akarii MVP
+# Details:
+Run task-master init to create .taskmaster directory structure with config.json, tasks/, docs/, and reports/ folders. Configure API keys in .env for development workflow. Set up CLAUDE.md integration for context management throughout development.
+
+# Test Strategy:
+Verify .taskmaster directory exists with proper structure, config.json is created, and task-master commands are functional
+
+# Subtasks:
+## 1. Create Task Master directory structure [pending]
+### Dependencies: None
+### Description: Initialize .taskmaster directory with all required subdirectories and core files
+### Details:
+Run 'task-master init' command to create .taskmaster/ directory structure including tasks/, docs/, reports/, and templates/ subdirectories. Verify config.json, CLAUDE.md, and other core files are properly generated.
+
+## 2. Configure API keys and environment variables [pending]
+### Dependencies: 1.1
+### Description: Set up .env file with required API keys for Task Master AI functionality
+### Details:
+Create .env file in project root and configure ANTHROPIC_API_KEY for Claude integration. Optionally add PERPLEXITY_API_KEY for research features. Ensure .env is added to .gitignore for security.
+
+## 3. Verify Task Master installation and functionality [pending]
+### Dependencies: 1.2
+### Description: Test that Task Master commands work correctly and integration is complete
+### Details:
+Run 'task-master models' to verify configuration, test basic commands like 'task-master list' and 'task-master next'. Confirm MCP integration works if configured, and validate that CLAUDE.md is properly loaded for context management.
+

@@ -1,0 +1,43 @@
+# Task ID: 3
+# Title: Implement Clerk Authentication Configuration
+# Status: pending
+# Dependencies: 2
+# Priority: high
+# Description: Configure Clerk for magic-link authentication with JWT integration for Convex backend
+# Details:
+Install Clerk: npm install @clerk/nextjs @clerk/clerk-js. Configure Clerk provider in pages/_app.tsx with publishable key. Set up magic-link authentication flow with email verification. Configure JWT templates for Convex integration. Implement sign-in/sign-up pages with profile setup (username/avatar). Add middleware for protected routes.
+
+# Test Strategy:
+Test magic-link email flow, verify JWT token generation, confirm user can complete profile setup, and validate protected route access
+
+# Subtasks:
+## 1. Install and Configure Clerk SDK [pending]
+### Dependencies: None
+### Description: Install Clerk packages and set up basic configuration with environment variables
+### Details:
+Install @clerk/nextjs and @clerk/clerk-js packages via npm. Set up environment variables for NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY and CLERK_SECRET_KEY. Configure basic Clerk settings in environment files.
+
+## 2. Configure Clerk Provider and Authentication Wrapper [pending]
+### Dependencies: 3.1
+### Description: Set up ClerkProvider in Next.js app and configure authentication wrapper components
+### Details:
+Configure ClerkProvider in pages/_app.tsx with publishable key. Set up authentication wrapper components and configure Clerk's built-in components. Ensure proper provider hierarchy for authentication context.
+
+## 3. Implement Magic-Link Authentication Flow [pending]
+### Dependencies: 3.2
+### Description: Set up magic-link email authentication with sign-in and sign-up pages
+### Details:
+Configure magic-link authentication in Clerk dashboard settings. Create sign-in and sign-up pages using Clerk components. Implement email verification flow and handle authentication redirects. Set up proper error handling for authentication failures.
+
+## 4. Configure JWT Templates for Convex Integration [pending]
+### Dependencies: 3.2
+### Description: Set up JWT templates in Clerk dashboard for secure Convex backend integration
+### Details:
+Configure JWT templates in Clerk dashboard with proper claims for Convex integration. Set up token issuer and audience configuration. Configure token expiration and refresh settings. Ensure JWT tokens contain necessary user identification for Convex authentication.
+
+## 5. Implement Protected Route Middleware [pending]
+### Dependencies: 3.3, 3.4
+### Description: Create middleware to protect routes and handle authentication state management
+### Details:
+Implement Next.js middleware for protected routes using Clerk's authentication state. Set up route protection logic for authenticated pages. Handle authentication redirects and unauthorized access. Create user profile setup flow with username and avatar configuration.
+

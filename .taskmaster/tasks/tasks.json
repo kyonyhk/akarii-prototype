@@ -1,0 +1,684 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Initialize Task Master Project Structure",
+        "description": "Set up Task Master AI project structure and initialize development workflow for Akarii MVP",
+        "details": "Run task-master init to create .taskmaster directory structure with config.json, tasks/, docs/, and reports/ folders. Configure API keys in .env for development workflow. Set up CLAUDE.md integration for context management throughout development.",
+        "testStrategy": "Verify .taskmaster directory exists with proper structure, config.json is created, and task-master commands are functional",
+        "priority": "high",
+        "dependencies": [],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Create Task Master directory structure",
+            "description": "Initialize .taskmaster directory with all required subdirectories and core files",
+            "dependencies": [],
+            "details": "Run 'task-master init' command to create .taskmaster/ directory structure including tasks/, docs/, reports/, and templates/ subdirectories. Verify config.json, CLAUDE.md, and other core files are properly generated.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Configure API keys and environment variables",
+            "description": "Set up .env file with required API keys for Task Master AI functionality",
+            "dependencies": [
+              "1.1"
+            ],
+            "details": "Create .env file in project root and configure ANTHROPIC_API_KEY for Claude integration. Optionally add PERPLEXITY_API_KEY for research features. Ensure .env is added to .gitignore for security.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "Verify Task Master installation and functionality",
+            "description": "Test that Task Master commands work correctly and integration is complete",
+            "dependencies": [
+              "1.2"
+            ],
+            "details": "Run 'task-master models' to verify configuration, test basic commands like 'task-master list' and 'task-master next'. Confirm MCP integration works if configured, and validate that CLAUDE.md is properly loaded for context management.",
+            "status": "pending",
+            "testStrategy": ""
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Setup Next.js + Convex Project Scaffold",
+        "description": "Create Next.js application with pages router and integrate Convex backend with real-time capabilities",
+        "details": "Initialize Next.js project with pages router: npx create-next-app@latest akarii-mvp --typescript --tailwind --app=false. Install and configure Convex: npm install convex, npx convex dev. Set up convex/ directory with functions for real-time subscriptions. Configure convex.json and environment variables.",
+        "testStrategy": "Verify Next.js dev server runs on localhost:3000, Convex dashboard accessible, and real-time connection established between frontend and backend",
+        "priority": "high",
+        "dependencies": [
+          1
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Initialize Next.js Project with TypeScript and Tailwind",
+            "description": "Create Next.js application using pages router with TypeScript and Tailwind CSS configuration",
+            "dependencies": [],
+            "details": "Run 'npx create-next-app@latest akarii-mvp --typescript --tailwind --app=false' to initialize Next.js project with pages router. Verify project structure includes pages/, styles/, and configuration files. Test that development server starts successfully on localhost:3000.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Install and Configure Convex Backend",
+            "description": "Install Convex package and initialize Convex backend configuration",
+            "dependencies": [
+              "2.1"
+            ],
+            "details": "Install Convex with 'npm install convex'. Run 'npx convex dev' to initialize Convex configuration. Create convex/ directory structure with initial function files. Configure convex.json with project settings and deployment configuration.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "Setup Real-time Connection Between Frontend and Backend",
+            "description": "Establish real-time connection using Convex client and configure subscription capabilities",
+            "dependencies": [
+              "2.2"
+            ],
+            "details": "Configure ConvexProvider in _app.tsx to wrap the application. Set up ConvexReactClient with proper configuration. Create initial real-time subscription functions in convex/functions. Test bidirectional real-time communication between frontend and backend.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "Validate Environment Configuration and Connection",
+            "description": "Verify all environment variables are properly configured and connections are established",
+            "dependencies": [
+              "2.3"
+            ],
+            "details": "Set up environment variables for Convex deployment URL and API keys. Verify .env.local configuration matches Convex dashboard settings. Test that Convex dashboard is accessible and shows connected client. Confirm real-time subscriptions are working end-to-end.",
+            "status": "pending",
+            "testStrategy": ""
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Implement Clerk Authentication Configuration",
+        "description": "Configure Clerk for magic-link authentication with JWT integration for Convex backend",
+        "details": "Install Clerk: npm install @clerk/nextjs @clerk/clerk-js. Configure Clerk provider in pages/_app.tsx with publishable key. Set up magic-link authentication flow with email verification. Configure JWT templates for Convex integration. Implement sign-in/sign-up pages with profile setup (username/avatar). Add middleware for protected routes.",
+        "testStrategy": "Test magic-link email flow, verify JWT token generation, confirm user can complete profile setup, and validate protected route access",
+        "priority": "high",
+        "dependencies": [
+          2
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Install and Configure Clerk SDK",
+            "description": "Install Clerk packages and set up basic configuration with environment variables",
+            "dependencies": [],
+            "details": "Install @clerk/nextjs and @clerk/clerk-js packages via npm. Set up environment variables for NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY and CLERK_SECRET_KEY. Configure basic Clerk settings in environment files.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Configure Clerk Provider and Authentication Wrapper",
+            "description": "Set up ClerkProvider in Next.js app and configure authentication wrapper components",
+            "dependencies": [
+              "3.1"
+            ],
+            "details": "Configure ClerkProvider in pages/_app.tsx with publishable key. Set up authentication wrapper components and configure Clerk's built-in components. Ensure proper provider hierarchy for authentication context.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "Implement Magic-Link Authentication Flow",
+            "description": "Set up magic-link email authentication with sign-in and sign-up pages",
+            "dependencies": [
+              "3.2"
+            ],
+            "details": "Configure magic-link authentication in Clerk dashboard settings. Create sign-in and sign-up pages using Clerk components. Implement email verification flow and handle authentication redirects. Set up proper error handling for authentication failures.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "Configure JWT Templates for Convex Integration",
+            "description": "Set up JWT templates in Clerk dashboard for secure Convex backend integration",
+            "dependencies": [
+              "3.2"
+            ],
+            "details": "Configure JWT templates in Clerk dashboard with proper claims for Convex integration. Set up token issuer and audience configuration. Configure token expiration and refresh settings. Ensure JWT tokens contain necessary user identification for Convex authentication.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 5,
+            "title": "Implement Protected Route Middleware",
+            "description": "Create middleware to protect routes and handle authentication state management",
+            "dependencies": [
+              "3.3",
+              "3.4"
+            ],
+            "details": "Implement Next.js middleware for protected routes using Clerk's authentication state. Set up route protection logic for authenticated pages. Handle authentication redirects and unauthorized access. Create user profile setup flow with username and avatar configuration.",
+            "status": "pending",
+            "testStrategy": ""
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Design and Implement Core Database Schema",
+        "description": "Create Convex database schema for Users, Workspace, Channel, and Messages tables with vector index support",
+        "details": "Define Convex schema in convex/schema.ts: Users table (authId: string, name: string, createdAt: number), Workspace table (name: string, createdAt: number, ownerId: Id<users>), Channel table (workspaceId: Id<workspace>, name: string, createdAt: number), Messages table (channelId: Id<channel>, authorId: Id<users>, text: string, embedding: number[], ts: number). Create vector index on Messages.embedding with 768 dimensions for OpenAI embeddings.",
+        "testStrategy": "Verify schema deployment to Convex, test CRUD operations on all tables, confirm vector index creation with correct dimensions, and validate relational constraints",
+        "priority": "high",
+        "dependencies": [
+          2
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Define Core Table Schema Structures",
+            "description": "Create fundamental table definitions for Users, Workspace, Channel, and Messages in convex/schema.ts",
+            "dependencies": [],
+            "details": "Define Convex schema using defineSchema() and defineTable(). Create Users table with authId (string), name (string), createdAt (number). Create Workspace table with name (string), createdAt (number), ownerId (Id<users>). Create Channel table with workspaceId (Id<workspace>), name (string), createdAt (number). Create Messages table with channelId (Id<channel>), authorId (Id<users>), text (string), embedding (number[]), ts (number). Export schema for Convex deployment.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Configure Relational Constraints and Indexes",
+            "description": "Set up proper foreign key relationships and database indexes for optimal query performance",
+            "dependencies": [
+              "4.1"
+            ],
+            "details": "Add indexes for frequently queried fields: workspaceId on Channel table, channelId on Messages table, authId on Users table. Configure cascading relationships where appropriate. Set up compound indexes for common query patterns like (channelId, ts) for message retrieval. Ensure proper referential integrity constraints between tables.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "Implement Vector Index Configuration",
+            "description": "Configure vector search index on Messages.embedding field with 768 dimensions for OpenAI embeddings",
+            "dependencies": [
+              "4.1"
+            ],
+            "details": "Add vector index definition using Convex's vector search capabilities. Configure index on Messages.embedding field with dimension=768 to match OpenAI text-embedding-ada-002 model. Set appropriate distance metric (cosine similarity). Configure index filtering options for efficient semantic search within channels or workspaces.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "Create Schema Validation and Testing Suite",
+            "description": "Implement comprehensive testing for schema deployment, CRUD operations, and vector index functionality",
+            "dependencies": [
+              "4.2",
+              "4.3"
+            ],
+            "details": "Create test suite to verify schema deployment to Convex development environment. Test CRUD operations on all tables with sample data. Validate foreign key constraints work properly. Test vector index creation and confirm 768-dimension vectors can be stored and queried. Create mock data generators for consistent testing. Verify error handling for constraint violations.",
+            "status": "pending",
+            "testStrategy": ""
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Integrate OpenAI API for Client-side Embeddings",
+        "description": "Set up OpenAI integration for generating 768-dimensional embeddings on the client side",
+        "details": "Install OpenAI SDK: npm install openai. Create client-side utility for generating embeddings using text-embedding-ada-002 model (768 dimensions). Implement error handling for API timeouts and rate limits. Create embedding service with retry logic and proper error boundaries. Configure API key management and usage tracking.",
+        "testStrategy": "Test embedding generation for sample text, verify 768-dimension output, validate error handling for API failures, and confirm rate limiting works properly",
+        "priority": "high",
+        "dependencies": [
+          4
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Install and Configure OpenAI SDK",
+            "description": "Install OpenAI SDK package and set up basic configuration for client-side usage",
+            "dependencies": [],
+            "details": "Run npm install openai to add the OpenAI SDK. Create configuration file for OpenAI client initialization with proper TypeScript types. Set up environment variable handling for API key. Configure client options including timeout settings and base URL if needed.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Implement Embedding Service with text-embedding-ada-002",
+            "description": "Create core embedding service that generates 768-dimensional embeddings using OpenAI's text-embedding-ada-002 model",
+            "dependencies": [
+              "5.1"
+            ],
+            "details": "Create embedding service utility that accepts text input and returns 768-dimensional embedding vectors. Use text-embedding-ada-002 model for consistency. Implement proper TypeScript interfaces for embedding requests and responses. Add input validation for text length limits and format.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "Add Error Handling and Retry Logic",
+            "description": "Implement comprehensive error handling with retry mechanisms for API failures",
+            "dependencies": [
+              "5.2"
+            ],
+            "details": "Add try-catch blocks around OpenAI API calls with specific error type handling. Implement exponential backoff retry logic for transient failures. Handle different error scenarios: network timeouts, API errors, invalid inputs. Create error boundary components for embedding failures. Log errors appropriately for debugging.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "Implement Rate Limiting Protection",
+            "description": "Add client-side rate limiting to prevent exceeding OpenAI API quotas and limits",
+            "dependencies": [
+              "5.2"
+            ],
+            "details": "Implement rate limiting using a token bucket or sliding window approach. Track API usage per minute/hour based on OpenAI's rate limits. Add queue system for embedding requests when rate limits are approached. Display user feedback when rate limiting is active. Store rate limit state in memory or local storage.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 5,
+            "title": "Configure API Key Management and Security",
+            "description": "Set up secure API key management with usage tracking and validation",
+            "dependencies": [
+              "5.1"
+            ],
+            "details": "Configure environment variables for OpenAI API key with proper validation. Implement API key rotation support if needed. Add usage tracking to monitor API consumption and costs. Ensure API keys are not exposed in client-side code through proper environment handling. Add API key validation on service initialization.",
+            "status": "pending",
+            "testStrategy": ""
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "Implement Clerk + Convex JWT Integration",
+        "description": "Establish secure authentication flow between Clerk frontend and Convex backend using JWT tokens",
+        "details": "Configure Convex auth in convex/auth.config.ts with Clerk domain and issuer. Set up JWT verification in Convex functions using ctx.auth. Create user creation/lookup mutations that sync Clerk users with Convex Users table. Implement authentication middleware for protected Convex functions. Handle token refresh and validation errors.",
+        "testStrategy": "Verify JWT tokens are properly verified in Convex, test user creation on first login, confirm protected functions reject unauthenticated requests, and validate token refresh flow",
+        "priority": "high",
+        "dependencies": [
+          3,
+          4
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Configure Convex auth configuration",
+            "description": "Set up Convex authentication configuration file with Clerk domain and issuer settings",
+            "dependencies": [],
+            "details": "Create convex/auth.config.ts file with Clerk domain configuration. Set up JWT issuer URL and audience parameters. Configure authentication providers and token validation settings. Ensure proper environment variable integration for different deployment environments.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Implement JWT verification setup",
+            "description": "Create JWT token verification logic in Convex functions using ctx.auth",
+            "dependencies": [
+              "6.1"
+            ],
+            "details": "Implement JWT token verification middleware in Convex functions. Set up ctx.auth usage patterns for protected functions. Create token validation utilities and error handling for invalid/expired tokens. Implement proper token parsing and claims extraction.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "Create user synchronization logic",
+            "description": "Implement user creation and lookup mutations to sync Clerk users with Convex Users table",
+            "dependencies": [
+              "6.2"
+            ],
+            "details": "Create user lookup and creation mutations that sync Clerk user data with Convex Users table. Implement user profile synchronization on first login. Handle user updates and profile changes from Clerk. Create utilities for mapping Clerk user IDs to Convex user records.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "Implement authentication middleware",
+            "description": "Create authentication middleware for protecting Convex functions and routes",
+            "dependencies": [
+              "6.3"
+            ],
+            "details": "Implement authentication middleware that wraps protected Convex functions. Create role-based access control utilities. Implement function decorators for easy authentication protection. Add proper error responses for unauthorized access attempts.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 5,
+            "title": "Handle token lifecycle management",
+            "description": "Implement token refresh handling and validation error management",
+            "dependencies": [
+              "6.4"
+            ],
+            "details": "Implement token refresh flow handling in client and server. Create error handling for expired tokens and validation failures. Implement automatic token renewal logic. Add proper error boundaries and user feedback for authentication issues.",
+            "status": "pending",
+            "testStrategy": ""
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "title": "Build Basic Chat UI with Real-time Functionality",
+        "description": "Create chat interface for single 'General' channel with real-time message sending and receiving",
+        "details": "Build chat UI components: MessageList, MessageInput, UserProfile. Implement Convex mutations for sending messages (sendMessage) and queries for fetching messages (getMessages). Set up real-time subscriptions using useQuery hook for live message updates. Create single workspace and 'General' channel on user first login. Add typing indicators and basic UX polish (message timestamps, user avatars, message status).",
+        "testStrategy": "Test real-time message sending/receiving between multiple browser tabs, verify message persistence, confirm typing indicators work, and validate UI responsiveness",
+        "priority": "medium",
+        "dependencies": [
+          6
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Design component architecture and state management",
+            "description": "Plan and design the overall chat UI component structure, data flow, and state management approach",
+            "dependencies": [],
+            "details": "Define component hierarchy (ChatContainer, MessageList, MessageInput, UserProfile), plan props interface, establish state management pattern for messages and UI states, design real-time data flow using Convex useQuery hooks",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Implement MessageList component with real-time updates",
+            "description": "Create scrollable message list component that displays messages in real-time using Convex queries",
+            "dependencies": [
+              "7.1"
+            ],
+            "details": "Build MessageList component with auto-scroll to bottom, implement message rendering with timestamps and user avatars, integrate Convex useQuery for real-time message fetching, handle loading states and empty states",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "Build MessageInput component with typing indicators",
+            "description": "Create message input component with send functionality and real-time typing indicators",
+            "dependencies": [
+              "7.1"
+            ],
+            "details": "Implement controlled input with send button and Enter key handling, add typing indicator broadcast using Convex mutations, implement character limits and input validation, add message sending status feedback",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "Create Convex mutations and queries for chat functionality",
+            "description": "Implement backend functions for sending messages, fetching messages, and managing typing indicators",
+            "dependencies": [],
+            "details": "Create sendMessage mutation with user authentication, implement getMessages query with pagination, add typing indicator mutations (startTyping, stopTyping), ensure proper error handling and data validation",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 5,
+            "title": "Initialize workspace and General channel on first login",
+            "description": "Implement automatic workspace and channel creation for new users",
+            "dependencies": [
+              "7.4"
+            ],
+            "details": "Create initializeUserWorkspace function that runs on first login, automatically create default workspace and 'General' channel, ensure proper user-workspace-channel relationships, handle edge cases for existing users",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 6,
+            "title": "Add UX enhancements and polish",
+            "description": "Implement user experience improvements including avatars, message status, and responsive design",
+            "dependencies": [
+              "7.2",
+              "7.3"
+            ],
+            "details": "Add user avatars to messages, implement message delivery status indicators, add responsive design for mobile/tablet, include message timestamps formatting, add smooth animations for new messages and typing indicators",
+            "status": "pending",
+            "testStrategy": ""
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Implement Message Persistence with Automatic Embedding Generation",
+        "description": "Create message storage system that automatically generates and stores embeddings for each message",
+        "details": "Modify sendMessage mutation to: 1) Generate embedding on client-side using OpenAI API, 2) Store message with embedding in Messages table, 3) Handle embedding generation failures gracefully. Implement batching for multiple rapid messages. Add retry logic for failed embedding generations. Create background job to backfill embeddings for messages without them.",
+        "testStrategy": "Verify embeddings are generated and stored for all new messages, test error handling when OpenAI API fails, confirm message still saves without embedding as fallback, and validate embedding quality",
+        "priority": "medium",
+        "dependencies": [
+          5,
+          7
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Implement client-side embedding generation integration",
+            "description": "Create embedding generation service that integrates with sendMessage flow",
+            "dependencies": [],
+            "details": "Create embeddings service that calls OpenAI API during message sending. Integrate with existing sendMessage mutation to generate embeddings before storing message. Handle async embedding generation with proper loading states and user feedback.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Implement message storage with embeddings in database",
+            "description": "Modify Messages table operations to store and retrieve embeddings alongside message data",
+            "dependencies": [
+              "8.1"
+            ],
+            "details": "Update sendMessage mutation to accept and store embedding vectors in Messages table. Ensure embeddings are properly serialized/deserialized. Create queries that can efficiently retrieve messages with their embeddings for similarity search operations.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "Implement error handling for embedding generation failures",
+            "description": "Create robust error handling system for when embedding generation fails",
+            "dependencies": [
+              "8.1"
+            ],
+            "details": "Implement graceful fallbacks when OpenAI API is unavailable or fails. Store messages without embeddings when generation fails, with flags for later retry. Add user-friendly error messaging and retry mechanisms. Ensure message sending never blocks on embedding failures.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "Implement batching for multiple rapid messages",
+            "description": "Create batching system to optimize embedding generation for rapid message sequences",
+            "dependencies": [
+              "8.2",
+              "8.3"
+            ],
+            "details": "Implement message queuing system that batches multiple messages within short time windows. Create batch embedding generation to reduce API calls and improve performance. Handle partial batch failures and ensure message ordering is preserved.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 5,
+            "title": "Create background embedding backfill system",
+            "description": "Implement background job system to generate embeddings for messages that lack them",
+            "dependencies": [
+              "8.2",
+              "8.3"
+            ],
+            "details": "Create background task that identifies messages without embeddings and generates them asynchronously. Implement job queue with retry logic and rate limiting. Add monitoring and progress tracking for backfill operations. Ensure system can handle large volumes of historical messages.",
+            "status": "pending",
+            "testStrategy": ""
+          }
+        ]
+      },
+      {
+        "id": 9,
+        "title": "Build Vector Similarity Search and Context Panel",
+        "description": "Implement vector search to find similar past messages and display in context panel for MVP validation",
+        "details": "Create Convex query function (getSimilarMessages) using vector search on Messages.embedding index. Implement cosine similarity search returning top-3 most similar messages. Build context panel UI component showing similar messages with relevance scores. Add single mutation combining message insert + similarity query for atomic operations. Include latency logging for performance monitoring.",
+        "testStrategy": "Test vector search returns relevant similar messages, verify p95 query latency ≤ 1.5s, validate context panel updates in real-time, and confirm similarity scores are meaningful",
+        "priority": "medium",
+        "dependencies": [
+          8
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Implement Similarity Search Algorithm",
+            "description": "Create cosine similarity search algorithm with vector mathematics for finding similar messages",
+            "dependencies": [],
+            "details": "Implement cosine similarity calculation function for comparing message embeddings. Create efficient vector comparison logic that handles 768-dimensional embeddings. Build search algorithm that returns top-3 most similar messages with relevance scores. Add error handling for malformed vectors and edge cases.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Optimize Convex Vector Query Performance",
+            "description": "Build and optimize Convex query function for vector search operations",
+            "dependencies": [
+              "9.1"
+            ],
+            "details": "Create getSimilarMessages Convex query function using Messages.embedding index. Implement efficient database querying with proper indexing strategies. Add query optimization for large embedding datasets. Include performance monitoring and logging for query execution times.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "Design Context Panel UI Component",
+            "description": "Build context panel UI component to display similar messages with relevance scores",
+            "dependencies": [],
+            "details": "Create context panel React component with responsive design. Implement UI for displaying similar messages with relevance scores and timestamps. Add loading states and empty states for no similar messages found. Include user-friendly relevance score visualization and message preview functionality.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "Implement Real-time Similarity Updates",
+            "description": "Set up real-time updates for context panel when new similar messages arrive",
+            "dependencies": [
+              "9.2",
+              "9.3"
+            ],
+            "details": "Integrate Convex real-time subscriptions for similarity updates. Implement automatic context panel refresh when new messages with high similarity are detected. Add debouncing logic to prevent excessive updates. Create efficient state management for real-time similarity data.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 5,
+            "title": "Set Up Performance Monitoring System",
+            "description": "Implement comprehensive performance monitoring and latency logging for vector search",
+            "dependencies": [
+              "9.2"
+            ],
+            "details": "Add latency logging for vector search operations with p95 tracking. Implement performance metrics collection for query execution times. Create monitoring dashboard for search performance analytics. Set up alerts for when query latency exceeds 1.5s threshold.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 6,
+            "title": "Refine Relevance Scoring Algorithm",
+            "description": "Fine-tune and validate relevance scoring system for meaningful similarity results",
+            "dependencies": [
+              "9.1",
+              "9.4"
+            ],
+            "details": "Implement relevance score calibration and threshold tuning. Add semantic relevance validation using test message datasets. Create scoring algorithm refinements for better accuracy. Implement feedback mechanism for relevance score improvement and validation testing.",
+            "status": "pending",
+            "testStrategy": ""
+          }
+        ]
+      },
+      {
+        "id": 10,
+        "title": "MVP Testing, Validation and Production Deployment",
+        "description": "Conduct comprehensive testing, implement cleanup mechanisms, and deploy for 3-user pilot testing",
+        "details": "Implement cleanup cron job for messages >30 days old. Add comprehensive error handling and edge cases (empty messages, long texts, API failures). Set up production environment with proper environment variables. Deploy to Vercel/Convex production. Conduct 3-user pilot testing with feedback collection forms. Monitor performance metrics: 100% reliability for 1000+ messages, p95 latency ≤ 1.5s. Validate ≥2/3 users report retrieval feels 'on point'.",
+        "testStrategy": "Run load testing with 1000+ messages, measure p95 latency under load, collect pilot user feedback on retrieval quality, verify cleanup cron works properly, and validate all success criteria are met",
+        "priority": "medium",
+        "dependencies": [
+          9
+        ],
+        "status": "pending",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Implement cleanup cron job for message retention",
+            "description": "Create automated job to delete messages older than 30 days",
+            "dependencies": [],
+            "details": "Set up Convex cron job to run daily and delete messages with ts older than 30 days. Implement batch deletion to handle large datasets efficiently. Add logging for cleanup operations and ensure proper error handling.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 2,
+            "title": "Add comprehensive error handling for edge cases",
+            "description": "Implement robust error handling for empty messages, long texts, and API failures",
+            "dependencies": [
+              "10.1"
+            ],
+            "details": "Add validation for empty messages, implement text length limits, handle OpenAI API failures gracefully, add retry mechanisms for transient failures, and create fallback strategies for critical operations.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 3,
+            "title": "Configure production environment setup",
+            "description": "Set up production environment variables and configurations",
+            "dependencies": [
+              "10.2"
+            ],
+            "details": "Configure production environment variables for Clerk, Convex, and OpenAI. Set up proper security configurations, configure CORS settings, and ensure all secrets are properly managed in production.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 4,
+            "title": "Deploy application to production platforms",
+            "description": "Deploy frontend to Vercel and backend to Convex production",
+            "dependencies": [
+              "10.3"
+            ],
+            "details": "Deploy Next.js frontend to Vercel with production build optimizations. Deploy Convex functions to production environment. Configure domain settings and ensure proper routing between frontend and backend.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 5,
+            "title": "Execute load testing with performance validation",
+            "description": "Run comprehensive load tests and measure performance metrics",
+            "dependencies": [
+              "10.4"
+            ],
+            "details": "Create test scenarios for 1000+ messages, measure p95 latency under load conditions, test concurrent user scenarios, validate system reliability, and document performance benchmarks.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 6,
+            "title": "Coordinate pilot user testing program",
+            "description": "Set up and execute 3-user pilot testing with feedback collection",
+            "dependencies": [
+              "10.5"
+            ],
+            "details": "Recruit 3 pilot users, create feedback collection forms, provide user onboarding materials, monitor user sessions, collect qualitative feedback on retrieval quality, and document user experience insights.",
+            "status": "pending",
+            "testStrategy": ""
+          },
+          {
+            "id": 7,
+            "title": "Validate success metrics and criteria",
+            "description": "Verify all MVP success criteria are met and document results",
+            "dependencies": [
+              "10.6"
+            ],
+            "details": "Validate 100% reliability metric for 1000+ messages, confirm p95 latency ≤ 1.5s requirement, verify ≥2/3 users report retrieval feels 'on point', document all metrics, and prepare final MVP validation report.",
+            "status": "pending",
+            "testStrategy": ""
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "created": "2025-07-28T21:30:29.351Z",
+      "updated": "2025-07-28T21:30:29.351Z",
+      "description": "Tasks for master context"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+# Task ID: 5
+# Title: Integrate OpenAI API for Client-side Embeddings
+# Status: pending
+# Dependencies: 4
+# Priority: high
+# Description: Set up OpenAI integration for generating 768-dimensional embeddings on the client side
+# Details:
+Install OpenAI SDK: npm install openai. Create client-side utility for generating embeddings using text-embedding-ada-002 model (768 dimensions). Implement error handling for API timeouts and rate limits. Create embedding service with retry logic and proper error boundaries. Configure API key management and usage tracking.
+
+# Test Strategy:
+Test embedding generation for sample text, verify 768-dimension output, validate error handling for API failures, and confirm rate limiting works properly
+
+# Subtasks:
+## 1. Install and Configure OpenAI SDK [pending]
+### Dependencies: None
+### Description: Install OpenAI SDK package and set up basic configuration for client-side usage
+### Details:
+Run npm install openai to add the OpenAI SDK. Create configuration file for OpenAI client initialization with proper TypeScript types. Set up environment variable handling for API key. Configure client options including timeout settings and base URL if needed.
+
+## 2. Implement Embedding Service with text-embedding-ada-002 [pending]
+### Dependencies: 5.1
+### Description: Create core embedding service that generates 768-dimensional embeddings using OpenAI's text-embedding-ada-002 model
+### Details:
+Create embedding service utility that accepts text input and returns 768-dimensional embedding vectors. Use text-embedding-ada-002 model for consistency. Implement proper TypeScript interfaces for embedding requests and responses. Add input validation for text length limits and format.
+
+## 3. Add Error Handling and Retry Logic [pending]
+### Dependencies: 5.2
+### Description: Implement comprehensive error handling with retry mechanisms for API failures
+### Details:
+Add try-catch blocks around OpenAI API calls with specific error type handling. Implement exponential backoff retry logic for transient failures. Handle different error scenarios: network timeouts, API errors, invalid inputs. Create error boundary components for embedding failures. Log errors appropriately for debugging.
+
+## 4. Implement Rate Limiting Protection [pending]
+### Dependencies: 5.2
+### Description: Add client-side rate limiting to prevent exceeding OpenAI API quotas and limits
+### Details:
+Implement rate limiting using a token bucket or sliding window approach. Track API usage per minute/hour based on OpenAI's rate limits. Add queue system for embedding requests when rate limits are approached. Display user feedback when rate limiting is active. Store rate limit state in memory or local storage.
+
+## 5. Configure API Key Management and Security [pending]
+### Dependencies: 5.1
+### Description: Set up secure API key management with usage tracking and validation
+### Details:
+Configure environment variables for OpenAI API key with proper validation. Implement API key rotation support if needed. Add usage tracking to monitor API consumption and costs. Ensure API keys are not exposed in client-side code through proper environment handling. Add API key validation on service initialization.
+

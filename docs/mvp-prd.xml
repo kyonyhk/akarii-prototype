@@ -1,0 +1,197 @@
+<prd>
+  <title>Akarii MVP (v0.1)</title>
+  <goal>Prove end‑to‑end retrieval + reasoning on live chat data in ≤ 3 weeks.</goal>
+
+  <section name="Purpose">
+    <points>
+      <point>Send messages in a bare‑bones web chat.</point>
+      <point>Watch Akarii fetch and display the 3 most context‑relevant past snippets for any new line.</point>
+      <point>Confirm embeddings + similarity search work in real time.</point>
+    </points>
+    <note>No objective‑drift, no Goal Cards, no weekly Pulse. This sprint only validates data flow + RAG quality.</note>
+  </section>
+
+  <section name="SuccessCriteria">
+    <metrics>
+      <metric>
+        <description>Users can post and retrieve ≥ 1,000 msgs without errors</description>
+        <target>100% pass</target>
+      </metric>
+      <metric>
+        <description>p95 query latency (embed → search)</description>
+        <target>≤ 1.5s</target>
+      </metric>
+      <metric>
+        <description>Qualitative: 3 pilot users say retrieval feels “on point”</description>
+        <target>≥ 2/3</target>
+      </metric>
+    </metrics>
+  </section>
+
+  <section name="Scope">
+    <in>
+      <item>Minimal auth (magic‑link)</item>
+      <item>Single workspace, single channel</item>
+      <item>Message persistence (messages table)</item>
+      <item>Client‑side OpenAI embedding call</item>
+      <item>Convex vector index query</item>
+      <item>UI: chat column + "Context panel" listing top‑3 similar past lines</item>
+    </in>
+    <out>
+      <item>Role management, RLS hardening</item>
+      <item>Multi‑workspace UI</item>
+      <item>objectives, alerts, botMessages</item>
+      <item>Server‑side embedding, batching</item>
+      <item>Pinecone integration</item>
+      <item>Inline bot messages, Goal Card modal</item>
+    </out>
+  </section>
+
+  <section name="UserStories">
+    <story id="MVP‑1">
+      <role>Visitor</role>
+      <action>enter a name &amp; join chat</action>
+      <goal>start typing immediately</goal>
+    </story>
+    <story id="MVP‑2">
+      <role>User</role>
+      <action>send a message (⌘⏎)</action>
+      <goal>share thoughts</goal>
+    </story>
+    <story id="MVP‑3">
+      <role>System</role>
+      <action>auto‑embeds &amp; stores my message</action>
+      <goal>future searches work</goal>
+    </story>
+    <story id="MVP‑4">
+      <role>System</role>
+      <action>shows 3 most similar past snippets in a side panel</action>
+      <goal>I see Akarii’s memory working</goal>
+    </story>
+  </section>
+
+  <section name="SystemFlow">
+    <note>All in one Convex mutation</note>
+    <mermaid>
+      graph LR
+      A[Browser] -->|POST /send| B(addMessage mutation)
+      B --> C(messages.insert + embed)
+      C --> D{querySimilar (k=3)}
+      D --> E[return top IDs]
+      E --> A
+    </mermaid>
+  </section>
+
+  <section name="ConvexSchemaAndIntegration">
+    <schema file="schema.ts" language="typescript">
+      <![CDATA[
+        import { defineSchema, s } from "convex/schema";
+
+        export default defineSchema({
+          users: {
+            fields: {
+              authId:   s.string(),
+              name:     s.string(),
+              createdAt:s.number()
+            },
+            indexes: { byAuth: ["authId"] }
+          },
+          workspace: {
+            fields: {
+              name:      s.string(),
+              createdAt: s.number(),
+              ownerId:   s.id("users")
+            }
+          },
+          channel: {
+            fields: {
+              workspaceId: s.id("workspace"),
+              name:        s.string(),
+              createdAt:   s.number()
+            }
+          },
+          messages: {
+            vectorIndex: {
+              name:       "msg_vec",
+              dimensions: 768,
+              filterFields: []
+            },
+            fields: {
+              channelId: s.id("channel"),
+              authorId:  s.id("users"),
+              text:      s.string(),
+              embedding: s.array(s.float64()),
+              ts:        s.number()
+            },
+            indexes: {
+              byChannelTime: ["channelId", "ts"]
+            }
+          }
+        });
+      ]]>
+    </schema>
+
+    <checklist>
+      <item>
+        <title>OpenAI key</title>
+        <action>npx convex dev then convex env set OPENAI_KEY=sk‑...</action>
+        <notes>Accessible in actions via ctx.env</notes>
+      </item>
+      <item>
+        <title>Client-side embedding</title>
+        <action>In sendMessage() TS util call openai.embeddings.create before mutation</action>
+        <notes>Avoids 10‑second action limit</notes>
+      </item>
+      <item>
+        <title>Mutation flow</title>
+        <action>addMessage mutation: validate auth ➜ insert row ➜ enqueue querySimilar action ➜ return</action>
+        <notes>Use api.messages.insert then ctx.scheduler.run</notes>
+      </item>
+      <item>
+        <title>Similarity query</title>
+        <action>db.query("messages").withVector("msg_vec", embedding, {k:3})</action>
+        <notes>Returns [MsgId, dist]</notes>
+      </item>
+      <item>
+        <title>Realtime stream</title>
+        <action>Frontend useQuery("messages:byChannelTime", {channelId})</action>
+        <notes>Convex sends deltas automatically</notes>
+      </item>
+      <item>
+        <title>Cleanup cron</title>
+        <action>Create deleteOldMsgs scheduled every 24h to purge >30-day rows</action>
+        <notes>ctx.scheduler.runAt("1d") only in prod</notes>
+      </item>
+      <item>
+        <title>Vector size limit</title>
+        <action>Keep total vectors &lt; 2M</action>
+        <notes>With 768 dims × float64 ≈ 6kB each (~12GB headroom)</notes>
+      </item>
+    </checklist>
+
+    <futureHooks>
+      <hook>vectorStore.ts wrapper around insert &amp; querySimilar</hook>
+      <hook>workspaceId filter already present for multi-tenancy later</hook>
+    </futureHooks>
+  </section>
+
+  <section name="Timeline">
+    <week number="1">
+      <deliverables>Next.js scaffold (pages router OK). Magic-link auth. messages.insert + client embedding. Basic chat UI.</deliverables>
+    </week>
+    <week number="2">
+      <deliverables>Convex vector index, querySimilar call. Context panel renders top-3 snippets. Latency logging.</deliverables>
+    </week>
+    <week number="3">
+      <deliverables>Error handling, cleanup cron. Pilot test with 3 friends. Collect feedback.</deliverables>
+    </week>
+  </section>
+
+  <section name="OpenQuestions">
+    <question>Do we need any rate limiting for OpenAI calls in pilot?</question>
+    <question>Minimum token window to show as snippet (whole line vs chunk)?</question>
+    <question>Do we display similarity scores to user or hide them?</question>
+  </section>
+
+  <footer>© 2025 Akarii Labs – MVP Draft</footer>
+</prd>

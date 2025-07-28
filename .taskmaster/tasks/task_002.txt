@@ -1,0 +1,37 @@
+# Task ID: 2
+# Title: Setup Next.js + Convex Project Scaffold
+# Status: pending
+# Dependencies: 1
+# Priority: high
+# Description: Create Next.js application with pages router and integrate Convex backend with real-time capabilities
+# Details:
+Initialize Next.js project with pages router: npx create-next-app@latest akarii-mvp --typescript --tailwind --app=false. Install and configure Convex: npm install convex, npx convex dev. Set up convex/ directory with functions for real-time subscriptions. Configure convex.json and environment variables.
+
+# Test Strategy:
+Verify Next.js dev server runs on localhost:3000, Convex dashboard accessible, and real-time connection established between frontend and backend
+
+# Subtasks:
+## 1. Initialize Next.js Project with TypeScript and Tailwind [pending]
+### Dependencies: None
+### Description: Create Next.js application using pages router with TypeScript and Tailwind CSS configuration
+### Details:
+Run 'npx create-next-app@latest akarii-mvp --typescript --tailwind --app=false' to initialize Next.js project with pages router. Verify project structure includes pages/, styles/, and configuration files. Test that development server starts successfully on localhost:3000.
+
+## 2. Install and Configure Convex Backend [pending]
+### Dependencies: 2.1
+### Description: Install Convex package and initialize Convex backend configuration
+### Details:
+Install Convex with 'npm install convex'. Run 'npx convex dev' to initialize Convex configuration. Create convex/ directory structure with initial function files. Configure convex.json with project settings and deployment configuration.
+
+## 3. Setup Real-time Connection Between Frontend and Backend [pending]
+### Dependencies: 2.2
+### Description: Establish real-time connection using Convex client and configure subscription capabilities
+### Details:
+Configure ConvexProvider in _app.tsx to wrap the application. Set up ConvexReactClient with proper configuration. Create initial real-time subscription functions in convex/functions. Test bidirectional real-time communication between frontend and backend.
+
+## 4. Validate Environment Configuration and Connection [pending]
+### Dependencies: 2.3
+### Description: Verify all environment variables are properly configured and connections are established
+### Details:
+Set up environment variables for Convex deployment URL and API keys. Verify .env.local configuration matches Convex dashboard settings. Test that Convex dashboard is accessible and shows connected client. Confirm real-time subscriptions are working end-to-end.
+

@@ -1,0 +1,49 @@
+# Task ID: 9
+# Title: Build Vector Similarity Search and Context Panel
+# Status: pending
+# Dependencies: 8
+# Priority: medium
+# Description: Implement vector search to find similar past messages and display in context panel for MVP validation
+# Details:
+Create Convex query function (getSimilarMessages) using vector search on Messages.embedding index. Implement cosine similarity search returning top-3 most similar messages. Build context panel UI component showing similar messages with relevance scores. Add single mutation combining message insert + similarity query for atomic operations. Include latency logging for performance monitoring.
+
+# Test Strategy:
+Test vector search returns relevant similar messages, verify p95 query latency ≤ 1.5s, validate context panel updates in real-time, and confirm similarity scores are meaningful
+
+# Subtasks:
+## 1. Implement Similarity Search Algorithm [pending]
+### Dependencies: None
+### Description: Create cosine similarity search algorithm with vector mathematics for finding similar messages
+### Details:
+Implement cosine similarity calculation function for comparing message embeddings. Create efficient vector comparison logic that handles 768-dimensional embeddings. Build search algorithm that returns top-3 most similar messages with relevance scores. Add error handling for malformed vectors and edge cases.
+
+## 2. Optimize Convex Vector Query Performance [pending]
+### Dependencies: 9.1
+### Description: Build and optimize Convex query function for vector search operations
+### Details:
+Create getSimilarMessages Convex query function using Messages.embedding index. Implement efficient database querying with proper indexing strategies. Add query optimization for large embedding datasets. Include performance monitoring and logging for query execution times.
+
+## 3. Design Context Panel UI Component [pending]
+### Dependencies: None
+### Description: Build context panel UI component to display similar messages with relevance scores
+### Details:
+Create context panel React component with responsive design. Implement UI for displaying similar messages with relevance scores and timestamps. Add loading states and empty states for no similar messages found. Include user-friendly relevance score visualization and message preview functionality.
+
+## 4. Implement Real-time Similarity Updates [pending]
+### Dependencies: 9.2, 9.3
+### Description: Set up real-time updates for context panel when new similar messages arrive
+### Details:
+Integrate Convex real-time subscriptions for similarity updates. Implement automatic context panel refresh when new messages with high similarity are detected. Add debouncing logic to prevent excessive updates. Create efficient state management for real-time similarity data.
+
+## 5. Set Up Performance Monitoring System [pending]
+### Dependencies: 9.2
+### Description: Implement comprehensive performance monitoring and latency logging for vector search
+### Details:
+Add latency logging for vector search operations with p95 tracking. Implement performance metrics collection for query execution times. Create monitoring dashboard for search performance analytics. Set up alerts for when query latency exceeds 1.5s threshold.
+
+## 6. Refine Relevance Scoring Algorithm [pending]
+### Dependencies: 9.1, 9.4
+### Description: Fine-tune and validate relevance scoring system for meaningful similarity results
+### Details:
+Implement relevance score calibration and threshold tuning. Add semantic relevance validation using test message datasets. Create scoring algorithm refinements for better accuracy. Implement feedback mechanism for relevance score improvement and validation testing.
+

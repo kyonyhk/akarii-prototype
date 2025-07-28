@@ -1,0 +1,37 @@
+# Task ID: 4
+# Title: Design and Implement Core Database Schema
+# Status: pending
+# Dependencies: 2
+# Priority: high
+# Description: Create Convex database schema for Users, Workspace, Channel, and Messages tables with vector index support
+# Details:
+Define Convex schema in convex/schema.ts: Users table (authId: string, name: string, createdAt: number), Workspace table (name: string, createdAt: number, ownerId: Id<users>), Channel table (workspaceId: Id<workspace>, name: string, createdAt: number), Messages table (channelId: Id<channel>, authorId: Id<users>, text: string, embedding: number[], ts: number). Create vector index on Messages.embedding with 768 dimensions for OpenAI embeddings.
+
+# Test Strategy:
+Verify schema deployment to Convex, test CRUD operations on all tables, confirm vector index creation with correct dimensions, and validate relational constraints
+
+# Subtasks:
+## 1. Define Core Table Schema Structures [pending]
+### Dependencies: None
+### Description: Create fundamental table definitions for Users, Workspace, Channel, and Messages in convex/schema.ts
+### Details:
+Define Convex schema using defineSchema() and defineTable(). Create Users table with authId (string), name (string), createdAt (number). Create Workspace table with name (string), createdAt (number), ownerId (Id<users>). Create Channel table with workspaceId (Id<workspace>), name (string), createdAt (number). Create Messages table with channelId (Id<channel>), authorId (Id<users>), text (string), embedding (number[]), ts (number). Export schema for Convex deployment.
+
+## 2. Configure Relational Constraints and Indexes [pending]
+### Dependencies: 4.1
+### Description: Set up proper foreign key relationships and database indexes for optimal query performance
+### Details:
+Add indexes for frequently queried fields: workspaceId on Channel table, channelId on Messages table, authId on Users table. Configure cascading relationships where appropriate. Set up compound indexes for common query patterns like (channelId, ts) for message retrieval. Ensure proper referential integrity constraints between tables.
+
+## 3. Implement Vector Index Configuration [pending]
+### Dependencies: 4.1
+### Description: Configure vector search index on Messages.embedding field with 768 dimensions for OpenAI embeddings
+### Details:
+Add vector index definition using Convex's vector search capabilities. Configure index on Messages.embedding field with dimension=768 to match OpenAI text-embedding-ada-002 model. Set appropriate distance metric (cosine similarity). Configure index filtering options for efficient semantic search within channels or workspaces.
+
+## 4. Create Schema Validation and Testing Suite [pending]
+### Dependencies: 4.2, 4.3
+### Description: Implement comprehensive testing for schema deployment, CRUD operations, and vector index functionality
+### Details:
+Create test suite to verify schema deployment to Convex development environment. Test CRUD operations on all tables with sample data. Validate foreign key constraints work properly. Test vector index creation and confirm 768-dimension vectors can be stored and queried. Create mock data generators for consistent testing. Verify error handling for constraint violations.
+
