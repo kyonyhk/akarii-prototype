@@ -11,7 +11,7 @@ export default function Features() {
       >
         <div className="h-full w-full bg-white/10 border backdrop-blur-sm border-white/20 rounded-3xl" />
       </figure>
-      <aside className="bg-black/80 backdrop-blur-sm flex flex-1 flex-col justify-center items-center gap-10 py-10 px-4 md:px-10">
+      <aside className="bg-black/50 backdrop-blur-sm flex flex-1 flex-col justify-center items-center gap-10 py-10 px-4 md:px-10">
         <h2 className="sr-only">Product Features</h2>
         <InfoSection
           heading="Collaborate with AI as a team"
