@@ -1,7 +1,8 @@
 import Hero from '@/components/sections/Hero';
-import Features from '@/components/sections/Features';
-import Overview from '@/components/sections/Overview';
 import ValueProposition from '@/components/sections/ValueProposition';
+import Title from '@/components/sections/Title';
+import Overview from '@/components/sections/Overview';
+import Features from '@/components/sections/Features';
 import Footer from '@/components/sections/Footer';
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Hero />
       <ValueProposition />
+      <Title />
       <Overview />
       <Features />
       <Footer />
