@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import WaitlistForm from '../WaitlistForm';
+import WaitlistForm from '../molecules/WaitlistForm';
 import { ExternalLink } from '../icons';
-import { Input, Button } from '../ui';
+import { Input, Button } from '../atoms';
 
 export default function Hero() {
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
@@ -23,24 +23,20 @@ export default function Hero() {
             <div className="heading-mega1 text-white">AKARII</div>
           </div>
           <div className="flex flex-row gap-2">
-            <Input 
-              placeholder="example@email.com" 
+            <Input
+              placeholder="example@email.com"
               type="email"
               className="flex-1"
             />
-            
-            <Button 
+
+            <Button
               onClick={() => setIsWaitlistOpen(true)}
               icon={<ExternalLink size={16} />}
             >
               Join Waitlist
             </Button>
-            
-            <Button 
-              icon={<ExternalLink size={16} />}
-            >
-              Talk to Founder
-            </Button>
+
+            <Button icon={<ExternalLink size={16} />}>Talk to Founder</Button>
           </div>
         </div>
       </div>

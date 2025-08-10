@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import WaitlistForm from '../WaitlistForm';
+import WaitlistForm from '../molecules/WaitlistForm';
 
 export default function Navigation() {
   const [isJoinWaitlistOpen, setIsJoinWaitlistOpen] = useState(false);
