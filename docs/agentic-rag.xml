@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AkariiAgenticRAG>
+  <StorageLayer>
+    <Collection name="messages" purpose="Raw chat stream">
+      <Field name="text"/>
+      <Field name="author"/>
+      <Field name="timestamp"/>
+      <Field name="channel_id"/>
+      <Field name="reply_to"/>
+      <Field name="embedding_vector"/>
+    </Collection>
+    <Collection name="threads" purpose="Rolling summaries of each thread"/>
+    <Collection name="decisions" purpose="Logged commitments and outcomes"/>
+    <Collection name="contradictions" purpose="Paired conflicting claims"/>
+    <Collection name="behavioral_tags" purpose="Per‑user behavioural signals"/>
+    <Collection name="weekly_snapshots" purpose="Frozen weekly KPIs & tension metrics"/>
+  </StorageLayer>
+
+  <RetrievalLoop>
+    <Planner description="Decomposes user request into sub‑questions; outputs query plan and token ledger"/>
+    <Retriever description="Executes semantic & symbolic queries; enforces visibility filters"/>
+    <Synthesizer description="Assembles answer, cites evidence, decides whether to loop or finish"/>
+  </RetrievalLoop>
+
+  <Interfaces>
+    <Interface name="PassiveParticipant" visibility="visible"
+               trigger="real‑time drift / power imbalance"
+               retrievalPolicy="last 30 msgs + thread summary + behavioural tags"/>
+    <Interface name="PrivateWhisperer" visibility="private"
+               trigger="explicit /akarii … command"
+               retrievalPolicy="targeted evidence only"/>
+    <Interface name="RetrospectiveAgent" visibility="periodic"
+               trigger="weekly cron"
+               retrievalPolicy="decisions + contradictions + sentiment deltas"/>
+  </Interfaces>
+
+  <TokenLedger>
+     <StartBudget tokens="40000"/>
+     <CompressionThreshold percent="75"/>
+     <CompressionStrategy>summarise low‑relevance chunks</CompressionStrategy>
+  </TokenLedger>
+
+  <Milestones>
+    <Milestone name="VerticalSlice" description="Streaming ingest, basic Planner/Retriever/Synthesizer, Private Whisperer"/>
+    <Milestone name="FineGrainSentiment" description="Add per‑thread sentiment curves"/>
+    <Milestone name="GraphOps" description="Participant graph embeddings for power/role awareness"/>
+    <Milestone name="ScheduledEvals" description="Nightly self‑critique loops to refine tags"/>
+    <Milestone name="TeamTuning" description="Fine‑tune on org‑specific data for higher accuracy"/>
+  </Milestones>
+</AkariiAgenticRAG>

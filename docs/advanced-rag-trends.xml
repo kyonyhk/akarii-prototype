@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AdvancedAgenticRAG timestamp="2025-07-29T06:52:49.021821">
+  <Trends>
+    <Trend id="1" name="Memory-OS layers">
+      <Summary>Treat memories as version‑controlled, governable objects; agent issues read/write/forget syscalls.</Summary>
+      <Launch>MemOS (Apr 2025)</Launch>
+      <AkariiStep>Expose Memory‑OS CRUD API over existing tables.</AkariiStep>
+    </Trend>
+    <Trend id="2" name="Hybrid parametric + non-parametric memory">
+      <Summary>Agent may update fast LoRA adapters or store external snippets; supports unlearning.</Summary>
+      <Launch>Hybrid Memory Survey (May 2025)</Launch>
+      <AkariiStep>Add lightweight LoRA updater syscall.</AkariiStep>
+    </Trend>
+    <Trend id="3" name="Multi-agent retrieval pipelines">
+      <Summary>Use Scout, Critic, Synth agents for retrieval planning and validation.</Summary>
+      <Launch>ARAG Framework (Jun 2025)</Launch>
+      <AkariiStep>Split Planner into Scout‑Critic‑Synth trio.</AkariiStep>
+    </Trend>
+    <Trend id="4" name="MCP & tool calling 2.0">
+      <Summary>Vendor‑neutral Model‑Context‑Protocol for search/DB/exec tool calls.</Summary>
+      <Launch>NVIDIA MCP SDK (Jul 2025)</Launch>
+      <AkariiStep>Wrap Postgres/vector store in MCP schema.</AkariiStep>
+    </Trend>
+    <Trend id="5" name="Benchmarks & auto-tuning loops">
+      <Summary>MemoryAgentBench tasks and nightly self‑critique to auto‑tune system.</Summary>
+      <Launch>MemoryAgentBench (Jul 2025)</Launch>
+      <AkariiStep>Log ground‑truth refs & confidence; nightly evaluation.</AkariiStep>
+    </Trend>
+  </Trends>
+  <Guidelines>
+    <Item>Implement Memory‑OS hooks early.</Item>
+    <Item>Design agents as composable workers.</Item>
+    <Item>Instrument observable quality metrics.</Item>
+  </Guidelines>
+</AdvancedAgenticRAG>

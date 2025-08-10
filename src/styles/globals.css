@@ -1,0 +1,55 @@
+@import './fonts.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'PP Museum Light', 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply bg-background-dark text-text-primary antialiased font-museum;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn-primary {
+    @apply bg-accent-primary text-primary-base px-6 py-3 rounded-lg font-medium hover:bg-accent-secondary transition-colors duration-200;
+  }
+  
+  .card {
+    @apply bg-primary-700 bg-opacity-40 backdrop-blur-sm border border-primary-600 border-opacity-20 rounded-xl p-6;
+  }
+  
+  .gradient-text {
+    @apply bg-gradient-to-r from-text-primary to-text-secondary bg-clip-text text-transparent;
+  }
+  
+  /* Typography Utility Classes */
+  
+  /* Headings - PP Pangaia Light */
+  .heading-mega1 { @apply font-pangaia text-heading-mega1; }
+  .heading-mega2 { @apply font-pangaia text-heading-mega2; }
+  .heading1 { @apply font-pangaia text-heading1; }
+  .heading2 { @apply font-pangaia text-heading2; }
+  .heading3 { @apply font-pangaia text-heading3; }
+  .heading4 { @apply font-pangaia text-heading4; }
+  .heading5 { @apply font-pangaia text-heading5; }
+  
+  /* Paragraphs - PP Museum Light */
+  .paragraph1 { @apply font-museum text-paragraph1; }
+  .paragraph2 { @apply font-museum text-paragraph2; }
+  
+  /* Eyebrows - PP Mondwest Regular */
+  .eyebrow1 { @apply font-mondwest text-eyebrow1; }
+  .eyebrow2 { @apply font-mondwest text-eyebrow2; }
+  .eyebrow3 { @apply font-mondwest text-eyebrow3; }
+  .eyebrow4 { @apply font-mondwest text-eyebrow4; }
+  .eyebrow5 { @apply font-mondwest text-eyebrow5; }
+}

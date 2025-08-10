@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AgenticRAGRoadmap>
+  <Stage index="0" name="Baseline RAG">
+    <Goal>Answer direct factual queries with vector search.</Goal>
+    <Deliverables>
+      <Item>messages + pgvector store</Item>
+      <Item>/akarii answer endpoint</Item>
+      <Item>Prompt = user question + top‑k chunks</Item>
+    </Deliverables>
+    <Why>Immediate utility; proves embeddings & permissions.</Why>
+    <Estimate days="3"/>
+  </Stage>
+  <Stage index="1" name="Thread Summaries">
+    <Goal>Cheap context for catch‑up.</Goal>
+    <Deliverables>
+      <Item>Cron summarises every 20 msgs into threads table</Item>
+      <Item>Retriever checks threads first</Item>
+    </Deliverables>
+    <Why>Reduces token cost; visible to humans.</Why>
+    <Estimate days="1"/>
+  </Stage>
+  <Stage index="2" name="Decision Capture v1">
+    <Goal>Persist explicit commitments.</Goal>
+    <Deliverables>
+      <Item>LLM classifier writes to decisions table</Item>
+      <Item>/akarii decisions since {date}</Item>
+    </Deliverables>
+    <Why>Recall value; foundation for drift checks.</Why>
+    <Estimate days="1"/>
+  </Stage>
+  <Stage index="3" name="Planner-Lite">
+    <Goal>Agent chooses store to query (one hop).</Goal>
+    <Deliverables>
+      <Item>Planner outputs query plan</Item>
+      <Item>Server executes single query</Item>
+    </Deliverables>
+    <Why>First step toward agentic retrieval; low complexity.</Why>
+    <Estimate days="2"/>
+  </Stage>
+  <Stage index="4" name="Confidence-Driven Second Hop">
+    <Goal>Feedback loop capped at two iterations.</Goal>
+    <Deliverables>
+      <Item>Synthesizer outputs confidence score</Item>
+      <Item>If low, Planner issues second query</Item>
+    </Deliverables>
+    <Why>Loop with bounded cost.</Why>
+    <Estimate days="3"/>
+  </Stage>
+  <Stage index="5" name="Behavioral Tags & Bias Check">
+    <Goal>Enable first insight capability.</Goal>
+    <Deliverables>
+      <Item>Streaming tagger populates behavioral_tags</Item>
+      <Item>Planner queries tags for BiasDetection</Item>
+    </Deliverables>
+    <Why>Powers Bias & Power awareness.</Why>
+    <Estimate days="3"/>
+  </Stage>
+  <Stage index="6" name="Token Ledger & Compression">
+    <Goal>Prevent OOM by adaptive summarization.</Goal>
+    <Deliverables>
+      <Item>Implement token counter</Item>
+      <Item>Compress overflow chunks when &gt;75% budget</Item>
+    </Deliverables>
+    <Why>Allows raw evidence without blowing context.</Why>
+    <Estimate days="1"/>
+  </Stage>
+  <Stage index="7" name="Unlimited Planner Loops">
+    <Goal>Full agentic RAG with guard rails.</Goal>
+    <Deliverables>
+      <Item>While confidence&lt;0.8 and loops&lt;5, loop Planner→Retriever→Synthesizer</Item>
+    </Deliverables>
+    <Why>True autonomous retrieval with cost cap.</Why>
+    <Estimate days="3"/>
+  </Stage>
+  <Stage index="8" name="Retrospective Agent">
+    <Goal>Autonomous weekly insight report.</Goal>
+    <Deliverables>
+      <Item>Sunday cron triggers Planner</Item>
+      <Item>Publishes snapshot to #akarii-reports</Item>
+    </Deliverables>
+    <Why>Demonstrates proactive insight.</Why>
+    <Estimate days="2"/>
+  </Stage>
+  <Stage index="9" name="Enhancements">
+    <Goal>Graph ops, org tuning, sentiment curves.</Goal>
+    <Deliverables>
+      <Item>Participant graph embeddings</Item>
+      <Item>Nightly self critique loops</Item>
+      <Item>Org-specific fine tuning</Item>
+    </Deliverables>
+    <Estimate days="variable"/>
+  </Stage>
+</AgenticRAGRoadmap>
