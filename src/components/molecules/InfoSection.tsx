@@ -40,7 +40,7 @@ export default function InfoSection({
         <div
           className={cn(
             'text-white transition-transform duration-200',
-            'text-[32px] md:text-[40px]', // Responsive text size
+            'text-heading4 md:text-heading4-md', // Responsive text size
             'font-mondwest leading-none',
             !isExpanded && 'rotate-45 scale-75 opacity-50'
           )}
