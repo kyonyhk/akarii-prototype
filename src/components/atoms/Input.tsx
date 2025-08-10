@@ -22,7 +22,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         type={type}
         className={cn(
           // Base layout and sizing
-          'flex-1 px-6 py-4',
+          'px-6 py-4',
 
           // Border and shape styling
           'border border-white/20 rounded-[40px]',

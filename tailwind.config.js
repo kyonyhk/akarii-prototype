@@ -79,22 +79,22 @@ module.exports = {
       },
       fontSize: {
         // PP Pangaia Light - Headings (Mobile first, then desktop)
-        'heading-mega1': ['4rem', { lineHeight: '0.7', fontWeight: '300' }], // 64px mobile -> 192px desktop
-        'heading-mega2': ['3rem', { lineHeight: '1.0', fontWeight: '300' }], // 48px mobile -> 128px desktop
-        heading1: ['2rem', { lineHeight: '1.0', fontWeight: '300' }], // 32px mobile -> 60px desktop
-        heading2: ['1.5rem', { lineHeight: '1.0', fontWeight: '300' }], // 24px mobile -> 48px desktop
-        heading3: ['1.25rem', { lineHeight: '1.0', fontWeight: '300' }], // 20px mobile -> 36px desktop
-        heading4: ['1.125rem', { lineHeight: '1.0', fontWeight: '300' }], // 18px mobile -> 30px desktop
-        heading5: ['1rem', { lineHeight: '1.0', fontWeight: '300' }], // 16px mobile -> 24px desktop
+        'heading-mega1': ['6rem', { lineHeight: '0.7', fontWeight: '300' }], // 96px mobile -> 192px desktop
+        'heading-mega2': ['4rem', { lineHeight: '1.0', fontWeight: '300' }], // 48px mobile -> 128px desktop
+        heading1: ['3rem', { lineHeight: '1.0', fontWeight: '300' }], // 32px mobile -> 60px desktop
+        heading2: ['2.25em', { lineHeight: '1.0', fontWeight: '300' }], // 24px mobile -> 48px desktop
+        heading3: ['1.875rem', { lineHeight: '1.0', fontWeight: '300' }], // 20px mobile -> 36px desktop
+        heading4: ['1.5rem', { lineHeight: '1.0', fontWeight: '300' }], // 18px mobile -> 30px desktop
+        heading5: ['1.25rem', { lineHeight: '1.0', fontWeight: '300' }], // 16px mobile -> 24px desktop
 
         // PP Museum Light - Paragraphs (Mobile first, then desktop)
         paragraph1: ['1rem', { lineHeight: '1.4', fontWeight: '300' }], // 16px mobile -> 20px desktop
         paragraph2: ['0.875rem', { lineHeight: '1.4', fontWeight: '300' }], // 14px mobile -> 16px desktop
 
         // PP Mondwest Regular - Eyebrows (Mobile first, then desktop)
-        eyebrow1: ['1.5rem', { lineHeight: '1.0', fontWeight: '400' }], // 24px mobile -> 36px desktop
-        eyebrow2: ['1.25rem', { lineHeight: '1.0', fontWeight: '400' }], // 20px mobile -> 30px desktop
-        eyebrow3: ['1.125rem', { lineHeight: '1.0', fontWeight: '400' }], // 18px mobile -> 24px desktop
+        eyebrow1: ['1.875rem', { lineHeight: '1.0', fontWeight: '400' }], // 24px mobile -> 36px desktop
+        eyebrow2: ['1.5rem', { lineHeight: '1.0', fontWeight: '400' }], // 20px mobile -> 30px desktop
+        eyebrow3: ['1.25rem', { lineHeight: '1.0', fontWeight: '400' }], // 18px mobile -> 24px desktop
         eyebrow4: ['1rem', { lineHeight: '1.0', fontWeight: '400' }], // 16px mobile -> 20px desktop
         eyebrow5: ['0.875rem', { lineHeight: '1.0', fontWeight: '400' }], // 14px mobile -> 16px desktop
 

@@ -27,7 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-background-dark`}>
+      <body className={`${inter.className} bg-[#231A19]`}>
         {/* Fixed Background */}
         <div className="fixed inset-0 w-full h-full">
           <Image

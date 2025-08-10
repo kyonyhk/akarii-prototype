@@ -5,10 +5,13 @@ import InfoSection from '../molecules/InfoSection';
 export default function Features() {
   return (
     <section className="min-h-screen flex flex-row">
-      <figure className="flex flex-1 flex-col justify-center items-center p-30" aria-label="Features demonstration">
+      <figure
+        className="hidden md:flex flex-1 flex-col justify-center items-center p-30"
+        aria-label="Features demonstration"
+      >
         <div className="h-full w-full bg-white/10 border backdrop-blur-sm border-white/20 rounded-3xl" />
       </figure>
-      <aside className="bg-black/80 backdrop-blur-sm flex flex-1 flex-col justify-center items-center gap-10 p-10">
+      <aside className="bg-black/80 backdrop-blur-sm flex flex-1 flex-col justify-center items-center gap-10 py-10 px-4 md:px-10">
         <h2 className="sr-only">Product Features</h2>
         <InfoSection
           heading="Collaborate with AI as a team"
