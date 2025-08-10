@@ -2,7 +2,7 @@ import InfoCard from '../molecules/InfoCard';
 
 export default function ValueProposition() {
   return (
-    <div className="flex flex-col px-40 py-30 gap-20">
+    <section className="flex flex-col px-40 py-30 gap-20">
       <div className="flex flex-row gap-6">
         <InfoCard
           heading="Kill the copy and paste AI workflow."
@@ -16,9 +16,9 @@ export default function ValueProposition() {
         />
       </div>
       <div className="flex flex-col gap-1">
-        <div className="heading-mega2 text-white">AI is here.</div>
-        <div className="heading-mega2 text-white">But teams are not ready.</div>
+        <h2 className="heading-mega2 text-white">AI is here.</h2>
+        <h2 className="heading-mega2 text-white">But teams are not ready.</h2>
       </div>
-    </div>
+    </section>
   );
 }

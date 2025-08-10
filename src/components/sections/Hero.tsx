@@ -13,14 +13,14 @@ export default function Hero() {
         <div className="flex flex-col gap-10">
           <div className="flex flex-row justify-between items-end ">
             <div className="h-fit flex flex-col gap-1">
-              <div className="eyebrow1 text-white/80">
+              <p className="eyebrow1 text-white/80">
                 AI Workspace for Teams Who Move Fast
-              </div>
-              <div className="paragraph1 text-white/50">
+              </p>
+              <p className="paragraph1 text-white/50">
                 The only team chat that's ready for AI
-              </div>
+              </p>
             </div>
-            <div className="heading-mega1 text-white">AKARII</div>
+            <h1 className="heading-mega1 text-white">AKARII</h1>
           </div>
           <div className="flex flex-row gap-2">
             <Input

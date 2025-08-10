@@ -5,10 +5,11 @@ import InfoSection from '../molecules/InfoSection';
 export default function Features() {
   return (
     <section className="min-h-screen flex flex-row">
-      <div className="flex flex-1 flex-col justify-center items-center p-30">
+      <figure className="flex flex-1 flex-col justify-center items-center p-30" aria-label="Features demonstration">
         <div className="h-full w-full bg-white/10 border backdrop-blur-sm border-white/20 rounded-3xl" />
-      </div>
-      <div className="bg-black/80 backdrop-blur-sm flex flex-1 flex-col justify-center items-center gap-10 p-10">
+      </figure>
+      <aside className="bg-black/80 backdrop-blur-sm flex flex-1 flex-col justify-center items-center gap-10 p-10">
+        <h2 className="sr-only">Product Features</h2>
         <InfoSection
           heading="Collaborate with AI as a team"
           subheading="Humans and AI, side by side"
@@ -22,14 +23,14 @@ export default function Features() {
         <InfoSection
           heading="Instant decision memory"
           subheading="Decisions, remembered"
-          description="Capture and recall every key decision with context-aware search. No more lost conclusions or “what did we agree on?” moments."
+          description="Capture and recall every key decision with context-aware search. No more lost conclusions or 'what did we agree on?' moments."
         />
         <InfoSection
           heading="Intelligence that speaks when it matters"
           subheading="Silent until it counts"
-          description="Stay focused while AI listens in the background, stepping in only to flag risks, surface clarity, or point out what’s missing."
+          description="Stay focused while AI listens in the background, stepping in only to flag risks, surface clarity, or point out what's missing."
         />
-      </div>
+      </aside>
     </section>
   );
 }
