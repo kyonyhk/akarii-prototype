@@ -53,18 +53,18 @@ export default function InfoSection({
       <div className="flex flex-col gap-2 grow min-w-0">
         {/* Eyebrow and Heading */}
         <div className="flex flex-col gap-0 w-full">
-          <div className="eyebrow4 text-white/50 leading-none">
+          <p className="eyebrow4 text-white/50 leading-none">
             {subheading}
-          </div>
-          <div className="heading2 text-white leading-none">{heading}</div>
+          </p>
+          <h3 className="heading2 text-white leading-none">{heading}</h3>
         </div>
 
         {/* Description - only show when expanded */}
         {isExpanded && (
           <div className="w-full">
-            <div className="paragraph1 text-white/50 leading-none">
+            <p className="paragraph1 text-white/50 leading-none">
               {description}
-            </div>
+            </p>
           </div>
         )}
       </div>
