@@ -1,55 +1,35 @@
-'use client'
+'use client';
+
+import InfoSection from '../molecules/InfoSection';
 
 export default function Features() {
-  const features = [
-    {
-      title: "Stay aligned with AI-powered context",
-      description: "Decisions, notes, status, and flags belong in the same space where teams are working. One AI shared by the whole team.",
-      alignment: "left"
-    },
-    {
-      title: "One AI shared by the whole team",
-      description: "People in the same space. Access the same context, One AI shared by the whole team that does not repeat the same context for every person.",
-      alignment: "right"
-    }
-  ]
-
   return (
-    <section className="py-20 bg-background-dark">
-      <div className="container max-w-6xl">
-        <div className="space-y-20">
-          {features.map((feature, index) => (
-            <div 
-              key={index} 
-              className={`flex flex-col lg:flex-row items-center gap-12 ${
-                feature.alignment === 'right' ? 'lg:flex-row-reverse' : ''
-              }`}
-            >
-              {/* Content */}
-              <div className="flex-1 space-y-6">
-                <h3 className="text-h2 font-serif text-text-primary leading-tight">
-                  {feature.title}
-                </h3>
-                <p className="text-body-lg text-text-secondary leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-              
-              {/* Placeholder for app screenshot */}
-              <div className="flex-1">
-                <div className="aspect-[4/3] bg-primary-700 bg-opacity-40 rounded-xl border border-primary-600 border-opacity-20 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-primary-600 bg-opacity-30 rounded-lg mx-auto mb-4 flex items-center justify-center">
-                      <div className="w-8 h-8 bg-text-muted opacity-50 rounded"></div>
-                    </div>
-                    <p className="text-text-muted text-body-sm">App Screenshot</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+    <section className="min-h-screen flex flex-row">
+      <div className="flex flex-1 flex-col justify-center items-center p-30">
+        <div className="h-full w-full bg-white/10 border backdrop-blur-sm border-white/20 rounded-3xl" />
+      </div>
+      <div className="bg-black/80 backdrop-blur-sm flex flex-1 flex-col justify-center items-center gap-10 p-10">
+        <InfoSection
+          heading="Collaborate with AI as a team"
+          subheading="Humans and AI, side by side"
+          description="A single conversation space where teammates and AI interact together, making collaboration faster and more transparent."
+        />
+        <InfoSection
+          heading="Keep every discussion tied to goals"
+          subheading="Every word with purpose"
+          description="Link conversations to objectives so the AI can help keep your team on-track and call out drift when it happens."
+        />
+        <InfoSection
+          heading="Instant decision memory"
+          subheading="Decisions, remembered"
+          description="Capture and recall every key decision with context-aware search. No more lost conclusions or “what did we agree on?” moments."
+        />
+        <InfoSection
+          heading="Intelligence that speaks when it matters"
+          subheading="Silent until it counts"
+          description="Stay focused while AI listens in the background, stepping in only to flag risks, surface clarity, or point out what’s missing."
+        />
       </div>
     </section>
-  )
+  );
 }

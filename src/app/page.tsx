@@ -11,7 +11,6 @@ export default function Home() {
       <ValueProposition />
       <Overview />
       <Features />
-      <Collaboration />
     </main>
   );
 }
