@@ -23,25 +23,25 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
         className={cn(
           // Base layout and sizing
           'flex-1 px-6 py-4',
-          
+
           // Border and shape styling
           'border border-white/20 rounded-[40px]',
-          
+
           // Typography and text styling
-          'paragraph2 text-white placeholder:text-white/20',
-          
+          'paragraph2 text-white placeholder:text-white/50',
+
           // Background and effects
-          'bg-transparent',
-          
+          'bg-white/5 backdrop-blur-sm',
+
           // Focus states
-          'focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-white/30',
-          
+          'focus:outline-none focus:ring-1 focus:ring-white/30 focus:border-white/30',
+
           // Disabled states
           'disabled:cursor-not-allowed disabled:opacity-50',
-          
+
           // Transition effects
           'transition-colors duration-200',
-          
+
           className
         )}
         ref={ref}

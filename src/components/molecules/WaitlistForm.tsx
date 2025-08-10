@@ -1,51 +1,62 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { useMutation } from 'convex/react'
-import { api } from '../../convex/_generated/api'
+import { useState } from 'react';
+import { useMutation } from 'convex/react';
+import { api } from '../../../convex/_generated/api';
 
 interface WaitlistFormProps {
-  isOpen: boolean
-  onClose: () => void
-  source?: string
+  isOpen: boolean;
+  onClose: () => void;
+  source?: string;
 }
 
-export default function WaitlistForm({ isOpen, onClose, source = 'hero' }: WaitlistFormProps) {
-  const [email, setEmail] = useState('')
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
-  const [errorMessage, setErrorMessage] = useState('')
+export default function WaitlistForm({
+  isOpen,
+  onClose,
+  source = 'hero',
+}: WaitlistFormProps) {
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState<
+    'idle' | 'loading' | 'success' | 'error'
+  >('idle');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const addToWaitlist = useMutation(api.waitlist.addEmail)
+  const addToWaitlist = useMutation(api.waitlist.addEmail);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setStatus('loading')
-    setErrorMessage('')
+    e.preventDefault();
+    setStatus('loading');
+    setErrorMessage('');
 
     try {
       await addToWaitlist({
         email,
         source,
         referrer: typeof window !== 'undefined' ? document.referrer : undefined,
-        userAgent: typeof window !== 'undefined' ? navigator.userAgent : undefined,
-      })
-      
-      setStatus('success')
-      setEmail('')
-    } catch (error: any) {
-      setStatus('error')
-      setErrorMessage(error.message || 'Failed to join waitlist. Please try again.')
-    }
-  }
+        userAgent:
+          typeof window !== 'undefined' ? navigator.userAgent : undefined,
+      });
 
-  if (!isOpen) return null
+      setStatus('success');
+      setEmail('');
+    } catch (error: any) {
+      setStatus('error');
+      setErrorMessage(
+        error.message || 'Failed to join waitlist. Please try again.'
+      );
+    }
+  };
+
+  if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
       <div className="card max-w-md w-full mx-auto">
         <div className="flex items-center justify-between mb-6">
-          <h3 className="text-h3 font-serif text-text-primary">Join the Waitlist</h3>
-          <button 
+          <h3 className="text-h3 font-serif text-text-primary">
+            Join the Waitlist
+          </h3>
+          <button
             onClick={onClose}
             className="text-text-muted hover:text-text-primary transition-colors"
           >
@@ -60,9 +71,10 @@ export default function WaitlistForm({ isOpen, onClose, source = 'hero' }: Waitl
             </div>
             <h4 className="text-h3 text-text-primary mb-2">You're in!</h4>
             <p className="text-body text-text-secondary mb-6">
-              Thanks for joining our waitlist. We'll be in touch soon with updates.
+              Thanks for joining our waitlist. We'll be in touch soon with
+              updates.
             </p>
-            <button 
+            <button
               onClick={onClose}
               className="btn-primary"
             >
@@ -70,9 +82,15 @@ export default function WaitlistForm({ isOpen, onClose, source = 'hero' }: Waitl
             </button>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form
+            onSubmit={handleSubmit}
+            className="space-y-6"
+          >
             <div>
-              <label htmlFor="email" className="block text-body text-text-secondary mb-2">
+              <label
+                htmlFor="email"
+                className="block text-body text-text-secondary mb-2"
+              >
                 Email address
               </label>
               <input
@@ -114,5 +132,5 @@ export default function WaitlistForm({ isOpen, onClose, source = 'hero' }: Waitl
         )}
       </div>
     </div>
-  )
+  );
 }
