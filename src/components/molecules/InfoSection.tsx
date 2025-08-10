@@ -30,7 +30,7 @@ export default function InfoSection({
       onClick={() => setIsExpanded(!isExpanded)}
       className={cn(
         'flex flex-row gap-4 items-start justify-start w-full text-left transition-opacity duration-200',
-        'py-6 pl-6 pr-20', // Consistent padding
+        'py-6 pl-0 md:pl-6 pr-6 md:pr-20', // Consistent padding
         !isExpanded && 'opacity-20 hover:opacity-40',
         className
       )}
@@ -53,10 +53,8 @@ export default function InfoSection({
       <div className="flex flex-col gap-2 grow min-w-0">
         {/* Eyebrow and Heading */}
         <div className="flex flex-col gap-0 w-full">
-          <p className="eyebrow4 text-white/50 leading-none">
-            {subheading}
-          </p>
-          <h3 className="heading2 text-white leading-none">{heading}</h3>
+          <p className="eyebrow4 text-white/50 leading-none">{subheading}</p>
+          <h3 className="heading3 text-white leading-none">{heading}</h3>
         </div>
 
         {/* Description - only show when expanded */}
