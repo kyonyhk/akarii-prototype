@@ -1,33 +1,24 @@
-'use client'
+import InfoCard from '../molecules/InfoCard';
 
 export default function ValueProposition() {
-  const features = [
-    {
-      title: "Kill the copy and paste. AI workbook.",
-      description: "Right now, teams take all the things other teams are posting, comments on work, and feedback on work and simply copy and paste them to a different context."
-    },
-    {
-      title: "Think beyond human limits.",
-      description: "In a shared space. AI can surface context and all decisions, and understand exactly what is happening. In one shared context that keeps teams focused."
-    }
-  ]
-
   return (
-    <section className="py-20 bg-background-dark">
-      <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          {features.map((feature, index) => (
-            <div key={index} className="card animate-fade-in">
-              <h3 className="text-h3 font-serif text-text-primary mb-6 leading-tight">
-                {feature.title}
-              </h3>
-              <p className="text-body text-text-secondary leading-relaxed">
-                {feature.description}
-              </p>
-            </div>
-          ))}
-        </div>
+    <div className="flex flex-col px-40 py-30 gap-20">
+      <div className="flex flex-row gap-6">
+        <InfoCard
+          heading="Kill the copy and paste AI workflow."
+          subheading="AI is your new teammate"
+          description="Right now, teams talk to AI in silos, then waste time pasting outputs into meetings. Akarii puts humans and AI in one conversation, so ideas move faster and nothing gets lost."
+        />
+        <InfoCard
+          heading="Think beyond human limits."
+          subheading="Work like humans and AI were meant to"
+          description="In a shared space, AI can surface context, recall decisions, and keep goals aligned. Your team and AI see the same information, work from the same thread, and build shared understanding in real time."
+        />
       </div>
-    </section>
-  )
+      <div className="flex flex-col gap-1">
+        <div className="heading-mega2 text-white">AI is here.</div>
+        <div className="heading-mega2 text-white">But teams are not ready.</div>
+      </div>
+    </div>
+  );
 }

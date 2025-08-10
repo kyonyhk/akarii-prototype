@@ -1,7 +1,7 @@
 import Hero from '@/components/sections/Hero';
-import ValueProposition from '@/components/sections/ValueProposition';
 import Features from '@/components/sections/Features';
 import Collaboration from '@/components/sections/Collaboration';
+import ValueProposition from '@/components/sections/ValueProposition';
 
 export default function Home() {
   return (
