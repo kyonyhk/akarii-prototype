@@ -1,13 +1,13 @@
 'use client';
 
-import { Button, Input } from '../atoms';
+import { Button, Input, Logo } from '../atoms';
 import { ExternalLink } from '../icons';
 import { useState } from 'react';
 
 export default function Footer() {
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
   return (
-    <footer className="min-h-screen flex flex-col justify-between items-center px-4 md:px-50 pt-50 md:pt-50 pb-4 md:pb-10">
+    <footer className="min-h-screen flex flex-col justify-between items-center px-4 md:px-50 pt-20 md:pt-50 pb-4 md:pb-10">
       <div className="flex flex-col justify-center items-center">
         <header className="flex flex-col justify-center items-center">
           <h2 className="heading2 md:heading1 text-white align-center">
@@ -44,8 +44,12 @@ export default function Footer() {
           </Button>
         </form>
       </div>
-      <div className="flex flex-row gap-1">
-        <div aria-label="Company logo">LOGO</div>
+      <div className="flex flex-col md:flex-row items-center gap-1">
+        <Logo
+          size={40}
+          desktopSize={24}
+          alt="Akarii company logo"
+        />
         <p className="heading5 text-white">AKARII</p>
       </div>
     </footer>
