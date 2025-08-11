@@ -27,7 +27,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-[#231A19]`}>
+      <body className={`${inter.className}`}>
+        {/* Safari Color Sampling Elements */}
+        <div
+          className="fixed top-0 left-0 w-full h-20 pointer-events-none"
+          style={{ backgroundColor: '#766F61', zIndex: -1 }}
+        />
+        <div
+          className="fixed bottom-0 left-0 w-full h-20 pointer-events-none"
+          style={{ backgroundColor: '#231A19', zIndex: -1 }}
+        />
+
         {/* Fixed Background */}
         <div className="fixed inset-0 w-full h-full">
           <Image
