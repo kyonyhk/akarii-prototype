@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import WaitlistForm from '../molecules/WaitlistForm';
 import { ExternalLink } from '../icons';
 import { Input, Button, Logo } from '../atoms';
@@ -8,7 +9,10 @@ import { Input, Button, Logo } from '../atoms';
 export default function Hero() {
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
   return (
-    <section data-section="hero" className="min-h-screen flex flex-col px-4 md:px-50 pt-30 md:pt-50 pb-0 md:pb-20">
+    <section
+      data-section="hero"
+      className="min-h-screen flex flex-col gap-30 px-4 md:px-50 pt-30 md:pt-50 pb-0 md:pb-20"
+    >
       <div className="absolute top-12 md:top-10 left-[50%] transform -translate-x-1/2">
         <Logo
           size={40}
@@ -52,6 +56,33 @@ export default function Hero() {
           </Button>
         </div>
       </div>
+      {/* Mobile prototype */}
+      <figure
+        className="md:hidden h-[640px] w-full bg-white/5 backdrop-blur-sm rounded-[40px] overflow-hidden border border-white/10"
+        aria-label="Product demo prototype"
+      >
+        <Image
+          src="/prototype1.png"
+          alt="Akarii product prototype"
+          width={800}
+          height={640}
+          className="w-full h-full object-cover"
+        />
+      </figure>
+
+      {/* Desktop prototype */}
+      <figure
+        className="hidden md:flex h-[640px] w-full bg-white/5 backdrop-blur-sm rounded-3xl overflow-hidden"
+        aria-label="Product demo prototype"
+      >
+        <Image
+          src="/desktop-prototype1.png"
+          alt="Akarii product prototype"
+          width={800}
+          height={640}
+          className="w-full h-full object-cover"
+        />
+      </figure>
     </section>
   );
 }
