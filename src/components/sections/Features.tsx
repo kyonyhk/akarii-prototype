@@ -4,7 +4,7 @@ import InfoSection from '../molecules/InfoSection';
 
 export default function Features() {
   return (
-    <section className="min-h-screen flex flex-row">
+    <section data-section="features" className="min-h-screen flex flex-row">
       <figure
         className="hidden md:flex flex-1 flex-col justify-center items-center p-30"
         aria-label="Features demonstration"

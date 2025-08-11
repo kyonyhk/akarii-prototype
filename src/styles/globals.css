@@ -8,9 +8,9 @@
   html {
     font-family: 'PP Museum Light', 'Inter', system-ui, sans-serif;
   }
-  
+
   body {
-    @apply bg-background-dark text-text-primary antialiased font-museum;
+    @apply text-text-primary antialiased font-museum;
   }
 }
 
@@ -18,38 +18,66 @@
   .container {
     @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
   }
-  
+
   .btn-primary {
     @apply bg-accent-primary text-primary-base px-6 py-3 rounded-lg font-medium hover:bg-accent-secondary transition-colors duration-200;
   }
-  
+
   .card {
     @apply bg-primary-700 bg-opacity-40 backdrop-blur-sm border border-primary-600 border-opacity-20 rounded-xl p-6;
   }
-  
+
   .gradient-text {
     @apply bg-gradient-to-r from-text-primary to-text-secondary bg-clip-text text-transparent;
   }
-  
+
   /* Typography Utility Classes - Responsive */
-  
+
   /* Headings - PP Pangaia Light (Mobile first, then desktop) */
-  .heading-mega1 { @apply font-pangaia text-heading-mega1 md:text-heading-mega1-md; }
-  .heading-mega2 { @apply font-pangaia text-heading-mega2 md:text-heading-mega2-md; }
-  .heading1 { @apply font-pangaia text-heading1 md:text-heading1-md; }
-  .heading2 { @apply font-pangaia text-heading2 md:text-heading2-md; }
-  .heading3 { @apply font-pangaia text-heading3 md:text-heading3-md; }
-  .heading4 { @apply font-pangaia text-heading4 md:text-heading4-md; }
-  .heading5 { @apply font-pangaia text-heading5 md:text-heading5-md; }
-  
+  .heading-mega1 {
+    @apply font-pangaia text-heading-mega1 md:text-heading-mega1-md;
+  }
+  .heading-mega2 {
+    @apply font-pangaia text-heading-mega2 md:text-heading-mega2-md;
+  }
+  .heading1 {
+    @apply font-pangaia text-heading1 md:text-heading1-md;
+  }
+  .heading2 {
+    @apply font-pangaia text-heading2 md:text-heading2-md;
+  }
+  .heading3 {
+    @apply font-pangaia text-heading3 md:text-heading3-md;
+  }
+  .heading4 {
+    @apply font-pangaia text-heading4 md:text-heading4-md;
+  }
+  .heading5 {
+    @apply font-pangaia text-heading5 md:text-heading5-md;
+  }
+
   /* Paragraphs - PP Museum Light (Mobile first, then desktop) */
-  .paragraph1 { @apply font-museum text-paragraph1 md:text-paragraph1-md; }
-  .paragraph2 { @apply font-museum text-paragraph2 md:text-paragraph2-md; }
-  
+  .paragraph1 {
+    @apply font-museum text-paragraph1 md:text-paragraph1-md;
+  }
+  .paragraph2 {
+    @apply font-museum text-paragraph2 md:text-paragraph2-md;
+  }
+
   /* Eyebrows - PP Mondwest Regular (Mobile first, then desktop) */
-  .eyebrow1 { @apply font-mondwest text-eyebrow1 md:text-eyebrow1-md; }
-  .eyebrow2 { @apply font-mondwest text-eyebrow2 md:text-eyebrow2-md; }
-  .eyebrow3 { @apply font-mondwest text-eyebrow3 md:text-eyebrow3-md; }
-  .eyebrow4 { @apply font-mondwest text-eyebrow4 md:text-eyebrow4-md; }
-  .eyebrow5 { @apply font-mondwest text-eyebrow5 md:text-eyebrow5-md; }
+  .eyebrow1 {
+    @apply font-mondwest text-eyebrow1 md:text-eyebrow1-md;
+  }
+  .eyebrow2 {
+    @apply font-mondwest text-eyebrow2 md:text-eyebrow2-md;
+  }
+  .eyebrow3 {
+    @apply font-mondwest text-eyebrow3 md:text-eyebrow3-md;
+  }
+  .eyebrow4 {
+    @apply font-mondwest text-eyebrow4 md:text-eyebrow4-md;
+  }
+  .eyebrow5 {
+    @apply font-mondwest text-eyebrow5 md:text-eyebrow5-md;
+  }
 }
