@@ -17,13 +17,13 @@ export default function Footer() {
             requires new standards
           </h2>
         </header>
-        <p className="eyebrow2 text-white/50"> Come build it with us.</p>
+        <p className="eyebrow2 text-white/50">Be part of the first wave.</p>
       </div>
       <div className="w-full flex flex-col justify-center items-center gap-4 md:gap-6">
         <header className="flex flex-col justify-center items-center">
           <h3 className="heading4 text-white">Waitlist is now open.</h3>
           <p className="eyebrow4 text-white/50">
-            Be the first to rethink how your team thinks.
+            Help shape the future of team intelligence.
           </p>
         </header>
         <form className="max-w-[640px] w-full md:w-[640px] flex flex-col gap-2 justify-center items-center">

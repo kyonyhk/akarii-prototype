@@ -10,7 +10,7 @@ export default function Overview() {
       <div className="flex flex-col md:flex-row gap-4 md:gap-10">
         <InfoSection
           heading="Stay aligned with AI-powered context"
-          subheading="AI is your new teammate"
+          subheading="Stay on track"
           description="Never lose the thread. Akarii tracks decisions, spots drift, and flags what's missing, so your team stays focused on what matters."
         />
         <figure
@@ -27,7 +27,7 @@ export default function Overview() {
         </figure>
         <InfoSection
           heading="One AI shared by the whole team"
-          subheading="AI is your new teammate"
+          subheading="Shared intelligence"
           description="Work with AI the way you work with people. In the same space, seeing the same context. Everyone stays on the same page, instantly."
         />
         <figure
