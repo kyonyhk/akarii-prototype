@@ -29,7 +29,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-[#231A19]`}>
         {/* Safari Color Sampling Elements */}
         <div
-          className="md:hidden fixed top-0 left-0 w-full h-20 pointer-events-none"
+          className="fixed top-0 left-0 w-full h-20 pointer-events-none"
           style={{
             background:
               'linear-gradient(to bottom, #766F61, rgba(118, 111, 97, 0))',
