@@ -2,7 +2,7 @@ import InfoSection from '../molecules/InfoSection';
 
 export default function Overview() {
   return (
-    <section className="min-h-screen flex flex-col justify-center gap-10 px-4 md:px-50 py-10 bg-black/20 backdrop-blur-sm">
+    <section data-section="overview" className="min-h-screen flex flex-col justify-center gap-10 px-4 md:px-50 py-10 bg-black/20 backdrop-blur-sm">
       <div className="flex flex-col md:flex-row gap-4 md:gap-10">
         <InfoSection
           heading="Stay aligned with AI-powered context"

@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Image from 'next/image';
 import '../styles/globals.css';
-import Navigation from '@/components/sections/Navigation';
 import ConvexClientProvider from '@/components/sections/ConvexClientProvider';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -27,15 +26,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
+      <body className={`${inter.className} bg-[#231A19]`}>
         {/* Safari Color Sampling Elements */}
         <div
           className="fixed top-0 left-0 w-full h-20 pointer-events-none"
-          style={{ backgroundColor: '#766F61', zIndex: -1 }}
-        />
-        <div
-          className="fixed bottom-0 left-0 w-full h-20 pointer-events-none"
-          style={{ backgroundColor: '#231A19', zIndex: -1 }}
+          style={{
+            background:
+              'linear-gradient(to bottom, #766F61, rgba(118, 111, 97, 0))',
+            zIndex: 10,
+          }}
         />
 
         {/* Fixed Background */}

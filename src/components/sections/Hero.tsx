@@ -8,7 +8,7 @@ import { Input, Button, Logo } from '../atoms';
 export default function Hero() {
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
   return (
-    <section className="min-h-screen flex flex-col px-4 md:px-50 pt-30 md:pt-50 pb-0 md:pb-20">
+    <section data-section="hero" className="min-h-screen flex flex-col px-4 md:px-50 pt-30 md:pt-50 pb-0 md:pb-20">
       <div className="absolute top-12 md:top-10 left-[50%] transform -translate-x-1/2">
         <Logo
           size={40}
