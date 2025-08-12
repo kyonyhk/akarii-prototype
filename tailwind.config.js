@@ -147,7 +147,7 @@ module.exports = {
           { lineHeight: '1.0', fontWeight: '500', letterSpacing: '0.01em' },
         ], // 16px desktop
         'app-paragraph2': [
-          '0.875rem',
+          '0.75rem',
           { lineHeight: '1.0', fontWeight: '500', letterSpacing: '0.02em' },
         ], // 12px mobile
         'app-paragraph2-md': [

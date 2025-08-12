@@ -40,7 +40,7 @@ export const SCENARIOS: Scenario[] = [
         role: "human",
         type: "text",
         timestamp: "13:49", 
-        content: '/ask Akarii "Summarize our three options and recommend one."',
+        content: '@akarii "Summarize our three options and recommend one."',
         pauses: [4, 12, 25, 33, 40, 48],
       },
       {
@@ -91,13 +91,17 @@ Cons: Smaller audience than A, requires strong creative.
         role: "ai", 
         type: "rich",
         timestamp: "13:50",
-        content: `Of course. Here's a suggested launch plan for Option C:
+        content: `Of course. Here's a suggested launch plan for **Option C**:
 
-1. Define and prioritize audience segments (e.g., by region, role, or interest).  
-2. Develop 2–3 ad creative variations per segment.  
-3. Launch small-scale A/B tests within 10 days.  
-4. Allocate the majority of spend to the top-performing creatives.  
-5. Review metrics weekly and adjust targeting as needed.
+**1.** Define and prioritize audience segments (e.g., by region, role, or interest)
+
+**2.** Develop 2–3 ad creative variations per segment
+
+**3.** Launch small-scale A/B tests within 10 days
+
+**4.** Allocate majority of spend to top-performing creatives
+
+**5.** Review metrics weekly and adjust targeting as needed
 
 If you'd like, I can draft a timeline so each step lines up with our Q4 milestones.`,
         pauses: [10, 17, 25, 35, 45, 58, 68, 78, 88, 98, 108, 118, 128, 138, 148, 158, 168, 178, 188, 198, 208, 218, 228, 238, 248, 258, 268, 278, 288],
@@ -156,11 +160,16 @@ Option C: Staged rollout by usage tier (3 votes)`,
         role: "ai",
         type: "card",
         timestamp: "14:13",
-        content: `**Outcome Recap**  
-Selected: **Option C — Staged rollout by usage tier**.  
-Reasoning: Balances risk control with faster feedback from high-value segments.  
-Decision linked to Goal: "Deploy v2.1 to Production by Sept 30."  
-Context: 5 votes cast, 3 in favor of C, consensus reached in under 4 minutes.  
+        content: `**Outcome Recap**
+
+**Selected:** Option C — Staged rollout by usage tier
+
+**Reasoning:** Balances risk control with faster feedback from high-value segments
+
+**Decision linked to Goal:** "Deploy v2.1 to Production by Sept 30"
+
+**Context:** 5 votes cast, 3 in favor of C, consensus reached in under 4 minutes
+
 [Expand for Details]`,
         pauses: [18, 28, 38, 58, 78, 98, 118, 138, 158, 178, 198, 218],
         preDelayMs: 300,
@@ -186,12 +195,15 @@ Context: 5 votes cast, 3 in favor of C, consensus reached in under 4 minutes.
         role: "ai",
         type: "alert",
         timestamp: "14:15",
-        content: `⚠️ **Drift Alert**  
-This change would move the launch beyond the agreed "Deploy v2.1 by Sept 30" goal.  
+        content: `⚠️ **Drift Alert**
 
-**Impact:**  
-• Delays release of current performance improvements to all users.  
-• May compress QA timelines for v2.2, increasing release risk.  
+This change would move the launch beyond the agreed **"Deploy v2.1 by Sept 30"** goal.
+
+**Impact:**
+
+• Delays release of current performance improvements to all users
+
+• May compress QA timelines for v2.2, increasing release risk
 
 Would you like me to prepare a risk/benefit matrix for sticking to the current date vs. delaying?`,
         pauses: [18, 28, 38, 58, 78, 98, 118, 138, 158, 178, 198, 218, 238, 258, 278, 298, 318],

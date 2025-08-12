@@ -1,13 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { SCENARIOS } from '../../../data/scenarios';
-import { DEFAULT_ANIMATION_CONFIG } from '../../../lib/prototype/animation-config';
-import {
-  generateAnimationSequence,
-  calculateScenarioDuration,
-  createInitialAnimationState,
-} from '../../../lib/prototype/animation-utils';
+import { useMessageSequencer } from '../../../lib/prototype/useMessageSequencer';
 import {
   SettingsIcon,
   FileIcon,
@@ -19,6 +14,7 @@ import UserMessage from '@/components/prototype/UserMessage';
 import ParticipantMessage from '@/components/prototype/ParticipantMessage';
 import AkariiMessage from '@/components/prototype/AkariiMessage';
 import SystemMessage from '@/components/prototype/SystemMessage';
+import TypingIndicator from '@/components/prototype/TypingIndicator';
 
 export default function PrototypeChatPage() {
   // Prevent body scroll on mobile
@@ -29,52 +25,215 @@ export default function PrototypeChatPage() {
     document.body.style.height = '100%';
   }
 
-  // Backend data preparation - all scenarios and animation logic ready
-  const scenarios = SCENARIOS;
-  const animationConfig = DEFAULT_ANIMATION_CONFIG;
-
-  // State for active scenario
+  // State management
   const [activeScenarioId, setActiveScenarioId] = useState(1);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isComplete, setIsComplete] = useState(false);
   const [isContextPanelOpen, setIsContextPanelOpen] = useState(true);
   const [showContextPanel, setShowContextPanel] = useState(true);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileCanvasOpen, setIsMobileCanvasOpen] = useState(false);
+  const [inputTypingContent, setInputTypingContent] = useState('');
+  const [isSendButtonAnimating, setIsSendButtonAnimating] = useState(false);
 
   // Get active scenario
+  const scenarios = SCENARIOS;
   const activeScenario =
     scenarios.find((s) => s.id === activeScenarioId) || scenarios[0];
 
-  // Replay controls
-  const handlePlay = () => {
-    setIsPlaying(true);
-    setIsComplete(false);
+  // Animation system
+  const {
+    messages,
+    isPlaying,
+    isComplete,
+    typingIndicator,
+    start: startAnimation,
+    stop: stopAnimation,
+    reset: resetAnimation,
+  } = useMessageSequencer({
+    scenario: activeScenario,
+    autoPlay: true,
+    onComplete: () => {
+      console.log('Animation completed - switching scenarios or restarting');
+      // After 3-second pause, switch to next scenario or restart
+      setTimeout(() => {
+        if (activeScenarioId === 1) {
+          // Switch to scenario 2
+          handleScenarioSwitch(2);
+        } else {
+          // Switch back to scenario 1 to restart the loop
+          handleScenarioSwitch(1);
+        }
+      }, 100); // Small additional delay to ensure clean restart
+    },
+    onMessageStart: (message, index) => {
+      console.log('Message started:', message.sender, index);
+      // Auto-scroll to bottom when message starts
+      scrollToBottom();
+    },
+    onMessageComplete: (message, index) => {
+      console.log('Message completed:', message.sender, index);
+    },
+  });
+
+  // Scroll management
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTo({
+        top: messagesContainerRef.current.scrollHeight,
+        behavior: 'smooth',
+      });
+    }
   };
 
+  // Handle input typing animation for Trish
+  const inputTypingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const lastInputMessageIdRef = useRef<string | null>(null);
+  const isInputTypingActiveRef = useRef(false);
+
+  const startInputTyping = useCallback((content: string, messageId: string) => {
+    if (
+      isInputTypingActiveRef.current ||
+      lastInputMessageIdRef.current === messageId
+    ) {
+      return; // Already typing this message
+    }
+
+    console.log('🎯 Starting input typing for:', content, 'ID:', messageId);
+    isInputTypingActiveRef.current = true;
+    lastInputMessageIdRef.current = messageId;
+
+    // Clear any existing timeout
+    if (inputTypingTimeoutRef.current) {
+      clearTimeout(inputTypingTimeoutRef.current);
+    }
+
+    let currentIndex = 0;
+    const wpm = 120; // Faster human typing for demo
+    const charsPerMinute = wpm * 5;
+    const charsPerSecond = charsPerMinute / 60;
+    const baseDelay = 1000 / charsPerSecond;
+
+    setInputTypingContent('');
+
+    const typeInInput = () => {
+      if (currentIndex < content.length) {
+        const newContent = content.substring(0, currentIndex + 1);
+        setInputTypingContent(newContent);
+        currentIndex++;
+        inputTypingTimeoutRef.current = setTimeout(
+          typeInInput,
+          baseDelay + Math.random() * 20
+        );
+      } else {
+        console.log('✅ Input typing complete for:', content);
+        // Trigger send button animation
+        setIsSendButtonAnimating(true);
+        setTimeout(() => setIsSendButtonAnimating(false), 200);
+
+        // Typing complete, clear input after brief pause
+        inputTypingTimeoutRef.current = setTimeout(() => {
+          setInputTypingContent('');
+          isInputTypingActiveRef.current = false;
+        }, 600);
+      }
+    };
+
+    // Start typing immediately
+    inputTypingTimeoutRef.current = setTimeout(typeInInput, 100);
+  }, []); // No dependencies needed as content and messageId are parameters
+
+  useEffect(() => {
+    const currentInputTypingMessage = messages.find(
+      (m) => m.inputTyping && m.isVisible && m.sender === 'Trish'
+    );
+
+    console.log('🔍 Looking for input typing message:', {
+      found: !!currentInputTypingMessage,
+      messageId: currentInputTypingMessage?.id,
+      content: currentInputTypingMessage?.content?.substring(0, 50) + '...',
+      scenarioId: activeScenarioId,
+      isTypingActive: isInputTypingActiveRef.current,
+      lastMessageId: lastInputMessageIdRef.current,
+    });
+
+    if (currentInputTypingMessage && !isInputTypingActiveRef.current) {
+      // Check if this message belongs to the current scenario
+      const messageScenarioId = parseInt(
+        currentInputTypingMessage.id.split('-')[0]
+      );
+
+      console.log('📝 Message scenario check:', {
+        messageScenarioId,
+        activeScenarioId,
+        matches: messageScenarioId === activeScenarioId,
+      });
+
+      if (messageScenarioId === activeScenarioId) {
+        startInputTyping(
+          currentInputTypingMessage.content,
+          currentInputTypingMessage.id
+        );
+      }
+    }
+  }, [messages, startInputTyping, activeScenarioId]);
+
+  // Cleanup input typing timeout
+  useEffect(() => {
+    return () => {
+      if (inputTypingTimeoutRef.current) {
+        clearTimeout(inputTypingTimeoutRef.current);
+      }
+      isInputTypingActiveRef.current = false;
+    };
+  }, []);
+
+  // Control functions
   const handleReplay = () => {
-    setIsPlaying(false);
-    setIsComplete(false);
-    // Clear messages and restart animation
-    const messagesList = document.getElementById('messages-list');
-    if (messagesList) {
-      messagesList.innerHTML = '';
+    // Clear input typing state
+    if (inputTypingTimeoutRef.current) {
+      clearTimeout(inputTypingTimeoutRef.current);
     }
-    // Restart animation after a brief delay
+    setInputTypingContent('');
+    setIsSendButtonAnimating(false);
+    isInputTypingActiveRef.current = false;
+    lastInputMessageIdRef.current = null;
+
+    resetAnimation();
     setTimeout(() => {
-      setIsPlaying(true);
-    }, 100);
+      startAnimation();
+    }, 300);
   };
 
+  // Scenario switching
   const handleScenarioSwitch = (scenarioId: number) => {
-    setActiveScenarioId(scenarioId);
-    setIsPlaying(false);
-    setIsComplete(false);
-    // Clear messages when switching scenarios
-    const messagesList = document.getElementById('messages-list');
-    if (messagesList) {
-      messagesList.innerHTML = '';
+    if (scenarioId === activeScenarioId) return;
+
+    console.log(
+      '🔄 Switching to scenario',
+      scenarioId,
+      'from',
+      activeScenarioId
+    );
+
+    // Stop current animation first
+    stopAnimation();
+
+    // Clear input typing state thoroughly
+    if (inputTypingTimeoutRef.current) {
+      clearTimeout(inputTypingTimeoutRef.current);
+      inputTypingTimeoutRef.current = null;
     }
+    setInputTypingContent('');
+    setIsSendButtonAnimating(false);
+    isInputTypingActiveRef.current = false;
+    lastInputMessageIdRef.current = null;
+
+    console.log('🧹 Cleared all state for clean scenario switch');
+
+    // Switch scenario
+    setActiveScenarioId(scenarioId);
+    // Animation will auto-start due to scenario change via useEffect
   };
 
   const handleContextPanelToggle = () => {
@@ -98,29 +257,6 @@ export default function PrototypeChatPage() {
   const handleMobileCanvasToggle = () => {
     setIsMobileCanvasOpen(!isMobileCanvasOpen);
   };
-
-  // Pre-calculate animation sequences for both scenarios
-  const scenario1Sequence = generateAnimationSequence(
-    scenarios[0].messages,
-    animationConfig
-  );
-  const scenario2Sequence = generateAnimationSequence(
-    scenarios[1].messages,
-    animationConfig
-  );
-
-  // Calculate durations for reference
-  const scenario1Duration = calculateScenarioDuration(
-    scenarios[0].messages,
-    animationConfig
-  );
-  const scenario2Duration = calculateScenarioDuration(
-    scenarios[1].messages,
-    animationConfig
-  );
-
-  // Initial animation state
-  const initialState = createInitialAnimationState(1);
 
   // Dynamic context content based on scenario
   const getScenarioContext = () => {
@@ -184,9 +320,7 @@ export default function PrototypeChatPage() {
         <div className="py-2 pl-2 pr-4 bg-white/1 border border-white/5 rounded-[40px]">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full bg-gray-600"></div>
-            <span className="app-subheading opacity-70">
-              Trish Hartman
-            </span>
+            <span className="app-subheading opacity-70">Trish Hartman</span>
             <div className="ml-auto">
               <SettingsIcon
                 size={20}
@@ -200,9 +334,7 @@ export default function PrototypeChatPage() {
         {/* Channels Section */}
         <div className="flex-1 flex flex-col gap-10 px-4 py-6 border border-white/5 rounded-[40px]">
           <div className="flex flex-col gap-4">
-            <h3 className="app-subheading text-white/70 pl-2">
-              Channels
-            </h3>
+            <h3 className="app-subheading text-white/70 pl-2">Channels</h3>
             <div className="space-y-2">
               <div className="px-4 py-3 rounded-[40px] bg-white/10 border border-white/20 app-paragraph2 cursor-pointer">
                 General
@@ -235,9 +367,7 @@ export default function PrototypeChatPage() {
                 <div className="w-6 h-6 rounded-full bg-gray-600"></div>
                 <div className="flex-1 flex flex-row justify-between items-baseline">
                   <span>Sam</span>
-                  <span className="app-support">
-                    CTO
-                  </span>
+                  <span className="app-support">CTO</span>
                 </div>
               </div>
 
@@ -245,9 +375,7 @@ export default function PrototypeChatPage() {
                 <div className="w-6 h-6 rounded-full bg-orange-500"></div>
                 <div className="flex-1 flex flex-row justify-between items-baseline">
                   <span>Eli</span>
-                  <span className="app-support">
-                    CTO
-                  </span>
+                  <span className="app-support">CTO</span>
                 </div>
               </div>
             </div>
@@ -266,53 +394,79 @@ export default function PrototypeChatPage() {
       >
         {/* Bottom Layer: Messages Container (Full Height) */}
         <div
+          ref={messagesContainerRef}
           className="absolute inset-0 overflow-y-auto scrollbar-hide"
           id="messages-container"
         >
           <div
             id="messages-list"
-            className="flex flex-col space-y-2 min-h-full justify-end px-6 pt-[140px] md:pt-20 pb-16 md:pb-20"
+            className="flex flex-col space-y-2 min-h-full justify-end px-6 pt-[140px] md:pt-20 pb-20 md:pb-20"
           >
-            {/* Render messages from active scenario */}
-            {activeScenario.messages.map((message, index) => {
+            {/* Render animated messages */}
+            {messages.map((message) => {
+              if (!message.isVisible) return null;
+
+              // Skip Trish's messages when they're in input typing mode
+              if (message.sender === 'Trish' && message.inputTyping) {
+                return null;
+              }
+
               if (message.sender === 'Trish') {
                 return (
                   <UserMessage
-                    key={index}
+                    key={message.id}
                     username={message.sender}
                     time={message.timestamp || ''}
                     userMessage={message.content}
+                    isTyping={message.isTyping}
+                    displayedContent={message.displayedContent}
                   />
                 );
               } else if (message.sender === 'Sam') {
                 return (
                   <ParticipantMessage
-                    key={index}
+                    key={message.id}
                     username={message.sender}
                     time={message.timestamp || ''}
                     participantMessage={message.content}
+                    isTyping={message.isTyping}
+                    displayedContent={message.displayedContent}
                   />
                 );
               } else if (message.sender === 'Akarii') {
                 return (
                   <AkariiMessage
-                    key={index}
+                    key={message.id}
                     time={message.timestamp || ''}
                     akariiMessage={message.content}
+                    isTyping={message.isTyping}
+                    displayedContent={message.displayedContent}
+                    messageType={message.type as 'rich' | 'card' | 'alert'}
                   />
                 );
               } else if (message.sender === 'System') {
                 return (
                   <SystemMessage
-                    key={index}
+                    key={message.id}
                     time={message.timestamp || ''}
                     content={message.content}
                     type={message.type as 'vote' | 'alert' | 'card'}
+                    isTyping={message.isTyping}
+                    displayedContent={message.displayedContent}
                   />
                 );
               }
               return null;
             })}
+
+            {/* Typing Indicator */}
+            {typingIndicator && (
+              <TypingIndicator
+                sender={typingIndicator.sender}
+                role={typingIndicator.role}
+                isVisible={typingIndicator.isVisible}
+              />
+            )}
           </div>
         </div>
 
@@ -329,7 +483,7 @@ export default function PrototypeChatPage() {
 
           {/* Bottom Gradient - Mobile: Cover input area, Desktop: Standard height */}
           <div
-            className="absolute bottom-0 left-0 right-0 h-16 md:h-16"
+            className="absolute bottom-0 left-0 right-0 h-30 md:h-16"
             style={{
               background:
                 'linear-gradient(180deg, rgba(10, 10, 10, 0.00) 0%, rgba(10, 10, 10, 0.80) 100%)',
@@ -386,7 +540,7 @@ export default function PrototypeChatPage() {
           <div className="flex-1"></div>
 
           {/* Message Input Area */}
-          <div className="flex items-center gap-1 md:gap-2 pointer-events-auto px-2 md:px-6 pb-4 md:pb-6">
+          <div className="flex items-center gap-1 md:gap-2 pointer-events-auto px-2 md:px-6 pb-7 md:pb-6">
             <div className="w-10 md:w-12 h-10 md:h-12 flex flex-col justify-center items-center border border-white/10 bg-white/1 backdrop-blur-sm rounded-[40px] hover:bg-white/5 cursor-pointer">
               <FileIcon
                 size={16}
@@ -394,13 +548,20 @@ export default function PrototypeChatPage() {
                 color="#DBDBDB"
               />
             </div>
-            <div className="h-10 md:h-12 flex flex-row justify-center flex-1 bg-white/1 border border-white/10 rounded-[40px] px-4 py-2">
-              <input
-                type="text"
-                placeholder="Type a message..."
-                className="w-full bg-transparent outline-none app-paragraph2 p-0 border-none"
-                disabled
-              />
+            <div className="h-10 md:h-12 flex flex-row justify-center flex-1 bg-white/1 border border-white/10 rounded-[40px] px-4 py-2 backdrop-blur-sm">
+              {inputTypingContent ? (
+                <div className="w-full app-paragraph2 text-white/80 flex items-center">
+                  {inputTypingContent}
+                  <span className="animate-pulse ml-1">|</span>
+                </div>
+              ) : (
+                <input
+                  type="text"
+                  placeholder="Type a message..."
+                  className="w-full bg-transparent outline-none app-paragraph2 p-0 border-none text-white/50"
+                  disabled
+                />
+              )}
             </div>
             <div className="w-10 md:w-12 h-10 md:h-12 flex flex-col justify-center items-center border border-white/10 bg-white/1 backdrop-blur-sm rounded-[40px] hover:bg-white/5 cursor-pointer">
               <SpeechIcon
@@ -409,11 +570,19 @@ export default function PrototypeChatPage() {
                 color="#DBDBDB"
               />
             </div>
-            <div className="w-10 md:w-12 h-10 md:h-12 flex flex-col justify-center items-center border border-white/10 bg-white/1 backdrop-blur-sm rounded-[40px] hover:bg-white/5 cursor-pointer">
+            <div
+              className={`w-10 md:w-12 h-10 md:h-12 flex flex-col justify-center items-center border backdrop-blur-sm rounded-[40px] cursor-pointer transition-all duration-200 ${
+                isSendButtonAnimating
+                  ? 'bg-white/20 border-white/40 scale-110'
+                  : 'bg-white/1 border-white/10 hover:bg-white/5'
+              }`}
+            >
               <SendIcon
                 size={16}
-                className="opacity-50 md:w-5 md:h-5"
-                color="#DBDBDB"
+                className={`md:w-5 md:h-5 transition-all duration-200 ${
+                  isSendButtonAnimating ? 'opacity-100' : 'opacity-50'
+                }`}
+                color={isSendButtonAnimating ? '#FFFFFF' : '#DBDBDB'}
               />
             </div>
           </div>
@@ -453,9 +622,7 @@ export default function PrototypeChatPage() {
                 </div>
 
                 <div>
-                  <h4 className="app-h3 text-white/70 mb-1">
-                    Pros
-                  </h4>
+                  <h4 className="app-h3 text-white/70 mb-1">Pros</h4>
                   <div className="app-p text-white/50 space-y-1">
                     {scenarioContext.content.pros.map((pro, index) => (
                       <div key={index}>• {pro}</div>
@@ -464,9 +631,7 @@ export default function PrototypeChatPage() {
                 </div>
 
                 <div>
-                  <h4 className="app-h3 text-white/70 mb-1">
-                    Cons
-                  </h4>
+                  <h4 className="app-h3 text-white/70 mb-1">Cons</h4>
                   <div className="app-p text-white/50 space-y-1">
                     {scenarioContext.content.cons.map((con, index) => (
                       <div key={index}>• {con}</div>
@@ -488,9 +653,7 @@ export default function PrototypeChatPage() {
 
             {/* Owners */}
             <div className="flex flex-col	gap-2">
-              <h4 className="app-subheading text-white/80">
-                Owners
-              </h4>
+              <h4 className="app-subheading text-white/80">Owners</h4>
               <div className="space-y-1">
                 {scenarioContext.content.owners.map((owner, index) => (
                   <div
@@ -500,9 +663,7 @@ export default function PrototypeChatPage() {
                     <div className="w-6 h-6 rounded-full bg-gray-600"></div>
                     <div className="flex-1 flex flex-row justify-between items-baseline">
                       <span>{owner.name}</span>
-                      <span className="app-support">
-                        {owner.role}
-                      </span>
+                      <span className="app-support">{owner.role}</span>
                     </div>
                   </div>
                 ))}
@@ -523,9 +684,7 @@ export default function PrototypeChatPage() {
           <div className="p-6">
             {/* Close button */}
             <div className="flex justify-between items-center mb-6">
-              <span className="app-heading text-white">
-                Menu
-              </span>
+              <span className="app-heading text-white">Menu</span>
               <button
                 onClick={handleMobileMenuToggle}
                 className="w-8 h-8 flex items-center justify-center text-white/70"
@@ -537,9 +696,7 @@ export default function PrototypeChatPage() {
             {/* Menu content - Copy from left sidebar */}
             <div className="space-y-6">
               <div>
-                <h3 className="app-subheading text-white/70 mb-4">
-                  Channels
-                </h3>
+                <h3 className="app-subheading text-white/70 mb-4">Channels</h3>
                 <div className="space-y-2">
                   <div className="px-4 py-4 rounded-[40px] bg-white/10 border border-white/20 app-paragraph2">
                     General
@@ -568,18 +725,14 @@ export default function PrototypeChatPage() {
                     <div className="w-8 h-8 rounded-full bg-gray-600"></div>
                     <div className="flex-1 flex flex-row justify-between items-baseline">
                       <span>Sam</span>
-                      <span className="app-support">
-                        CTO
-                      </span>
+                      <span className="app-support">CTO</span>
                     </div>
                   </div>
                   <div className="flex items-center py-2 pl-2 pr-4 gap-2 app-paragraph2 border border-white/10 bg-white/1 text-gray-400 rounded-[40px]">
                     <div className="w-8 h-8 rounded-full bg-orange-500"></div>
                     <div className="flex-1 flex flex-row justify-between items-baseline">
                       <span>Eli</span>
-                      <span className="app-support">
-                        CTO
-                      </span>
+                      <span className="app-support">CTO</span>
                     </div>
                   </div>
                 </div>
@@ -595,9 +748,7 @@ export default function PrototypeChatPage() {
           <div className="p-6">
             {/* Close button */}
             <div className="flex justify-between items-center mb-6">
-              <span className="app-heading text-white">
-                Canvas
-              </span>
+              <span className="app-heading text-white">Canvas</span>
               <button
                 onClick={handleMobileCanvasToggle}
                 className="w-8 h-8 flex items-center justify-center text-white/70"
@@ -620,9 +771,7 @@ export default function PrototypeChatPage() {
                   </div>
 
                   <div>
-                    <h4 className="app-h3 text-white/70 mb-1">
-                      Pros
-                    </h4>
+                    <h4 className="app-h3 text-white/70 mb-1">Pros</h4>
                     <div className="app-p text-white/50 space-y-1">
                       {scenarioContext.content.pros.map((pro, index) => (
                         <div key={index}>• {pro}</div>
@@ -631,9 +780,7 @@ export default function PrototypeChatPage() {
                   </div>
 
                   <div>
-                    <h4 className="app-h3 text-white/70 mb-1">
-                      Cons
-                    </h4>
+                    <h4 className="app-h3 text-white/70 mb-1">Cons</h4>
                     <div className="app-p text-white/50 space-y-1">
                       {scenarioContext.content.cons.map((con, index) => (
                         <div key={index}>• {con}</div>
@@ -653,9 +800,7 @@ export default function PrototypeChatPage() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <h4 className="app-subheading text-white/80">
-                  Owners
-                </h4>
+                <h4 className="app-subheading text-white/80">Owners</h4>
                 <div className="space-y-2">
                   {scenarioContext.content.owners.map((owner, index) => (
                     <div
@@ -665,9 +810,7 @@ export default function PrototypeChatPage() {
                       <div className="w-8 h-8 rounded-full bg-gray-600"></div>
                       <div className="flex-1 flex flex-row justify-between items-baseline">
                         <span>{owner.name}</span>
-                        <span className="app-support">
-                          {owner.role}
-                        </span>
+                        <span className="app-support">{owner.role}</span>
                       </div>
                     </div>
                   ))}
@@ -681,16 +824,20 @@ export default function PrototypeChatPage() {
       {/* Development Info - Hidden for recording */}
       <div className="hidden fixed top-4 right-4 bg-black/90 text-white p-3 rounded-[12px] text-xs opacity-75 z-50 border border-white/20">
         <div>Scenarios: {scenarios.length} loaded</div>
-        <div>S1 duration: {Math.round(scenario1Duration / 1000)}s</div>
-        <div>S2 duration: {Math.round(scenario2Duration / 1000)}s</div>
-        <div className="text-green-400">✓ Ready to record</div>
+        <div>Active: Scenario {activeScenarioId}</div>
+        <div>
+          Status: {isPlaying ? 'Playing' : isComplete ? 'Complete' : 'Ready'}
+        </div>
+        <div>
+          Messages: {messages.filter((m) => m.isVisible).length}/
+          {messages.length}
+        </div>
+        <div className="text-green-400">✓ Animation Ready</div>
       </div>
 
-      {/* Scenario Selector */}
-      <div className="hidden fixed bottom-4 left-4 bg-black/80 border border-white/20 p-3 rounded-[20px] backdrop-blur-sm">
-        <div className="app-support text-gray-400 mb-2">
-          Scenario
-        </div>
+      {/* Scenario Selector - Hidden for auto-play demo */}
+      <div className="hidden fixed bottom-4 left-4 bg-black/80 border border-white/20 p-3 rounded-[20px] backdrop-blur-sm z-50">
+        <div className="app-support text-gray-400 mb-2">Scenario</div>
         <div className="flex gap-2">
           {scenarios.map((scenario) => (
             <button
@@ -711,29 +858,35 @@ export default function PrototypeChatPage() {
         </div>
       </div>
 
-      {/* Replay Controls - Sticky Footer */}
-      <div className="hidden fixed bottom-4 right-4 bg-black/80 border border-white/20 p-3 rounded-[20px] backdrop-blur-sm">
+      {/* Replay Controls - Hidden for auto-play demo */}
+      <div className="hidden fixed md:bottom-4 md:right-4 top-16 left-1/2 transform -translate-x-1/2 md:transform-none md:left-auto md:top-auto bg-black/80 border border-white/20 p-3 rounded-[20px] backdrop-blur-sm z-50">
         <div className="flex items-center gap-3">
           <div className="app-support text-gray-400">
             {isPlaying ? 'Playing...' : isComplete ? 'Complete' : 'Ready'}
           </div>
           <div className="flex gap-2">
-            {!isPlaying && !isComplete && (
+            {!isPlaying && (
               <button
-                onClick={handlePlay}
+                onClick={startAnimation}
                 className="px-4 py-2 bg-green-600/20 text-green-400 border border-green-500/30 rounded-[12px] app-support hover:bg-green-600/30 transition-all"
               >
                 ▶ Play
               </button>
             )}
-            {(isPlaying || isComplete) && (
+            {isPlaying && (
               <button
-                onClick={handleReplay}
-                className="px-4 py-2 bg-blue-600/20 text-blue-400 border border-blue-500/30 rounded-[12px] app-support hover:bg-blue-600/30 transition-all"
+                onClick={stopAnimation}
+                className="px-4 py-2 bg-red-600/20 text-red-400 border border-red-500/30 rounded-[12px] app-support hover:bg-red-600/30 transition-all"
               >
-                ↻ Replay
+                ⏸ Stop
               </button>
             )}
+            <button
+              onClick={handleReplay}
+              className="px-4 py-2 bg-blue-600/20 text-blue-400 border border-blue-500/30 rounded-[12px] app-support hover:bg-blue-600/30 transition-all"
+            >
+              ↻ Replay
+            </button>
           </div>
         </div>
       </div>
