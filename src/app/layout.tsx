@@ -39,7 +39,7 @@ export default function RootLayout({
         /> */}
 
         {/* Fixed Background */}
-        {/* <div className="fixed inset-0 w-full h-full">
+        <div className="fixed inset-0 w-full h-full">
           <Image
             src="/background-image.png"
             alt="Background"
@@ -49,7 +49,7 @@ export default function RootLayout({
             priority
             quality={85}
           />
-        </div> */}
+        </div>
 
         {/* Scrollable Content */}
         <div className="relative min-h-screen">

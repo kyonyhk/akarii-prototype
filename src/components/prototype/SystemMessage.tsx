@@ -2,13 +2,18 @@ interface SystemMessageProps {
   time: string;
   content: string;
   type: 'vote' | 'alert' | 'card';
+  isTyping?: boolean;
+  displayedContent?: string;
 }
 
 export default function SystemMessage({
   time,
   content,
   type,
+  isTyping = false,
+  displayedContent,
 }: SystemMessageProps) {
+  const displayContent = isTyping ? displayedContent || '' : content;
   const getSystemStyles = () => {
     switch (type) {
       case 'vote':
@@ -59,7 +64,8 @@ export default function SystemMessage({
           </div>
         </div>
         <div className="app-paragraph2 text-white/80 whitespace-pre-line">
-          {content}
+          {displayContent}
+          {isTyping && <span className="animate-pulse">|</span>}
         </div>
       </div>
     </div>
