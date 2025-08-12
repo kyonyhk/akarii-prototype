@@ -1,3 +1,5 @@
+import React from 'react';
+
 interface MarkdownContentProps {
   content: string;
 }
@@ -6,7 +8,7 @@ export default function MarkdownContent({ content }: MarkdownContentProps) {
   // Simple markdown parser for Akarii messages
   const parseContent = (text: string) => {
     const lines = text.split('\n');
-    const elements: JSX.Element[] = [];
+    const elements: React.ReactElement[] = [];
     let currentParagraph: string[] = [];
     let key = 0;
 
@@ -62,7 +64,7 @@ export default function MarkdownContent({ content }: MarkdownContentProps) {
   };
 
   const renderInlineFormatting = (text: string) => {
-    const parts: (string | JSX.Element)[] = [];
+    const parts: (string | React.ReactElement)[] = [];
     const boldRegex = /\*\*(.*?)\*\*/g;
     let lastIndex = 0;
     let match;
