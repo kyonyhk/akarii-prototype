@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     'An intelligent AI workspace for AI native teams. Join the waitlist to be among the first to experience the future of team collaboration.',
   keywords: ['AI', 'workspace', 'teams', 'collaboration', 'productivity'],
   authors: [{ name: 'Akarii' }],
+  themeColor: '#766F61',
   openGraph: {
     title: 'Akarii - AI Workplace for Teams Who Move Fast',
     description: 'An intelligent AI workspace for AI native teams',
@@ -26,19 +27,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-[#231A19]`}>
+      <body className={`${inter.className} bg-black`}>
         {/* Safari Color Sampling Elements */}
-        <div
+        {/* <div
           className="fixed top-0 left-0 w-full h-20 pointer-events-none"
           style={{
             background:
               'linear-gradient(to bottom, #766F61, rgba(118, 111, 97, 0))',
             zIndex: 10,
           }}
-        />
+        /> */}
 
         {/* Fixed Background */}
-        <div className="fixed inset-0 w-full h-full">
+        {/* <div className="fixed inset-0 w-full h-full">
           <Image
             src="/background-image.png"
             alt="Background"
@@ -48,7 +49,7 @@ export default function RootLayout({
             priority
             quality={85}
           />
-        </div>
+        </div> */}
 
         {/* Scrollable Content */}
         <div className="relative min-h-screen">

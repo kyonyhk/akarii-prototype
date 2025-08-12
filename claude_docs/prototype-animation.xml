@@ -1,0 +1,238 @@
+<PRD xmlns="https://akarii.app/prd" version="1.0" product="Akarii" project="Teaser Chat Animation" framework="Next.js" generatedAt="2025-08-11T03:00:00+08:00">
+  <Purpose>
+    Build a lightweight, code-driven prototype inside the existing Next.js codebase that renders two scripted chat scenarios from Trish’s perspective with realistic typing animations for human and AI messages. Output will be screen‑recorded for the landing page and teaser assets.
+  </Purpose>
+
+  <Goals>
+    <Goal>Realistic typing (variable speed, micro-pauses, blinking cursor)</Goal>
+    <Goal>Accurate reproduction of chat logs (Markdown formatting supported)</Goal>
+    <Goal>Zero backend; content configurable from a single file</Goal>
+    <Goal>Pixel-aligned to Figma styling; 1440px recording fidelity</Goal>
+  </Goals>
+
+  <OutOfScope>
+    <Item>Live backend, auth, persistence</Item>
+    <Item>Real model calls (all content is hard-coded)</Item>
+    <Item>Accessibility polish beyond basic keyboard replay</Item>
+  </OutOfScope>
+
+  <Scenarios default="1">
+    <Scenario id="1" name="Multiplayer AI Team Chat" pov="Trish">
+      <Thread title="Marketing Launch Options" channel="marketing" tz="+08:00"/>
+      <Messages markdown="true">
+        <Message sender="Trish" role="human" type="text" timestamp="13:48">Hey Sam, we need to decide on the marketing push for Q4.</Message>
+        <Message sender="Sam" role="human" type="text" timestamp="13:48">Yeah, we’ve got a few directions floating around.</Message>
+        <Message sender="Trish" role="human" type="text" timestamp="13:49">Let’s ask Akarii to weigh in.</Message>
+        <Message sender="Sam" role="human" type="text" timestamp="13:49">/ask Akarii “Summarize our three options and recommend one.”</Message>
+        <Message sender="Akarii" role="ai" type="rich" timestamp="13:49"><![CDATA[
+Sure — based on the notes from last week’s planning call, here’s how the three options compare:
+
+**Option A — Social Media Blitz**  
+Focus: Short-term buzz across Instagram, TikTok, and LinkedIn.  
+Pros: Wide reach in days, great for awareness.  
+Cons: High ad spend, limited depth in engagement.
+
+**Option B — Partner Webinars**  
+Focus: Co-host educational sessions with industry partners.  
+Pros: Builds credibility and deeper connections.  
+Cons: Slower ramp-up, dependent on partner schedules.
+
+**Option C — Targeted Paid Ads**  
+Focus: Narrow targeting on high-intent audiences.  
+Pros: Controlled spend, measurable ROI, quick turnaround.  
+Cons: Smaller audience than A, requires strong creative.
+
+**Recommendation:** Option C balances speed and efficiency while allowing measurable iteration. It’s the best fit if our goal is early conversions before year-end.
+        ]]></Message>
+        <Message sender="Trish" role="human" type="reaction" timestamp="13:50">👍 Makes sense to me.</Message>
+        <Message sender="Trish" role="human" type="text" timestamp="13:50">Akarii, can you also list key steps for Option C?</Message>
+        <Message sender="Akarii" role="ai" type="rich" timestamp="13:50"><![CDATA[
+Of course. Here’s a suggested launch plan for Option C:
+
+1. Define and prioritize audience segments (e.g., by region, role, or interest).  
+2. Develop 2–3 ad creative variations per segment.  
+3. Launch small-scale A/B tests within 10 days.  
+4. Allocate the majority of spend to the top-performing creatives.  
+5. Review metrics weekly and adjust targeting as needed.
+
+If you’d like, I can draft a timeline so each step lines up with our Q4 milestones.
+        ]]></Message>
+        <Message sender="Sam" role="human" type="text" timestamp="13:51">Perfect, let's roll with that.</Message>
+      </Messages>
+      <CoreValue>One AI, one context, one team — shared responses live in-thread for everyone to engage with.</CoreValue>
+    </Scenario>
+
+    <Scenario id="2" name="Intelligence Layer — AI Model Launch Planning" pov="Trish">
+      <Thread title="AI Model Launch Plan" goal="Deploy v2.1 to Production by Sept 30" channel="release-planning" tz="+08:00"/>
+      <Messages markdown="true">
+        <Message sender="Trish" role="human" type="text" timestamp="14:12">We’ve got three rollout strategies on the table for v2.1.</Message>
+        <Message sender="Sam" role="human" type="text" timestamp="14:12">Let’s lock one in so engineering can prep.</Message>
+        <Message sender="System" role="system" type="vote" timestamp="14:13"><![CDATA[
+Option A: Gradual rollout by region (1 vote)  
+Option B: Full launch to all users (0 votes)  
+Option C: Staged rollout by usage tier (3 votes)
+        ]]></Message>
+        <Message sender="Akarii" role="ai" type="card" timestamp="14:13"><![CDATA[
+**Outcome Recap**  
+Selected: **Option C — Staged rollout by usage tier**.  
+Reasoning: Balances risk control with faster feedback from high-value segments.  
+Decision linked to Goal: “Deploy v2.1 to Production by Sept 30.”  
+Context: 5 votes cast, 3 in favor of C, consensus reached in under 4 minutes.  
+[Expand for Details]
+        ]]></Message>
+        <Message sender="Trish" role="human" type="text" timestamp="14:14">Sounds solid — let’s move forward.</Message>
+        <Message sender="Sam" role="human" type="text" timestamp="14:15">Actually… what if we push the launch to mid-October so we can bundle it with v2.2 features?</Message>
+        <Message sender="Akarii" role="ai" type="alert" tone="gentle" timestamp="14:15"><![CDATA[
+⚠️ **Drift Alert**  
+This change would move the launch beyond the agreed “Deploy v2.1 by Sept 30” goal.  
+
+**Impact:**  
+• Delays release of current performance improvements to all users.  
+• May compress QA timelines for v2.2, increasing release risk.  
+
+Would you like me to prepare a risk/benefit matrix for sticking to the current date vs. delaying?
+        ]]></Message>
+        <Message sender="Trish" role="human" type="text" timestamp="14:15">Good point — let’s stay on target.</Message>
+      </Messages>
+      <CoreValue>Akarii captures decisions and nudges when threads drift from stated goals — never lose the thread.</CoreValue>
+      <FeatureFocus>
+        <Item>Decision Highlight / Outcome Recap</Item>
+        <Item>Goal-aware Drift Detection</Item>
+      </FeatureFocus>
+    </Scenario>
+  </Scenarios>
+
+  <FunctionalRequirements>
+    <TypingAnimation>
+      <Speed humanWPM="50-65" aiWPM="90-120" randomCharDelayMs="30-100" />
+      <Pauses enabled="true" style="mid-sentence micro-pauses" />
+      <Cursor blinking="true" whileTyping="true" />
+      <Markdown support="bold, italics, lists, linebreaks" />
+    </TypingAnimation>
+    <TypingIndicator>
+      <Enabled>true</Enabled>
+      <Style>animated ellipsis bubble per sender</Style>
+      <ShowBeforeEachMessage>true</ShowBeforeEachMessage>
+    </TypingIndicator>
+    <Playback>
+      <AutoPlay onLoad="true" />
+      <Replay control="button" position="sticky-footer" />
+      <ScenarioSelector type="tabs" default="1" resetsOnSwitch="true" />
+      <Scroll behavior="auto-scroll to latest on message commit" />
+    </Playback>
+    <Rendering>
+      <MessageStyles>
+        <Human bubble="left" avatar="Trish/Sam" />
+        <AI bubble="distinct card style" accent="brand-intelligence" />
+        <System bubble="neutral card" />
+      </MessageStyles>
+      <Effects>
+        <OnStart>fade-in + slight upward translate</OnStart>
+        <OnComplete>subtle confirm glow 200ms</OnComplete>
+      </Effects>
+    </Rendering>
+  </FunctionalRequirements>
+
+  <NonFunctionalRequirements>
+    <Performance targetFPS="60" testWidth="1440" />
+    <NoBackend>true</NoBackend>
+    <SingleConfigFile>true</SingleConfigFile>
+    <DeterministicPlayback>true</DeterministicPlayback>
+  </NonFunctionalRequirements>
+
+  <TechnicalImplementation>
+    <Stack>
+      <Framework>Next.js (existing Akarii repo)</Framework>
+      <Language>TypeScript (preferred)</Language>
+      <Styling>Tailwind CSS (match Figma)</Styling>
+      <AnimationLib options="react-type-animation | GSAP TextPlugin | custom hook">Choose one for precise control</AnimationLib>
+    </Stack>
+
+    <Routing>
+      <Route path="/prototype/chat" description="Standalone recording route" />
+    </Routing>
+
+    <Components>
+      <Component name="ChatScenario" props="scenarioId" usage="renders selected conversation + playback" />
+      <Component name="MessageBubble" props="sender, role, type, content, markdown" />
+      <Component name="TypingIndicator" props="sender" />
+      <Component name="ScenarioTabs" props="activeId, onChange" />
+      <Component name="ReplayButton" />
+    </Components>
+
+    <DataModel lang="ts">
+      <File>src/data/scenarios.ts</File>
+      <Schema><![CDATA[
+export type Sender = "Trish" | "Sam" | "Akarii" | "System";
+export type Role = "human" | "ai" | "system";
+export type MsgType = "text" | "rich" | "alert" | "vote" | "card" | "reaction";
+
+export interface Message {
+  sender: Sender;
+  role: Role;
+  type: MsgType;
+  timestamp?: string;       // display-only
+  content: string;          // markdown-friendly
+  pauses?: number[];        // character indices for micro-pauses
+  speedOverrideWPM?: number;
+  preDelayMs?: number;      // delay before typing starts
+  postDelayMs?: number;     // delay after commit
+}
+
+export interface Scenario {
+  id: number;
+  name: string;
+  pov: "Trish";
+  thread: { title: string; goal?: string; channel?: string; tz?: string };
+  messages: Message[];
+}
+      ]]></Schema>
+    </DataModel>
+
+    <AnimationControl>
+      <Sequencer>Iterate messages; show TypingIndicator; type with speed+pauses; commit; auto-scroll; wait postDelay; continue.</Sequencer>
+      <Defaults humanWPM="58" aiWPM="105" preDelayMs="250" postDelayMs="350" />
+      <Interruptions allowed="false" />
+    </AnimationControl>
+
+    <StylingGuidelines>
+      <Layout width="1440" padding="24" gutter="16" />
+      <AIMessageStyle background="brand/10" border="brand/30" accentBar="brand/60" icon="spark" />
+      <GoalChip align="right" tone="subtle" />
+      <AlertStyle icon="triangle" tone="warning-soft" />
+      <VoteCard style="neutral-surface with compact rows" />
+    </StylingGuidelines>
+  </TechnicalImplementation>
+
+  <RecordingGuidelines>
+    <Browser>Chrome latest</Browser>
+    <Resolution width="1440" height="900" />
+    <Zoom>100%</Zoom>
+    <OSAnimations>On</OSAnimations>
+    <Cursor>Hidden when possible</Cursor>
+    <Tip>Start recording just before auto-play; pause at final frame for 1–2s tail.</Tip>
+  </RecordingGuidelines>
+
+  <Deliverables>
+    <Item>/app/prototype/chat/page.tsx (route)</Item>
+    <Item>/components/prototype/ChatScenario.tsx</Item>
+    <Item>/components/prototype/MessageBubble.tsx</Item>
+    <Item>/components/prototype/TypingIndicator.tsx</Item>
+    <Item>/data/scenarios.ts (all content + timing config)</Item>
+    <Item>Tailwind classes matching Figma tokens</Item>
+  </Deliverables>
+
+  <AcceptanceCriteria>
+    <Criterion>Both scenarios auto-play from clean state and match provided scripts exactly.</Criterion>
+    <Criterion>Typing feels natural with micro-pauses and blinking cursor.</Criterion>
+    <Criterion>Scenario switch resets and replays without page refresh.</Criterion>
+    <Criterion>Replay button restarts sequence deterministically.</Criterion>
+    <Criterion>No visible jank at 1440px during screen capture.</Criterion>
+  </AcceptanceCriteria>
+
+  <FutureHooks note="Do not build now">
+    <Hook>Replace hard-coded AI messages with provider outputs</Hook>
+    <Hook>Keyboard shortcuts for replay and speed</Hook>
+    <Hook>Export frames as PNG sequence</Hook>
+  </FutureHooks>
+</PRD>

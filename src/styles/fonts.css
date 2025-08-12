@@ -33,3 +33,49 @@
   font-style: normal;
   font-display: swap;
 }
+
+/* PP Neue Montreal - Chat Application & Context Panel */
+
+/* Regular */
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/pp-neue-montreal/PPNeueMontreal-Regular.woff2') format('woff2'),
+       url('/fonts/pp-neue-montreal/PPNeueMontreal-Regular.woff') format('woff'),
+       url('/fonts/pp-neue-montreal/PPNeueMontreal-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Book */
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/pp-neue-montreal/PPNeueMontreal-Book.woff2') format('woff2'),
+       url('/fonts/pp-neue-montreal/PPNeueMontreal-Book.woff') format('woff'),
+       url('/fonts/pp-neue-montreal/PPNeueMontreal-Book.ttf') format('truetype');
+  font-weight: 350;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Medium */
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/pp-neue-montreal/PPNeueMontreal-Medium.woff2') format('woff2'),
+       url('/fonts/pp-neue-montreal/PPNeueMontreal-Medium.woff') format('woff'),
+       url('/fonts/pp-neue-montreal/PPNeueMontreal-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Bold */
+@font-face {
+  font-family: 'PP Neue Montreal';
+  src: url('/fonts/pp-neue-montreal/PPNeueMontreal-Bold.woff2') format('woff2'),
+       url('/fonts/pp-neue-montreal/PPNeueMontreal-Bold.woff') format('woff'),
+       url('/fonts/pp-neue-montreal/PPNeueMontreal-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

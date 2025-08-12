@@ -4,4 +4,4 @@ export interface IconProps {
   color?: string;
 }
 
-export type IconName = 'external-link';
+export type IconName = 'external-link' | 'settings' | 'file' | 'speech' | 'send' | 'close';

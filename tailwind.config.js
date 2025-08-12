@@ -45,6 +45,13 @@ module.exports = {
         },
       },
       fontFamily: {
+        // PP Neue Montreal for chat and context panels
+        'neue-montreal': [
+          'PP Neue Montreal',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          'sans-serif',
+        ],
         // PP Pangaia Light for headings
         pangaia: [
           'PP Pangaia Light',
@@ -80,12 +87,12 @@ module.exports = {
       fontSize: {
         // PP Pangaia Light - Headings (Mobile first, then desktop)
         'heading-mega1': ['6rem', { lineHeight: '0.7', fontWeight: '300' }], // 96px mobile -> 192px desktop
-        'heading-mega2': ['4rem', { lineHeight: '1.0', fontWeight: '300' }], // 48px mobile -> 128px desktop
-        heading1: ['3rem', { lineHeight: '1.0', fontWeight: '300' }], // 32px mobile -> 60px desktop
-        heading2: ['2.25em', { lineHeight: '1.0', fontWeight: '300' }], // 24px mobile -> 48px desktop
-        heading3: ['1.875rem', { lineHeight: '1.0', fontWeight: '300' }], // 20px mobile -> 36px desktop
-        heading4: ['1.5rem', { lineHeight: '1.0', fontWeight: '300' }], // 18px mobile -> 30px desktop
-        heading5: ['1.25rem', { lineHeight: '1.0', fontWeight: '300' }], // 16px mobile -> 24px desktop
+        'heading-mega2': ['4rem', { lineHeight: '1.0', fontWeight: '300' }], // 64px mobile -> 128px desktop
+        heading1: ['3rem', { lineHeight: '1.0', fontWeight: '300' }], // 48px mobile -> 60px desktop
+        heading2: ['2.25em', { lineHeight: '1.0', fontWeight: '300' }], // 36px mobile -> 48px desktop
+        heading3: ['1.875rem', { lineHeight: '1.0', fontWeight: '300' }], // 30px mobile -> 36px desktop
+        heading4: ['1.5rem', { lineHeight: '1.0', fontWeight: '300' }], // 24px mobile -> 30px desktop
+        heading5: ['1.25rem', { lineHeight: '1.0', fontWeight: '300' }], // 20px mobile -> 24px desktop
 
         // PP Museum Light - Paragraphs (Mobile first, then desktop)
         paragraph1: ['1rem', { lineHeight: '1.4', fontWeight: '300' }], // 16px mobile -> 20px desktop
@@ -113,6 +120,90 @@ module.exports = {
         'eyebrow3-md': ['1.5rem', { lineHeight: '1.0', fontWeight: '400' }], // 24px
         'eyebrow4-md': ['1.25rem', { lineHeight: '1.0', fontWeight: '400' }], // 20px
         'eyebrow5-md': ['1rem', { lineHeight: '1.0', fontWeight: '400' }], // 16px
+
+        // PP Neue Montreal - Chat Application Typography (Mobile first, then desktop)
+        'app-heading': [
+          '0.875rem',
+          { lineHeight: '1.0', fontWeight: '700', letterSpacing: '0.01em' },
+        ], // 14px mobile
+        'app-heading-md': [
+          '1rem',
+          { lineHeight: '1.0', fontWeight: '700', letterSpacing: '0.01em' },
+        ], // 16px desktop
+        'app-subheading': [
+          '0.75rem',
+          { lineHeight: '1.0', fontWeight: '700', letterSpacing: '0.01em' },
+        ], // 12px mobile
+        'app-subheading-md': [
+          '0.875rem',
+          { lineHeight: '1.0', fontWeight: '700', letterSpacing: '0.01em' },
+        ], // 14px desktop
+        'app-paragraph1': [
+          '0.875rem',
+          { lineHeight: '1.0', fontWeight: '500', letterSpacing: '0.01em' },
+        ], // 14px mobile
+        'app-paragraph1-md': [
+          '1rem',
+          { lineHeight: '1.0', fontWeight: '500', letterSpacing: '0.01em' },
+        ], // 16px desktop
+        'app-paragraph2': [
+          '0.875rem',
+          { lineHeight: '1.0', fontWeight: '500', letterSpacing: '0.02em' },
+        ], // 12px mobile
+        'app-paragraph2-md': [
+          '0.875rem',
+          { lineHeight: '1.0', fontWeight: '500', letterSpacing: '0.02em' },
+        ], // 14px desktop
+        'app-eyebrow': [
+          '0.625rem',
+          { lineHeight: '1.0', fontWeight: '500', letterSpacing: '0.00em' },
+        ], // 10px mobile
+        'app-eyebrow-md': [
+          '0.75rem',
+          { lineHeight: '1.0', fontWeight: '500', letterSpacing: '0.00em' },
+        ], // 12px desktop
+        'app-support': [
+          '0.625rem',
+          { lineHeight: '1.0', fontWeight: '400', letterSpacing: '0.05em' },
+        ], // 10px mobile
+        'app-support-md': [
+          '0.75rem',
+          { lineHeight: '1.0', fontWeight: '400', letterSpacing: '0.05em' },
+        ], // 12px desktop
+
+        // PP Neue Montreal - Context Panel Typography (Mobile first, then desktop)
+        'app-h1': [
+          '1.125rem',
+          { lineHeight: '1.0', fontWeight: '500', letterSpacing: '0.0em' },
+        ], // 18px mobile
+        'app-h1-md': [
+          '1.25rem',
+          { lineHeight: '1.0', fontWeight: '500', letterSpacing: '0.0em' },
+        ], // 20px desktop
+        'app-h2': [
+          '1rem',
+          { lineHeight: '1.0', fontWeight: '500', letterSpacing: '0.01em' },
+        ], // 16px mobile
+        'app-h2-md': [
+          '1.125rem',
+          { lineHeight: '1.0', fontWeight: '500', letterSpacing: '0.01em' },
+        ], // 18px desktop
+        'app-h3': [
+          '0.875rem',
+          { lineHeight: '1.0', fontWeight: '500', letterSpacing: '0.02em' },
+        ], // 14px mobile
+        'app-h3-md': [
+          '1rem',
+          { lineHeight: '1.0', fontWeight: '500', letterSpacing: '0.02em' },
+        ], // 16px desktop
+        'app-p': [
+          '0.75rem',
+          { lineHeight: '1.0', fontWeight: '400', letterSpacing: '0.03em' },
+        ], // 12px mobile
+        'app-p-md': [
+          '0.875rem',
+          { lineHeight: '1.0', fontWeight: '400', letterSpacing: '0.03em' },
+        ], // 14px desktop
 
         // Legacy fallbacks (keep for existing components)
         hero: ['2.5rem', { lineHeight: '1.0', fontWeight: '300' }],
@@ -156,6 +247,10 @@ module.exports = {
         'fade-in': 'fadeIn 0.6s ease-in-out',
         'slide-up': 'slideUp 0.6s ease-out',
         'scale-in': 'scaleIn 0.4s ease-out',
+        'panel-slide-in': 'panelSlideIn 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
+        'panel-slide-out': 'panelSlideOut 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
+        'button-fade-in':
+          'buttonFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both',
       },
       keyframes: {
         fadeIn: {
@@ -170,8 +265,41 @@ module.exports = {
           '0%': { transform: 'scale(0.95)', opacity: '0' },
           '100%': { transform: 'scale(1)', opacity: '1' },
         },
+        panelSlideIn: {
+          '0%': { transform: 'translateX(100%)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        panelSlideOut: {
+          '0%': { transform: 'translateX(0)', opacity: '1', width: '380px' },
+          '100%': { transform: 'translateX(100%)', opacity: '0', width: '0px' },
+        },
+        buttonFadeIn: {
+          '0%': { opacity: '0', transform: 'scale(0.8)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        contextPanelDelayedEntry: {
+          '0%': { opacity: '0', transform: 'translateX(100%)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
       },
     },
   },
-  plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms')],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
+    function ({ addUtilities }) {
+      addUtilities({
+        '.scrollbar-hide': {
+          /* IE and Edge */
+          '-ms-overflow-style': 'none',
+          /* Firefox */
+          'scrollbar-width': 'none',
+          /* Safari and Chrome */
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        },
+      });
+    },
+  ],
 };

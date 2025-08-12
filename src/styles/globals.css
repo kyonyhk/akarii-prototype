@@ -80,4 +80,38 @@
   .eyebrow5 {
     @apply font-mondwest text-eyebrow5 md:text-eyebrow5-md;
   }
+
+  /* Chat Application Typography - PP Neue Montreal (Mobile first, then desktop) */
+  .app-heading {
+    @apply font-neue-montreal text-app-heading md:text-app-heading-md;
+  }
+  .app-subheading {
+    @apply font-neue-montreal text-app-subheading md:text-app-subheading-md;
+  }
+  .app-paragraph1 {
+    @apply font-neue-montreal text-app-paragraph1 md:text-app-paragraph1-md;
+  }
+  .app-paragraph2 {
+    @apply font-neue-montreal text-app-paragraph2 md:text-app-paragraph2-md;
+  }
+  .app-eyebrow {
+    @apply font-neue-montreal text-app-eyebrow md:text-app-eyebrow-md;
+  }
+  .app-support {
+    @apply font-neue-montreal text-app-support md:text-app-support-md;
+  }
+
+  /* Context Panel Typography - PP Neue Montreal (Mobile first, then desktop) */
+  .app-h1 {
+    @apply font-neue-montreal text-app-h1 md:text-app-h1-md;
+  }
+  .app-h2 {
+    @apply font-neue-montreal text-app-h2 md:text-app-h2-md;
+  }
+  .app-h3 {
+    @apply font-neue-montreal text-app-h3 md:text-app-h3-md;
+  }
+  .app-p {
+    @apply font-neue-montreal text-app-p md:text-app-p-md;
+  }
 }
