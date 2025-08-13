@@ -651,6 +651,371 @@ Sticking to the current date cedes **2–3 news cycles** to Claude 4.1.
       },
     ],
   },
+  {
+    id: 7,
+    name: 'Designing a Claude Code Agent UI',
+    pov: 'Alex',
+    thread: {
+      title: 'Designing a Claude Code Agent UI',
+      goal: 'Ship a friendly multi-agent UI',
+      channel: 'product-design',
+      tz: '+08:00',
+    },
+    messages: [
+      {
+        sender: 'Alex',
+        role: 'human',
+        type: 'text',
+        timestamp: '09:01',
+        content: '@Akarii — can you map the steps from *prompt → agent selection → code output*?',
+        pauses: [7, 12, 18, 25, 32, 38, 45, 52, 58, 65, 72],
+      },
+      {
+        sender: 'Akarii',
+        role: 'ai',
+        type: 'rich',
+        timestamp: '09:02',
+        content: `Sure. Here's a flow tailored to your Claude Code multi‑agent setup, prioritizing clarity:
+
+**Step 1 — Prompt Entry**: user writes the request (e.g., "Build a Node.js script to parse JSON").  
+**Step 2 — Agent Selection**: dropdown of Claude agents with one‑line capability tags ("API integration", "Refactor", "Tests").  
+**Step 3 — Execution Log**: live stream of reasoning/steps so progress is visible.  
+**Step 4 — Output Preview**: syntax‑highlighted code with **Copy · Rerun · Send to Editor**.
+
+Want me to rephrase labels for non‑technical users?`,
+        pauses: [
+          6, 13, 20, 28, 35, 42, 50, 58, 65, 73, 80, 88, 95, 103, 110, 118, 125, 133, 140, 148, 155, 163, 170, 178, 185, 193, 200, 208, 215, 223, 230, 238, 245, 253, 260, 268, 275, 283, 290, 298, 305, 313, 320, 328, 335, 343, 350, 358,
+        ],
+        preDelayMs: 400,
+      },
+      {
+        sender: 'Jamie',
+        role: 'human',
+        type: 'text',
+        timestamp: '09:03',
+        content: 'Yes—friendly without losing clarity. @Akarii can you update those labels?',
+        pauses: [4, 12, 20, 28, 34, 42, 49, 55, 62, 70],
+      },
+      {
+        sender: 'Akarii',
+        role: 'ai',
+        type: 'rich',
+        timestamp: '09:03',
+        content: `Updated labels:  
+1) **Ask** — "Tell me what you'd like to build."  
+2) **Choose Agent** — "Pick the helper best suited for your job."  
+3) **Watch Work** — "See the AI think and work in real time."  
+4) **See Results** — "Review and use the final code."
+
+These keep action verbs upfront so users feel in control.`,
+        pauses: [
+          8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248,
+        ],
+        preDelayMs: 350,
+      },
+      {
+        sender: 'Maya',
+        role: 'human',
+        type: 'text',
+        timestamp: '09:04',
+        content: '@Akarii — draft tooltip copy for each step.',
+        pauses: [7, 12, 17, 25, 30, 35, 40, 45],
+      },
+      {
+        sender: 'Akarii',
+        role: 'ai',
+        type: 'rich',
+        timestamp: '09:05',
+        content: `Tooltips:  
+- **Ask**: *Be specific. Mention language, framework, or an example.*  
+- **Choose Agent**: *Hover to see what each agent excels at.*  
+- **Watch Work**: *Pause or tweak the process anytime.*  
+- **See Results**: *Copy code or send it straight to your editor.*
+
+Saved to \`/ui-content/claude-code\`. Want a 1‑page UX spec export?`,
+        pauses: [
+          10, 18, 26, 34, 42, 50, 58, 66, 74, 82, 90, 98, 106, 114, 122, 130, 138, 146, 154, 162, 170, 178, 186, 194, 202, 210, 218, 226, 234, 242, 250, 258, 266, 274, 282, 290,
+        ],
+        preDelayMs: 350,
+      },
+    ],
+  },
+  {
+    id: 8,
+    name: 'Newsletter + Product Launch Sprint',
+    pov: 'Dan',
+    thread: {
+      title: 'Newsletter + Product Launch Sprint',
+      goal: 'Ship today\'s newsletter and tool launch',
+      channel: 'launch-room',
+      tz: '+08:00',
+    },
+    messages: [
+      {
+        sender: 'Dan',
+        role: 'human',
+        type: 'text',
+        timestamp: '13:10',
+        content: '@Akarii — headline for today\'s newsletter. Theme: human‑AI collaboration.',
+        pauses: [7, 12, 17, 25, 32, 40, 47, 53, 60, 68],
+      },
+      {
+        sender: 'Akarii',
+        role: 'ai',
+        type: 'rich',
+        timestamp: '13:10',
+        content: `Option A: **"When AI Joins the Meeting, Work Gets Smarter."**  
+It's clear and ties the benefit to a familiar setting (meetings). Want punchier alternates?`,
+        pauses: [
+          8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152,
+        ],
+        preDelayMs: 400,
+      },
+      {
+        sender: 'Mira',
+        role: 'human',
+        type: 'text',
+        timestamp: '13:11',
+        content: '@Akarii yes—two bolder options, please.',
+        pauses: [7, 13, 17, 22, 30, 38, 45],
+      },
+      {
+        sender: 'Akarii',
+        role: 'ai',
+        type: 'rich',
+        timestamp: '13:11',
+        content: `Bolder options:  
+1) **"The Smartest Person in the Room Isn't a Person."**  
+2) **"Your New Favorite Teammate Is Made of Code."**
+
+Both are inbox‑grabbing; #1 leans thought‑leadership, #2 leans product.`,
+        pauses: [
+          8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192,
+        ],
+        preDelayMs: 350,
+      },
+      {
+        sender: 'Cole',
+        role: 'human',
+        type: 'text',
+        timestamp: '13:12',
+        content: '@Akarii — pull product description from the latest launch doc and condense to 50 words.',
+        pauses: [7, 12, 17, 25, 32, 40, 47, 54, 61, 68, 75, 82, 89, 93],
+      },
+      {
+        sender: 'Akarii',
+        role: 'ai',
+        type: 'rich',
+        timestamp: '13:12',
+        content: `Pulled from \`/docs/launch-brief\`:
+
+*Our AI writing assistant brings structured creativity to your work — combining instant drafting, context awareness, and team‑shared memory so every piece you write is aligned and on‑message.*
+
+→ 50 words. Want a tweet‑length version for social too?`,
+        pauses: [
+          8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 264, 272,
+        ],
+        preDelayMs: 350,
+      },
+      {
+        sender: 'Dan',
+        role: 'human',
+        type: 'text',
+        timestamp: '13:13',
+        content: '@Akarii use headline #1. Drop assets in `/launch-assets` and tag "Launch Day".',
+        pauses: [7, 13, 17, 22, 29, 35, 40, 45, 55, 60, 65, 70, 76],
+      },
+      {
+        sender: 'Akarii',
+        role: 'ai',
+        type: 'text',
+        timestamp: '13:13',
+        content: 'Done. Files uploaded and tagged. I also generated an alt text pack for accessibility.',
+        pauses: [5, 11, 18, 25, 32, 37, 44, 51, 58, 65, 72, 79, 86],
+        preDelayMs: 200,
+      },
+    ],
+  },
+  {
+    id: 9,
+    name: 'Deal Memo Deep Dive',
+    pov: 'Priya',
+    thread: {
+      title: 'Deal Memo Deep Dive',
+      goal: 'Decide whether to advance an AI logistics deal',
+      channel: 'investment-review',
+      tz: '+08:00',
+    },
+    messages: [
+      {
+        sender: 'Priya',
+        role: 'human',
+        type: 'text',
+        timestamp: '16:20',
+        content: '@Akarii — TAM for AI‑enabled logistics in Southeast Asia?',
+        pauses: [7, 12, 17, 22, 32, 40, 47, 54],
+      },
+      {
+        sender: 'Akarii',
+        role: 'ai',
+        type: 'rich',
+        timestamp: '16:21',
+        content: `Est. **$5.2B (2024)**, ~**17% CAGR** through 2028. Drivers: cross‑border e‑commerce growth, last‑mile automation, predictive routing.  
+Sources linked in \`/market-research/SEA-logistics\`. Want a country breakdown next?`,
+        pauses: [
+          4, 12, 20, 28, 36, 44, 52, 60, 68, 76, 84, 92, 100, 108, 116, 124, 132, 140, 148, 156, 164, 172, 180, 188, 196, 204, 212, 220,
+        ],
+        preDelayMs: 400,
+      },
+      {
+        sender: 'Leo',
+        role: 'human',
+        type: 'text',
+        timestamp: '16:21',
+        content: '@Akarii before that: top 5 competitors with stage + differentiator.',
+        pauses: [7, 13, 20, 27, 32, 37, 40, 45, 56, 61, 66, 71, 76],
+      },
+      {
+        sender: 'Akarii',
+        role: 'ai',
+        type: 'rich',
+        timestamp: '16:22',
+        content: `**Competitor | Stage | Differentiator**  
+RouteIQ | Series B | Real‑time customs clearance API  
+LogiBot | Series A | Autonomous last‑mile drones  
+CargoAI | Series C | Multilingual freight marketplace  
+SwiftChain | Seed | Blockchain‑based shipment tracking  
+OptiFleet | Series B | Route planning latency <10ms
+
+Highlight gaps to exploit?`,
+        pauses: [
+          12, 20, 28, 36, 44, 52, 60, 68, 76, 84, 92, 100, 108, 116, 124, 132, 140, 148, 156, 164, 172, 180, 188, 196, 204, 212, 220, 228, 236, 244, 252, 260, 268, 276,
+        ],
+        preDelayMs: 350,
+      },
+      {
+        sender: 'Priya',
+        role: 'human',
+        type: 'text',
+        timestamp: '16:22',
+        content: '@Akarii yes—where does our target have an edge?',
+        pauses: [7, 13, 17, 21, 28, 33, 40, 47],
+      },
+      {
+        sender: 'Akarii',
+        role: 'ai',
+        type: 'rich',
+        timestamp: '16:23',
+        content: `Edge: **sub‑10ms real‑time route optimization** in dense urban traffic across SEA.  
+Implication: enables near same‑day reliability; hard for slower systems to match.  
+Suggest featuring this in the memo's **Moat** section with a before/after cost model. Want me to draft that section?`,
+        pauses: [
+          6, 14, 22, 30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190, 198, 206, 214, 222, 230, 238, 246, 254, 262, 270, 278,
+        ],
+        preDelayMs: 350,
+      },
+      {
+        sender: 'Leo',
+        role: 'human',
+        type: 'text',
+        timestamp: '16:24',
+        content: '@Akarii please draft the Moat section and drop into `/memos/ai-logistics`.',
+        pauses: [7, 13, 20, 27, 34, 40, 45, 50, 55, 65, 75],
+      },
+      {
+        sender: 'Akarii',
+        role: 'ai',
+        type: 'text',
+        timestamp: '16:24',
+        content: 'Drafted and saved. Added citations and a one‑slide summary for IC.',
+        pauses: [8, 12, 19, 25, 31, 42, 47, 51, 60, 63],
+        preDelayMs: 200,
+      },
+    ],
+  },
+  {
+    id: 10,
+    name: 'Episode Prep: Open‑Source vs Proprietary',
+    pov: 'Harper',
+    thread: {
+      title: 'Episode Prep: Open‑Source vs Proprietary',
+      goal: 'Lock outline, questions, and promo copy',
+      channel: 'show-run',
+      tz: '+08:00',
+    },
+    messages: [
+      {
+        sender: 'Harper',
+        role: 'human',
+        type: 'text',
+        timestamp: '18:05',
+        content: '@Akarii — draft an outline for our guest (CEO of [Fictional AI Startup]). Theme: open‑source vs proprietary AI.',
+        pauses: [7, 12, 17, 24, 31, 38, 43, 48, 52, 62, 69, 76, 83, 90, 97, 104, 111, 118],
+      },
+      {
+        sender: 'Akarii',
+        role: 'ai',
+        type: 'rich',
+        timestamp: '18:05',
+        content: `Proposed flow:  
+1) Guest intro & background  
+2) State of open‑source models  
+3) Proprietary advantages & limitations  
+4) Future hybrid approaches  
+5) Audience Q&A
+
+Balanced for narrative + depth. Want talking points per section?`,
+        pauses: [
+          8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208,
+        ],
+        preDelayMs: 400,
+      },
+      {
+        sender: 'Lenny',
+        role: 'human',
+        type: 'text',
+        timestamp: '18:06',
+        content: '@Akarii yes—also give me 3 strong opener questions.',
+        pauses: [7, 13, 17, 21, 26, 31, 36, 44, 51, 58],
+      },
+      {
+        sender: 'Akarii',
+        role: 'ai',
+        type: 'rich',
+        timestamp: '18:06',
+        content: `Openers:  
+1) "What's the most misunderstood thing about open‑source AI today?"  
+2) "If you had to bet on one model family for 2030, which would it be—and why?"  
+3) "Where's the biggest capability gap in today's AI toolchain?"
+
+I can tailor these to the guest's background if you share a brief.`,
+        pauses: [
+          8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 264, 272,
+        ],
+        preDelayMs: 350,
+      },
+      {
+        sender: 'Harper',
+        role: 'human',
+        type: 'text',
+        timestamp: '18:07',
+        content: '@Akarii — prep a social teaser for the episode.',
+        pauses: [7, 12, 17, 22, 29, 36, 40, 44],
+      },
+      {
+        sender: 'Akarii',
+        role: 'ai',
+        type: 'rich',
+        timestamp: '18:07',
+        content: `Teaser copy: *"Proprietary vs open‑source AI — which wins, and why? We're going deep with [Guest Name]. Premieres Friday."*  
+I also cut a 15‑sec teaser clip from prior footage and saved it to \`/promo-assets\`.`,
+        pauses: [
+          8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216,
+        ],
+        preDelayMs: 350,
+      },
+    ],
+  },
 ];
 
 // Core value messages for reference (not part of animation)
