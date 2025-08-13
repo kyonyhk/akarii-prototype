@@ -1356,11 +1356,11 @@ I can seed talking points per segment next.`,
         timestamp: '18:06',
         content: `## Strong Openers
 
-**1.** *What's the most misunderstood thing about open-source AI today?*
+**1.** What's the most misunderstood thing about open-source AI today?
 
-**2.** *If you had to bet on one model family for 2030, which—and why?*
+**2.** If you had to bet on one model family for 2030, which—and why?
 
-**3.** *Where's the biggest capability gap in today's AI toolchain (and who fixes it)?*
+**3.** Where's the biggest capability gap in today's AI toolchain (and who fixes it)?
 
 ---
 
