@@ -40,7 +40,7 @@ export const SCENARIOS: Scenario[] = [
         role: 'human',
         type: 'text',
         timestamp: '13:49',
-        content: '@akarii summarize our three options and recommend one.',
+        content: '@Akarii summarize our three options and recommend one.',
         pauses: [4, 12, 25, 33, 40, 48],
       },
       {
@@ -50,22 +50,30 @@ export const SCENARIOS: Scenario[] = [
         timestamp: '13:49',
         content: `Sure — based on the notes from last week's planning call, here's how the three options compare:
 
-**Option A — Social Media Blitz**  
-Focus: Short-term buzz across Instagram, TikTok, and LinkedIn.  
-Pros: Wide reach in days, great for awareness.  
-Cons: High ad spend, limited depth in engagement.
+## Option A — Social Media Blitz
 
-**Option B — Partner Webinars**  
-Focus: Co-host educational sessions with industry partners.  
-Pros: Builds credibility and deeper connections.  
-Cons: Slower ramp-up, dependent on partner schedules.
+**Focus:** Short-term buzz across Instagram, TikTok, and LinkedIn
 
-**Option C — Targeted Paid Ads**  
-Focus: Narrow targeting on high-intent audiences.  
-Pros: Controlled spend, measurable ROI, quick turnaround.  
-Cons: Smaller audience than A, requires strong creative.
+• **Pros:** Wide reach in days, great for awareness
+• **Cons:** High ad spend, limited depth in engagement
 
-**Recommendation:** Option C balances speed and efficiency while allowing measurable iteration. It's the best fit if our goal is early conversions before year-end.`,
+## Option B — Partner Webinars
+
+**Focus:** Co-host educational sessions with industry partners
+
+• **Pros:** Builds credibility and deeper connections
+• **Cons:** Slower ramp-up, dependent on partner schedules
+
+## Option C — Targeted Paid Ads
+
+**Focus:** Narrow targeting on high-intent audiences
+
+• **Pros:** Controlled spend, measurable ROI, quick turnaround
+• **Cons:** Smaller audience than A, requires strong creative
+
+## Recommendation
+
+**Option C** balances speed and efficiency while allowing measurable iteration. It's the best fit if our goal is early conversions before year-end.`,
         pauses: [
           6, 13, 25, 36, 49, 65, 78, 89, 102, 115, 128, 145, 162, 178, 195, 208,
           225, 242, 258, 275, 292, 308, 325, 342, 358, 375, 392, 408, 425, 442,
@@ -97,15 +105,25 @@ Cons: Smaller audience than A, requires strong creative.
         timestamp: '13:50',
         content: `Of course. Here's a suggested launch plan for **Option C**:
 
-**1.** Define and prioritize audience segments (e.g., by region, role, or interest)
+**1.** Define and prioritize audience segments
+   • By region, role, or interest level
+   • Focus on high-intent segments first
 
 **2.** Develop 2–3 ad creative variations per segment
+   • Test different messaging angles
+   • Include both visual and copy variants
 
 **3.** Launch small-scale A/B tests within 10 days
+   • Start with limited budget allocation
+   • Monitor performance metrics closely
 
 **4.** Allocate majority of spend to top-performing creatives
+   • Scale winning combinations
+   • Pause underperforming variants
 
 **5.** Review metrics weekly and adjust targeting as needed
+   • Optimize for conversion rates
+   • Refine audience parameters
 
 If you'd like, I can draft a timeline so each step lines up with our Q4 milestones.`,
         pauses: [
@@ -186,7 +204,7 @@ View Details`,
         role: 'human',
         type: 'text',
         timestamp: '14:14',
-        content: "Sounds solid — let's move forward.",
+        content: "Sounds solid, let's move forward.",
         pauses: [6, 12, 18, 24, 30],
       },
       {
@@ -207,11 +225,12 @@ View Details`,
 
 This change would move the launch beyond the agreed **"Deploy v2.1 by Sept 30"** goal.
 
-**Impact:**
+## Impact
 
-• Delays release of current performance improvements to all users
+• **Delays release** of current performance improvements to all users
+• **May compress QA timelines** for v2.2, increasing release risk
 
-• May compress QA timelines for v2.2, increasing release risk
+## Next Steps
 
 Would you like me to prepare a risk/benefit matrix for sticking to the current date vs. delaying?`,
         pauses: [
@@ -225,7 +244,7 @@ Would you like me to prepare a risk/benefit matrix for sticking to the current d
         role: 'human',
         type: 'text',
         timestamp: '14:15',
-        content: "Good point — let's stay on target.",
+        content: "Good point. Let's stay on target.",
         pauses: [5, 11, 17, 23, 29],
       },
     ],
@@ -265,7 +284,7 @@ Would you like me to prepare a risk/benefit matrix for sticking to the current d
         type: 'text',
         timestamp: '07:43',
         content:
-          "Their compiler tech could double our code‑gen speed. We can't let someone else grab it.",
+          "Their compiler tech could double our code-gen speed. We can't let someone else grab it.",
         pauses: [6, 14, 20, 26, 33, 39, 46, 52, 58, 65, 72, 77],
       },
       {
@@ -277,17 +296,19 @@ Would you like me to prepare a risk/benefit matrix for sticking to the current d
 
 This acquisition will absorb ~80% of Windsurf's engineering bandwidth for at least 6 weeks, pausing their roadmap.
 
-**Risks to "Maintain Stability & Core Product Velocity"**
+## Risks to "Maintain Stability & Core Product Velocity"
 
-• Core editor feature freeze in Q4 → potential churn among top 10% accounts.
-• Infra-role overlap → redundancy cost ≈ **$1.8M** in first 90 days.
-• Cultural misalignment: 3/5 Windsurf leads left within 30 days of a prior acquisition.
+• **Core editor feature freeze** in Q4 → potential churn among top 10% accounts
+• **Infra-role overlap** → redundancy cost ≈ **$1.8M** in first 90 days
+• **Cultural misalignment:** 3/5 Windsurf leads left within 30 days of a prior acquisition
 
-**Recommendation**
+## Recommendation
 
-1) Secure retention packages for key engineers.
-2) Delay core refactors until integration stabilizes.
-3) Set a 14‑day integration checkpoint with velocity metrics.`,
+**1.** **Secure retention packages** for key engineers
+
+**2.** **Delay core refactors** until integration stabilizes
+
+**3.** **Set a 14-day integration checkpoint** with velocity metrics`,
         pauses: [
           18, 35, 52, 69, 86, 103, 120, 137, 154, 171, 188, 205, 222, 239, 256,
           273, 290, 307, 324, 341, 358, 375, 392, 409, 426, 443, 460, 477, 494,
@@ -309,10 +330,11 @@ This acquisition will absorb ~80% of Windsurf's engineering bandwidth for at lea
         role: 'ai',
         type: 'card',
         timestamp: '07:45',
-        content: `**Structured Plan**
+        content: `## Structured Plan
 
 Split integration into **Compiler Stream (priority)** and **General Eng Stream (lower urgency)**.
-Projected outcome: retain ~**60%** of planned Q4 feature output vs. **20%** under full‑merge.`,
+
+Projected outcome: retain ~**60%** of planned Q4 feature output vs. **20%** under full-merge.`,
         pauses: [18, 35, 52, 69, 86, 103, 120, 137, 154, 171, 188, 205],
         preDelayMs: 350,
       },
@@ -344,7 +366,7 @@ Projected outcome: retain ~**60%** of planned Q4 feature output vs. **20%** unde
         type: 'text',
         timestamp: '10:05',
         content:
-          'Cognition moved fast — 72 hours from first call to signed deal. Now we need to align priorities.',
+          'Cognition moved fast. 72 hours from first call to signed deal. Now we need to align priorities.',
         pauses: [9, 16, 22, 29, 36, 42, 49, 55, 62, 68, 75, 82, 89, 95],
       },
       {
@@ -376,17 +398,17 @@ Projected outcome: retain ~**60%** of planned Q4 feature output vs. **20%** unde
 
 Immediate pivot pulls **6 of 10** compiler engineers into unrelated code-gen work.
 
-**Risks to "Protect Core Tech and Team Stability"**
+## Risks to "Protect Core Tech and Team Stability"
 
-• Q1 compiler optimizations delayed ≥ **3 months**.
-• Roadmap on-time delivery drops from **92% → ~55%**.
-• Attrition risk: 4 engineers joined specifically for compiler work.
+• **Q1 compiler optimizations** delayed ≥ **3 months**
+• **Roadmap on-time delivery** drops from **92% → ~55%**
+• **Attrition risk:** 4 engineers joined specifically for compiler work
 
-**Recommendation**
+## Recommendation
 
-• Negotiate **phased integration**: keep compiler sprints focused for 6 weeks.
-• Cross-train **2 bridge engineers** instead of a full pivot.
-• Lock a **tech governance doc** before reassigning core members.`,
+• **Negotiate phased integration:** keep compiler sprints focused for 6 weeks
+• **Cross-train 2 bridge engineers** instead of a full pivot
+• **Lock a tech governance doc** before reassigning core members`,
         pauses: [
           18, 35, 52, 69, 86, 103, 120, 137, 154, 171, 188, 205, 222, 239, 256,
           273, 290, 307, 324, 341, 358, 375, 392, 409, 426, 443, 460, 477, 494,
@@ -408,10 +430,11 @@ Immediate pivot pulls **6 of 10** compiler engineers into unrelated code-gen wor
         role: 'ai',
         type: 'card',
         timestamp: '10:08',
-        content: `**Trade-off Model**
+        content: `## Trade-off Model
 
-A 14-day slip for Cognition preserves ~**3 months** of Windsurf compiler gains.
-Net effect on the combined roadmap: **positive** (differentiator retained).`,
+**14-day slip for Cognition** preserves ~**3 months** of Windsurf compiler gains.
+
+**Net effect on combined roadmap:** **positive** (differentiator retained)`,
         pauses: [18, 35, 52, 69, 86, 103, 120, 137, 154],
         preDelayMs: 350,
       },
@@ -452,7 +475,7 @@ Net effect on the combined roadmap: **positive** (differentiator retained).`,
         type: 'text',
         timestamp: '09:15',
         content:
-          "OpenAI's GPT‑5 event is in three days. If we wait, we'll be drowned out.",
+          "OpenAI's GPT-5 event is in three days. If we wait, we'll be drowned out.",
         pauses: [8, 15, 20, 26, 30, 35, 40, 47, 52, 57, 65, 72],
       },
       {
@@ -461,7 +484,7 @@ Net effect on the combined roadmap: **positive** (differentiator retained).`,
         type: 'text',
         timestamp: '09:16',
         content:
-          'Benchmarks look solid — we should lead the cycle, not trail it.',
+          'Benchmarks look solid. We should lead the cycle, not trail it.',
         pauses: [10, 15, 22, 27, 34, 39, 44, 49, 54, 60],
       },
       {
@@ -471,19 +494,19 @@ Net effect on the combined roadmap: **positive** (differentiator retained).`,
         timestamp: '09:16',
         content: `⚠️ **Competitive Timing Opportunity**
 
-Launching **today** positions Claude 4.1 Opus ahead of GPT‑5 in the news cycle.
+Launching **today** positions Claude 4.1 Opus ahead of GPT-5 in the news cycle.
 
-**Upside to "Maximize Claude 4.1 Opus Market Impact"**
+## Upside to "Maximize Claude 4.1 Opus Market Impact"
 
-• 2–3 days of dominant coverage before GPT‑5 saturation.
-• Capture developer attention while influencer focus is diffuse.
-• Set benchmark **framing** before GPT‑5 is revealed.
+• **2–3 days of dominant coverage** before GPT-5 saturation
+• **Capture developer attention** while influencer focus is diffuse
+• **Set benchmark framing** before GPT-5 is revealed
 
-**Recommendation (next 6 hours)**
+## Recommendation (next 6 hours)
 
-1) Release window: today, early‑week media slot.
-2) Seed benchmark teasers to key AI reporters pre‑press.
-3) Align blog + X threads on unique Claude advantages.`,
+**1.** **Release window:** today, early-week media slot
+**2.** **Seed benchmark teasers** to key AI reporters pre-press
+**3.** **Align blog + X threads** on unique Claude advantages`,
         pauses: [
           18, 35, 52, 69, 86, 103, 120, 137, 154, 171, 188, 205, 222, 239, 256,
           273, 290, 307, 324, 341, 358, 375, 392, 409, 426, 443, 460, 477, 494,
@@ -504,13 +527,14 @@ Launching **today** positions Claude 4.1 Opus ahead of GPT‑5 in the news cycle
         role: 'ai',
         type: 'card',
         timestamp: '09:17',
-        content: `**Readiness Check**
+        content: `## Readiness Check
 
-Assets ready: **95%**. Remaining: minor copy tweaks.
+**Assets ready:** **95%** — Remaining: minor copy tweaks
 
-**Ops needs:**
-• Final QA on the model card (**~45 min**).
-• DevRel sync for post‑launch Q&A sessions.`,
+## Ops needs:
+
+• **Final QA on the model card** (~45 min)
+• **DevRel sync** for post-launch Q&A sessions`,
         pauses: [18, 35, 52, 69, 86, 103, 120, 137, 154, 171, 188],
         preDelayMs: 350,
       },
@@ -520,18 +544,18 @@ Assets ready: **95%**. Remaining: minor copy tweaks.
         type: 'text',
         timestamp: '09:18',
         content:
-          'Alright — we drop today. Make sure every channel fires on the same beat.',
+          'Alright, we drop today. Make sure every channel fires on the same beat.',
         pauses: [8, 12, 17, 23, 30, 35, 40, 46, 53, 58, 65, 72],
       },
     ],
   },
   {
     id: 6,
-    name: 'GPT‑5 Launch War Room',
+    name: 'GPT-5 Launch War Room',
     pov: 'Kevin Weil',
     thread: {
-      title: 'GPT‑5 Launch War Room',
-      goal: 'Maximize GPT‑5 Launch Impact',
+      title: 'GPT-5 Launch War Room',
+      goal: 'Maximize GPT-5 Launch Impact',
       channel: 'war-room',
       tz: '+08:00',
     },
@@ -550,7 +574,7 @@ Assets ready: **95%**. Remaining: minor copy tweaks.
         role: 'human',
         type: 'text',
         timestamp: '09:22',
-        content: 'Our GPT‑5 keynote is in 72 hours. Do we hold or move?',
+        content: 'Our GPT-5 keynote is in 72 hours. Do we hold or move?',
         pauses: [7, 14, 22, 25, 30, 36, 42, 45, 50, 55],
       },
       {
@@ -571,17 +595,17 @@ Assets ready: **95%**. Remaining: minor copy tweaks.
 
 Sticking to the current date cedes **2–3 news cycles** to Claude 4.1.
 
-**Risk to "Maximize GPT‑5 Launch Impact"**
+## Risk to "Maximize GPT-5 Launch Impact"
 
-• Share‑of‑voice likely down **35–45%** if we wait full 72h.
-• Influencers already orienting to Claude's charts.
-• Narrative risk: perceived as follow‑on, not first‑move.
+• **Share-of-voice** likely down **35–45%** if we wait full 72h
+• **Influencers already orienting** to Claude's charts
+• **Narrative risk:** perceived as follow-on, not first-move
 
-**Recommendation**
+## Recommendation
 
-• **T+24h**: "GPT‑5 Teaser" (2 strong benchmarks + 1 signature demo).
-• **T+48h**: Full keynote (quality preserved).
-• Seed exclusive briefings to 3 tech reporters **today**.`,
+• **T+24h:** "GPT-5 Teaser" (2 strong benchmarks + 1 signature demo)
+• **T+48h:** Full keynote (quality preserved)
+• **Seed exclusive briefings** to 3 tech reporters **today**`,
         pauses: [
           18, 35, 52, 69, 86, 103, 120, 137, 154, 171, 188, 205, 222, 239, 256,
           273, 290, 307, 324, 341, 358, 375, 392, 409, 426, 443, 460, 477, 494,
@@ -602,11 +626,11 @@ Sticking to the current date cedes **2–3 news cycles** to Claude 4.1.
         role: 'ai',
         type: 'card',
         timestamp: '09:24',
-        content: `**Teaser Pack**
+        content: `## Teaser Pack
 
-• Two slices where GPT‑5 leads (code gen, long‑context QA).
-• 15‑second live demo clip (reliable take).
-• CTA: "Deeper dive in 48 hours."`,
+• **Two slices where GPT-5 leads** (code gen, long-context QA)
+• **15-second live demo clip** (reliable take)
+• **CTA:** "Deeper dive in 48 hours"`,
         pauses: [18, 35, 52, 69, 86, 103, 120, 137, 154, 171],
         preDelayMs: 350,
       },
@@ -624,7 +648,7 @@ Sticking to the current date cedes **2–3 news cycles** to Claude 4.1.
         type: 'text',
         timestamp: '09:25',
         content:
-          'Yes — teaser demo is green; the full multi‑agent demo needs another day.',
+          'Yes — teaser demo is green; the full multi-agent demo needs another day.',
         pauses: [4, 8, 15, 20, 25, 30, 35, 40, 50, 55, 61, 68, 74],
       },
       {
@@ -632,11 +656,11 @@ Sticking to the current date cedes **2–3 news cycles** to Claude 4.1.
         role: 'ai',
         type: 'card',
         timestamp: '09:25',
-        content: `**Guardrails**
+        content: `## Guardrails
 
-• Lock teaser scope now; no new features.
-• Overnight validation run; publish only passing charts.
-• Two dry‑runs in a clean env; record a backup take.`,
+• **Lock teaser scope now** — no new features
+• **Overnight validation run** — publish only passing charts
+• **Two dry-runs in clean env** — record a backup take`,
         pauses: [18, 35, 52, 69, 86, 103, 120, 137, 154, 171, 188],
         preDelayMs: 350,
       },
@@ -646,7 +670,7 @@ Sticking to the current date cedes **2–3 news cycles** to Claude 4.1.
         type: 'text',
         timestamp: '09:26',
         content:
-          "Alright — teaser in 24h, full keynote in 48. I'll start media outreach.",
+          "Alright, teaser in 24h, full keynote in 48. I'll start media outreach.",
         pauses: [8, 12, 19, 22, 27, 33, 37, 45, 48, 54, 60, 66, 73],
       },
     ],
@@ -666,25 +690,77 @@ Sticking to the current date cedes **2–3 news cycles** to Claude 4.1.
         sender: 'Alex',
         role: 'human',
         type: 'text',
+        timestamp: '09:00',
+        content:
+          'Morning! I sketched a flow: prompt → choose agent → watch logs → code output.',
+        pauses: [8, 12, 23, 35, 47, 52, 58, 65, 72],
+      },
+      {
+        sender: 'Maya',
+        role: 'human',
+        type: 'text',
         timestamp: '09:01',
-        content: '@Akarii — can you map the steps from *prompt → agent selection → code output*?',
-        pauses: [7, 12, 18, 25, 32, 38, 45, 52, 58, 65, 72],
+        content:
+          "I like it, but I'd put tests before output so users trust the result.",
+        pauses: [5, 13, 20, 28, 35, 42, 50, 57, 65, 72],
+      },
+      {
+        sender: 'Jamie',
+        role: 'human',
+        type: 'text',
+        timestamp: '09:02',
+        content:
+          'If we surface tests too early we might overwhelm non-technical folks. Maybe optional?',
+        pauses: [8, 15, 22, 29, 36, 43, 50, 57, 64, 71, 78, 85],
+      },
+      {
+        sender: 'Alex',
+        role: 'human',
+        type: 'text',
+        timestamp: '09:02',
+        content:
+          "Let's sanity-check labels. @Akarii can you map the steps and propose friendlier labels?",
+        pauses: [6, 13, 25, 32, 40, 47, 54, 61, 68, 75, 82, 89],
       },
       {
         sender: 'Akarii',
         role: 'ai',
         type: 'rich',
-        timestamp: '09:02',
-        content: `Sure. Here's a flow tailored to your Claude Code multi‑agent setup, prioritizing clarity:
+        timestamp: '09:03',
+        content: `## Proposed Multi-Agent Code Flow
+*Friendly, minimal cognitive load*
 
-**Step 1 — Prompt Entry**: user writes the request (e.g., "Build a Node.js script to parse JSON").  
-**Step 2 — Agent Selection**: dropdown of Claude agents with one‑line capability tags ("API integration", "Refactor", "Tests").  
-**Step 3 — Execution Log**: live stream of reasoning/steps so progress is visible.  
-**Step 4 — Output Preview**: syntax‑highlighted code with **Copy · Rerun · Send to Editor**.
+### 1) Ask
+• **Guidance:** "Tell me what you'd like to build."
+• **Hints:** language, framework, I/O example
+• **UX:** large single-line composer; suggestions inline ("Add tests", "Target Node 20")
 
-Want me to rephrase labels for non‑technical users?`,
+### 2) Choose Agent
+
+• **Agent cards** with 1-line capability tags: *API*, *Refactor*, *Tests*, *Docs*
+• **Quick compare** on hover (strengths / expected outputs / typical runtime)
+
+### 3) Watch Work
+
+• **Live execution log** with step chips (Plan → Fetch → Generate → Test)
+• **Controls:** **Pause**, **Edit Plan**, **Retry step**
+
+### 4) See Results
+
+• **Syntax-highlighted diff view**
+• **Actions:** **Copy**, **Rerun**, **Send to Editor**, **Create PR**
+
+## Why this works
+
+• **Action verbs front-load control** ("Ask", "Choose", "Watch", "See")
+• **Keeps experts fast** while giving newcomers affordances
+
+If useful, I can also provide microcopy + empty states.`,
         pauses: [
-          6, 13, 20, 28, 35, 42, 50, 58, 65, 73, 80, 88, 95, 103, 110, 118, 125, 133, 140, 148, 155, 163, 170, 178, 185, 193, 200, 208, 215, 223, 230, 238, 245, 253, 260, 268, 275, 283, 290, 298, 305, 313, 320, 328, 335, 343, 350, 358,
+          18, 28, 38, 48, 58, 68, 78, 88, 98, 108, 118, 128, 138, 148, 158, 168,
+          178, 188, 198, 208, 218, 228, 238, 248, 258, 268, 278, 288, 298, 308,
+          318, 328, 338, 348, 358, 368, 378, 388, 398, 408, 418, 428, 438, 448,
+          458, 468, 478, 488, 498, 508, 518, 528, 538, 548,
         ],
         preDelayMs: 400,
       },
@@ -692,49 +768,109 @@ Want me to rephrase labels for non‑technical users?`,
         sender: 'Jamie',
         role: 'human',
         type: 'text',
-        timestamp: '09:03',
-        content: 'Yes—friendly without losing clarity. @Akarii can you update those labels?',
-        pauses: [4, 12, 20, 28, 34, 42, 49, 55, 62, 70],
-      },
-      {
-        sender: 'Akarii',
-        role: 'ai',
-        type: 'rich',
-        timestamp: '09:03',
-        content: `Updated labels:  
-1) **Ask** — "Tell me what you'd like to build."  
-2) **Choose Agent** — "Pick the helper best suited for your job."  
-3) **Watch Work** — "See the AI think and work in real time."  
-4) **See Results** — "Review and use the final code."
-
-These keep action verbs upfront so users feel in control.`,
-        pauses: [
-          8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248,
-        ],
-        preDelayMs: 350,
+        timestamp: '09:04',
+        content:
+          "These labels work. I'd still like tests discoverable but not blocking.",
+        pauses: [6, 12, 18, 24, 30, 36, 45, 52, 58, 65, 72],
       },
       {
         sender: 'Maya',
         role: 'human',
         type: 'text',
         timestamp: '09:04',
-        content: '@Akarii — draft tooltip copy for each step.',
-        pauses: [7, 12, 17, 25, 30, 35, 40, 45],
+        content: 'Agree—maybe a "Quality checks" drawer under "See Results".',
+        pauses: [6, 12, 18, 25, 32, 38, 45, 52, 60],
+      },
+      {
+        sender: 'Alex',
+        role: 'human',
+        type: 'text',
+        timestamp: '09:05',
+        content:
+          '@Akarii draft tooltips for each step and suggest where that "Quality checks" fits.',
+        pauses: [7, 12, 17, 25, 32, 38, 45, 52, 58, 65, 72, 79, 86],
       },
       {
         sender: 'Akarii',
         role: 'ai',
         type: 'rich',
         timestamp: '09:05',
-        content: `Tooltips:  
-- **Ask**: *Be specific. Mention language, framework, or an example.*  
-- **Choose Agent**: *Hover to see what each agent excels at.*  
-- **Watch Work**: *Pause or tweak the process anytime.*  
-- **See Results**: *Copy code or send it straight to your editor.*
+        content: `## Tooltips + Placement
 
-Saved to the design docs folder. Want a 1‑page UX spec export?`,
+### Ask
+*Be specific. Mention language, framework, I/O and any constraints (e.g., Node 20, ESM).*
+
+### Choose Agent
+*Hover an agent to see strengths and sample outputs. You can switch agents later.*
+
+### Watch Work
+*Follow the steps in real time. Pause to tweak the plan or skip a step if needed.*
+
+### See Results
+*Review code and changes. Open **Quality checks** to run tests and linting.*
+
+## Quality checks (drawer in See Results)
+
+• **Header:** **Quality checks** — *Validate before you ship*
+• **Buttons:** **Run tests**, **Run lint**, **Open coverage**
+• **Empty:** *No checks yet. Run a check to view results here*
+• **Results list** shows status chips (✅ Passed / ❌ Failed / ⏱️ Running) with collapsible logs
+
+## Rationale
+Keeps "tests" present but non-blocking; discoverable at the moment of decision.`,
         pauses: [
-          10, 18, 26, 34, 42, 50, 58, 66, 74, 82, 90, 98, 106, 114, 122, 130, 138, 146, 154, 162, 170, 178, 186, 194, 202, 210, 218, 226, 234, 242, 250, 258, 266, 274, 282, 290,
+          18, 28, 38, 48, 58, 68, 78, 88, 98, 108, 118, 128, 138, 148, 158, 168,
+          178, 188, 198, 208, 218, 228, 238, 248, 258, 268, 278, 288, 298, 308,
+          318, 328, 338, 348, 358, 368, 378, 388, 398, 408, 418, 428, 438, 448,
+          458, 468, 478, 488, 498, 508, 518,
+        ],
+        preDelayMs: 350,
+      },
+      {
+        sender: 'Jamie',
+        role: 'human',
+        type: 'text',
+        timestamp: '09:06',
+        content:
+          "Perfect. I'll mock the drawer. Maya, can you own the tests view?",
+        pauses: [8, 14, 20, 26, 32, 38, 45, 50, 56, 63],
+      },
+      {
+        sender: 'Maya',
+        role: 'human',
+        type: 'text',
+        timestamp: '09:06',
+        content: "On it. Alex, I'll need the execution log schema.",
+        pauses: [3, 7, 13, 18, 24, 30, 36, 42, 48],
+      },
+      {
+        sender: 'Alex',
+        role: 'human',
+        type: 'text',
+        timestamp: '09:07',
+        content:
+          '@Akarii microcopy for the Quality checks header + empty state?',
+        pauses: [7, 12, 17, 25, 32, 38, 45, 52, 58, 65],
+      },
+      {
+        sender: 'Akarii',
+        role: 'ai',
+        type: 'rich',
+        timestamp: '09:07',
+        content: `## Microcopy
+
+**Header:** **Quality checks**
+
+**Subhead:** *Validate before you ship*
+
+**Empty state:** *No checks yet. Run tests or lint to see results here*
+
+**Primary CTA:** **Run checks**
+
+**Secondary CTA:** **Configure** (coverage thresholds, test runner)`,
+        pauses: [
+          18, 28, 38, 48, 58, 68, 78, 88, 98, 108, 118, 128, 138, 148, 158, 168,
+          178, 188, 198,
         ],
         preDelayMs: 350,
       },
@@ -746,7 +882,7 @@ Saved to the design docs folder. Want a 1‑page UX spec export?`,
     pov: 'Dan',
     thread: {
       title: 'Newsletter + Product Launch Sprint',
-      goal: 'Ship today\'s newsletter and tool launch',
+      goal: "Ship today's newsletter and tool launch",
       channel: 'launch-room',
       tz: '+08:00',
     },
@@ -755,19 +891,58 @@ Saved to the design docs folder. Want a 1‑page UX spec export?`,
         sender: 'Dan',
         role: 'human',
         type: 'text',
+        timestamp: '13:09',
+        content: 'Deadline mode. We need a headline on human-AI collaboration.',
+        pauses: [8, 14, 19, 25, 30, 36, 42, 48, 56, 63],
+      },
+      {
+        sender: 'Mira',
+        role: 'human',
+        type: 'text',
+        timestamp: '13:09',
+        content: 'Pitch: When AI joins the meeting, work gets smarter.',
+        pauses: [6, 12, 18, 24, 30, 36, 42, 48, 54],
+      },
+      {
+        sender: 'Cole',
+        role: 'human',
+        type: 'text',
         timestamp: '13:10',
-        content: '@Akarii — headline for today\'s newsletter. Theme: human‑AI collaboration.',
-        pauses: [7, 12, 17, 25, 32, 40, 47, 53, 60, 68],
+        content: 'Good, but feels safe. Our brand can go bolder.',
+        pauses: [5, 10, 16, 22, 26, 32, 36, 42],
+      },
+      {
+        sender: 'Dan',
+        role: 'human',
+        type: 'text',
+        timestamp: '13:10',
+        content: '@Akarii give us 2 bold alternates, still on-brand.',
+        pauses: [7, 12, 17, 22, 27, 34, 41, 48, 55],
       },
       {
         sender: 'Akarii',
         role: 'ai',
         type: 'rich',
         timestamp: '13:10',
-        content: `Option A: **"When AI Joins the Meeting, Work Gets Smarter."**  
-It's clear and ties the benefit to a familiar setting (meetings). Want punchier alternates?`,
+        content: `Here are two bold options with tone notes:
+
+## Option 1: "The Smartest Person in the Room Isn't a Person."
+
+• **Tone:** thought-leadership, slightly provocative
+• **Subtext:** AI as amplifier for group clarity, not a replacement
+
+## Option 2: "Your New Favorite Teammate Is Made of Code."
+
+• **Tone:** product-forward, approachable
+• **Subtext:** practical partnership; less hype, more utility
+
+## Brand fit
+**#1 for essays; #2 for launches.** I can pair either with a pragmatic dek.`,
         pauses: [
-          8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152,
+          8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128,
+          136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240,
+          248, 256, 264, 272, 280, 288, 296, 304, 312, 320, 328, 336, 344, 352,
+          360, 368,
         ],
         preDelayMs: 400,
       },
@@ -776,21 +951,36 @@ It's clear and ties the benefit to a familiar setting (meetings). Want punchier 
         role: 'human',
         type: 'text',
         timestamp: '13:11',
-        content: '@Akarii yes—two bolder options, please.',
-        pauses: [7, 13, 17, 22, 30, 38, 45],
+        content: 'I vote #1. Cole?',
+        pauses: [2, 7, 11, 17],
+      },
+      {
+        sender: 'Cole',
+        role: 'human',
+        type: 'text',
+        timestamp: '13:11',
+        content: "#1, but let's keep the dek practical.",
+        pauses: [3, 8, 14, 19, 23, 27, 35],
+      },
+      {
+        sender: 'Dan',
+        role: 'human',
+        type: 'text',
+        timestamp: '13:12',
+        content: '@Akarii 25-word dek that tees up a launch blurb.',
+        pauses: [7, 12, 17, 25, 30, 35, 40, 47, 54],
       },
       {
         sender: 'Akarii',
         role: 'ai',
         type: 'rich',
-        timestamp: '13:11',
-        content: `Bolder options:  
-1) **"The Smartest Person in the Room Isn't a Person."**  
-2) **"Your New Favorite Teammate Is Made of Code."**
+        timestamp: '13:12',
+        content: `## Dek (25 words)
 
-Both are inbox‑grabbing; #1 leans thought‑leadership, #2 leans product.`,
+How teams work is changing. We tested where AI helps (and where it doesn't)—and we're launching a tool that turns conversations into shared memory and momentum.`,
         pauses: [
-          8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192,
+          8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128,
+          136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240,
         ],
         preDelayMs: 350,
       },
@@ -799,21 +989,39 @@ Both are inbox‑grabbing; #1 leans thought‑leadership, #2 leans product.`,
         role: 'human',
         type: 'text',
         timestamp: '13:12',
-        content: '@Akarii — pull product description from the latest launch doc and condense to 50 words.',
-        pauses: [7, 12, 17, 25, 32, 40, 47, 54, 61, 68, 75, 82, 89, 93],
+        content: 'Nice. Pull 50-word product description from the launch doc?',
+        pauses: [5, 10, 15, 25, 32, 38, 44, 50],
+      },
+      {
+        sender: 'Mira',
+        role: 'human',
+        type: 'text',
+        timestamp: '13:13',
+        content:
+          'Context: assistant drafts fast, keeps context, shares memory across the team.',
+        pauses: [8, 18, 24, 29, 35, 43, 49, 55, 62, 68, 74],
+      },
+      {
+        sender: 'Cole',
+        role: 'human',
+        type: 'text',
+        timestamp: '13:13',
+        content: '@Akarii condense that from `/docs/launch-brief` to 50 words.',
+        pauses: [7, 12, 17, 25, 30, 35, 50, 53, 58, 65],
       },
       {
         sender: 'Akarii',
         role: 'ai',
         type: 'rich',
-        timestamp: '13:12',
-        content: `Pulled from the launch brief document:
+        timestamp: '13:13',
+        content: `## Product (50 words)
 
-*Our AI writing assistant brings structured creativity to your work — combining instant drafting, context awareness, and team‑shared memory so every piece you write is aligned and on‑message.*
-
-→ 50 words. Want a tweet‑length version for social too?`,
+Our AI writing assistant brings structured creativity to your work—combining instant drafting, context awareness, and team-shared memory so every piece you write stays aligned, consistent, and on-message. Think faster first drafts, clearer edits, and a reusable library of decisions and references your whole team can pull from on demand.`,
         pauses: [
-          8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 264, 272,
+          8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128,
+          136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240,
+          248, 256, 264, 272, 280, 288, 296, 304, 312, 320, 328, 336, 344, 352,
+          360, 368, 376, 384, 392, 400,
         ],
         preDelayMs: 350,
       },
@@ -821,18 +1029,43 @@ Both are inbox‑grabbing; #1 leans thought‑leadership, #2 leans product.`,
         sender: 'Dan',
         role: 'human',
         type: 'text',
-        timestamp: '13:13',
-        content: '@Akarii use headline #1. Drop assets in the launch folder and tag "Launch Day".',
-        pauses: [7, 13, 17, 22, 29, 35, 40, 45, 55, 60, 65, 70, 76],
+        timestamp: '13:14',
+        content: 'Ship it. Mira, slot headline #1 + dek. Cole, assets?',
+        pauses: [5, 8, 14, 20, 27, 32, 35, 40, 45, 52],
+      },
+      {
+        sender: 'Cole',
+        role: 'human',
+        type: 'text',
+        timestamp: '13:14',
+        content:
+          '@Akarii — export headline, dek, and 3 social variants to `/launch-assets`, tag "Launch Day".',
+        pauses: [7, 12, 17, 26, 31, 36, 38, 42, 47, 55, 67, 72, 76, 82, 89],
       },
       {
         sender: 'Akarii',
         role: 'ai',
-        type: 'text',
-        timestamp: '13:13',
-        content: 'Done. Files uploaded and tagged. I also generated an alt text pack for accessibility.',
-        pauses: [5, 11, 18, 25, 32, 37, 44, 51, 58, 65, 72, 79, 86],
-        preDelayMs: 200,
+        type: 'rich',
+        timestamp: '13:14',
+        content: `## Export complete → \`/launch-assets\` (tag: Launch Day)
+
+## Social variants
+
+• **X (post):** The smartest person in the room isn't a person. How we collaborate is changing—and we built for it. New tool that turns conversations into shared memory
+
+• **LinkedIn:** Meetings drift. Decisions get buried. We tested where AI helps (and where it doesn't). Today, we're launching a writing assistant that keeps teams on-message—and on-mission
+
+• **Thread opener:** Why your team's best editor might be an AI—with a memory everyone can reuse
+
+## Also included
+Alt text pack + 1200×630 hero`,
+        pauses: [
+          18, 28, 38, 48, 58, 68, 78, 88, 98, 108, 118, 128, 138, 148, 158, 168,
+          178, 188, 198, 208, 218, 228, 238, 248, 258, 268, 278, 288, 298, 308,
+          318, 328, 338, 348, 358, 368, 378, 388, 398, 408, 418, 428, 438, 448,
+          458, 468, 478, 488, 498, 508,
+        ],
+        preDelayMs: 350,
       },
     ],
   },
@@ -852,18 +1085,55 @@ Both are inbox‑grabbing; #1 leans thought‑leadership, #2 leans product.`,
         role: 'human',
         type: 'text',
         timestamp: '16:20',
-        content: '@Akarii — TAM for AI‑enabled logistics in Southeast Asia?',
-        pauses: [7, 12, 17, 22, 32, 40, 47, 54],
+        content: 'Gut check: is this market big enough in SEA?',
+        pauses: [4, 10, 13, 18, 25, 30, 35, 41, 47],
+      },
+      {
+        sender: 'Leo',
+        role: 'human',
+        type: 'text',
+        timestamp: '16:20',
+        content:
+          'Depends. Cross-border e-comm and last-mile are booming, but margins are thin.',
+        pauses: [8, 18, 25, 30, 34, 43, 48, 53, 61, 65, 72, 78],
+      },
+      {
+        sender: 'Priya',
+        role: 'human',
+        type: 'text',
+        timestamp: '16:21',
+        content: '@Akarii TAM estimate for AI-enabled logistics in SEA?',
+        pauses: [7, 12, 17, 25, 32, 36, 46, 54, 59],
       },
       {
         sender: 'Akarii',
         role: 'ai',
         type: 'rich',
         timestamp: '16:21',
-        content: `Est. **$5.2B (2024)**, ~**17% CAGR** through 2028. Drivers: cross‑border e‑commerce growth, last‑mile automation, predictive routing.  
-Sources compiled in our market research files. Want a country breakdown next?`,
+        content: `## TAM Analysis (2024)
+
+**Market size:** ≈ **$5.2B**, projected **~17% CAGR** through 2028
+
+## Key drivers
+
+• **Cross-border e-commerce** expansion
+• **Last-mile automation** adoption
+• **Predictive routing** optimization
+• **Customs digitization** initiatives
+
+## Sensitivity factors
+
+• **Risk:** growth slows if cross-border taxes tighten
+• **Upside:** acceleration if drone pilots scale
+
+---
+
+I saved sources and a country-level split shell at \`/market-research/SEA-logistics\`.`,
         pauses: [
-          4, 12, 20, 28, 36, 44, 52, 60, 68, 76, 84, 92, 100, 108, 116, 124, 132, 140, 148, 156, 164, 172, 180, 188, 196, 204, 212, 220,
+          8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128,
+          136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240,
+          248, 256, 264, 272, 280, 288, 296, 304, 312, 320, 328, 336, 344, 352,
+          360,
         ],
         preDelayMs: 400,
       },
@@ -871,25 +1141,47 @@ Sources compiled in our market research files. Want a country breakdown next?`,
         sender: 'Leo',
         role: 'human',
         type: 'text',
-        timestamp: '16:21',
-        content: '@Akarii before that: top 5 competitors with stage + differentiator.',
-        pauses: [7, 13, 20, 27, 32, 37, 40, 45, 56, 61, 66, 71, 76],
+        timestamp: '16:22',
+        content: 'Okay, healthy. Who are the top competitors by stage?',
+        pauses: [5, 13, 20, 24, 29, 33, 37, 47, 50, 55],
+      },
+      {
+        sender: 'Priya',
+        role: 'human',
+        type: 'text',
+        timestamp: '16:22',
+        content: 'And note any defensible differentiators.',
+        pauses: [4, 9, 13, 23, 36, 42],
+      },
+      {
+        sender: 'Leo',
+        role: 'human',
+        type: 'text',
+        timestamp: '16:22',
+        content: '@Akarii top 5 with stage + differentiator, please.',
+        pauses: [7, 12, 17, 21, 24, 29, 35, 49, 56],
       },
       {
         sender: 'Akarii',
         role: 'ai',
         type: 'rich',
         timestamp: '16:22',
-        content: `**Competitor | Stage | Differentiator**  
-RouteIQ | Series B | Real‑time customs clearance API  
-LogiBot | Series A | Autonomous last‑mile drones  
-CargoAI | Series C | Multilingual freight marketplace  
-SwiftChain | Seed | Blockchain‑based shipment tracking  
-OptiFleet | Series B | Route planning latency <10ms
+        content: `## Competitive Landscape
 
-Highlight gaps to exploit?`,
+| Competitor | Stage    | Differentiator                              |
+|------------|----------|---------------------------------------------|
+| **RouteIQ**    | Series B | Real-time customs clearance API             |
+| **LogiBot**    | Series A | Autonomous last-mile drones                 |
+| **CargoAI**    | Series C | Multilingual freight marketplace            |
+| **SwiftChain** | Seed     | Blockchain-based shipment tracking          |
+| **OptiFleet**  | Series B | Route planning latency < 10 ms             |
+
+## Key insight
+**Latency and reliability** (missed windows) dominate last-mile unit economics.`,
         pauses: [
-          12, 20, 28, 36, 44, 52, 60, 68, 76, 84, 92, 100, 108, 116, 124, 132, 140, 148, 156, 164, 172, 180, 188, 196, 204, 212, 220, 228, 236, 244, 252, 260, 268, 276,
+          18, 28, 38, 48, 58, 68, 78, 88, 98, 108, 118, 128, 138, 148, 158, 168,
+          178, 188, 198, 208, 218, 228, 238, 248, 258, 268, 278, 288, 298, 308,
+          318, 328, 338, 348, 358, 368, 378, 388, 398, 408, 418, 428,
         ],
         preDelayMs: 350,
       },
@@ -897,20 +1189,65 @@ Highlight gaps to exploit?`,
         sender: 'Priya',
         role: 'human',
         type: 'text',
-        timestamp: '16:22',
-        content: '@Akarii yes—where does our target have an edge?',
-        pauses: [7, 13, 17, 21, 28, 33, 40, 47],
+        timestamp: '16:23',
+        content:
+          "Our target claims sub-10ms urban routing. If true, that's a wedge.",
+        pauses: [4, 11, 18, 26, 32, 39, 46, 49, 55, 60, 64],
+      },
+      {
+        sender: 'Leo',
+        role: 'human',
+        type: 'text',
+        timestamp: '16:23',
+        content: "Let's frame it as a reliability advantage, not just speed.",
+        pauses: [5, 11, 16, 19, 22, 34, 45, 50, 55, 61],
+      },
+      {
+        sender: 'Priya',
+        role: 'human',
+        type: 'text',
+        timestamp: '16:24',
+        content:
+          '@Akarii draft the moat section emphasizing reliability + cost impact. Save to `/memos/ai-logistics`.',
+        pauses: [7, 12, 17, 23, 28, 35, 43, 54, 64, 69, 74, 81, 86, 90, 107],
       },
       {
         sender: 'Akarii',
         role: 'ai',
         type: 'rich',
-        timestamp: '16:23',
-        content: `Edge: **sub‑10ms real‑time route optimization** in dense urban traffic across SEA.  
-Implication: enables near same‑day reliability; hard for slower systems to match.  
-Suggest featuring this in the memo's **Moat** section with a before/after cost model. Want me to draft that section?`,
+        timestamp: '16:24',
+        content: `## Moat — Real-Time Urban Routing (Sub-10 ms)
+
+### Claim
+Adaptive routing at sub-10 ms decision latency across dense SEA metros.
+
+### Why it matters
+
+• **Tighter delivery windows** → higher first-attempt success
+• **Fewer redeliveries** → lower last-mile cost per unit
+• **Stability under traffic shocks** (rain, roadworks, events)
+
+### Before/After (illustrative)
+
+• **Missed window rate:** 18% → 9%
+• **Redelivery attempts/order:** 0.22 → 0.11
+• **Last-mile cost/unit:** $3.40 → $2.85
+
+### Defensibility
+
+• **Data flywheel:** metro-specific micro-features (road topology, curb availability)
+• **Infrastructure:** low-latency inference + edge caches near rider clusters
+• **Switching cost:** retraining penalty for rivals is time- & city-specific
+
+---
+
+Saved draft + slide to \`/memos/ai-logistics\`.`,
         pauses: [
-          6, 14, 22, 30, 38, 46, 54, 62, 70, 78, 86, 94, 102, 110, 118, 126, 134, 142, 150, 158, 166, 174, 182, 190, 198, 206, 214, 222, 230, 238, 246, 254, 262, 270, 278,
+          18, 28, 38, 48, 58, 68, 78, 88, 98, 108, 118, 128, 138, 148, 158, 168,
+          178, 188, 198, 208, 218, 228, 238, 248, 258, 268, 278, 288, 298, 308,
+          318, 328, 338, 348, 358, 368, 378, 388, 398, 408, 418, 428, 438, 448,
+          458, 468, 478, 488, 498, 508, 518, 528, 538, 548, 558, 568, 578, 588,
+          598, 608, 618, 628,
         ],
         preDelayMs: 350,
       },
@@ -918,55 +1255,81 @@ Suggest featuring this in the memo's **Moat** section with a before/after cost m
         sender: 'Leo',
         role: 'human',
         type: 'text',
-        timestamp: '16:24',
-        content: '@Akarii please draft the Moat section and add it to the investment memo.',
-        pauses: [7, 13, 20, 27, 34, 40, 45, 50, 55, 65, 75],
-      },
-      {
-        sender: 'Akarii',
-        role: 'ai',
-        type: 'text',
-        timestamp: '16:24',
-        content: 'Drafted and saved. Added citations and a one‑slide summary for IC.',
-        pauses: [8, 12, 19, 25, 31, 42, 47, 51, 60, 63],
-        preDelayMs: 200,
+        timestamp: '16:25',
+        content: "I'll review and plug into the IC deck.",
+        pauses: [4, 11, 17, 21, 26, 30, 33, 37, 42],
       },
     ],
   },
   {
     id: 10,
-    name: 'Episode Prep: Open‑Source vs Proprietary',
+    name: 'Episode Prep: Open-Source vs Proprietary',
     pov: 'Harper',
     thread: {
-      title: 'Episode Prep: Open‑Source vs Proprietary',
+      title: 'Episode Prep: Open-Source vs Proprietary',
       goal: 'Lock outline, questions, and promo copy',
       channel: 'show-run',
       tz: '+08:00',
     },
     messages: [
       {
+        sender: 'Lenny',
+        role: 'human',
+        type: 'text',
+        timestamp: '18:04',
+        content:
+          'Thinking opener: "Why do open models still matter?" Too broad?',
+        pauses: [8, 16, 24, 30, 34, 39, 45, 51, 56, 61],
+      },
+      {
         sender: 'Harper',
         role: 'human',
         type: 'text',
         timestamp: '18:05',
-        content: '@Akarii — draft an outline for our guest (CEO of Neural Labs). Theme: open‑source vs proprietary AI.',
-        pauses: [7, 12, 17, 24, 31, 38, 43, 48, 52, 62, 69, 76, 83, 90, 97, 104, 111, 118],
+        content: "Good start. Let's outline before we wordsmith.",
+        pauses: [5, 11, 17, 23, 30, 37, 45],
+      },
+      {
+        sender: 'Harper',
+        role: 'human',
+        type: 'text',
+        timestamp: '18:05',
+        content:
+          '@Akarii propose an outline (guest is CEO of a AI startup). Theme: open-source vs proprietary.',
+        pauses: [
+          7, 12, 17, 26, 33, 40, 47, 50, 57, 62, 69, 79, 89, 94, 104, 107, 117,
+        ],
       },
       {
         sender: 'Akarii',
         role: 'ai',
         type: 'rich',
         timestamp: '18:05',
-        content: `Proposed flow:  
-1) Guest intro & background  
-2) State of open‑source models  
-3) Proprietary advantages & limitations  
-4) Future hybrid approaches  
-5) Audience Q&A
+        content: `## Episode Outline
+*Balanced approach: narrative → depth*
 
-Balanced for narrative + depth. Want talking points per section?`,
+### 1. Guest intro & context
+**Credibility** + how they've shipped on both sides
+
+### 2. State of open-source
+**Velocity**, community QA, deployment friction
+
+### 3. Proprietary advantages & limits
+**Safety tooling**, eval rigor, vendor lock-in
+
+### 4. Hybrid future
+**Open base** + proprietary adapters/guardrails
+
+### 5. Audience Q&A
+**Practical focus:** "What should teams do now?"
+
+---
+
+I can seed talking points per segment next.`,
         pauses: [
-          8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208,
+          18, 28, 38, 48, 58, 68, 78, 88, 98, 108, 118, 128, 138, 148, 158, 168,
+          178, 188, 198, 208, 218, 228, 238, 248, 258, 268, 278, 288, 298, 308,
+          318, 328, 338, 348, 358, 368, 378, 388, 398, 408, 418,
         ],
         preDelayMs: 400,
       },
@@ -975,44 +1338,92 @@ Balanced for narrative + depth. Want talking points per section?`,
         role: 'human',
         type: 'text',
         timestamp: '18:06',
-        content: '@Akarii yes—also give me 3 strong opener questions.',
-        pauses: [7, 13, 17, 21, 26, 31, 36, 44, 51, 58],
+        content: 'Nice. For openers, I want something opinionated.',
+        pauses: [5, 10, 17, 19, 24, 34, 45],
+      },
+      {
+        sender: 'Harper',
+        role: 'human',
+        type: 'text',
+        timestamp: '18:06',
+        content: '@Akarii 3 strong opener questions, punchy.',
+        pauses: [7, 12, 17, 19, 25, 31, 41, 49],
       },
       {
         sender: 'Akarii',
         role: 'ai',
         type: 'rich',
         timestamp: '18:06',
-        content: `Openers:  
-1) "What's the most misunderstood thing about open‑source AI today?"  
-2) "If you had to bet on one model family for 2030, which would it be—and why?"  
-3) "Where's the biggest capability gap in today's AI toolchain?"
+        content: `## Strong Openers
 
-I can tailor these to the guest's background if you share a brief.`,
+**1.** What's the most misunderstood thing about open-source AI today?
+
+**2.** If you had to bet on one model family for 2030, which—and why?
+
+**3.** Where's the biggest capability gap in today's AI toolchain (and who fixes it)?
+
+---
+
+Follow-ups ready for each based on the guest's stance.`,
         pauses: [
-          8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240, 248, 256, 264, 272,
+          8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128,
+          136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240,
+          248, 256, 264, 272, 280, 288,
         ],
         preDelayMs: 350,
+      },
+      {
+        sender: 'Lenny',
+        role: 'human',
+        type: 'text',
+        timestamp: '18:07',
+        content:
+          "#1 and #3 for sure. Harper, we'll keep #2 in the back pocket.",
+        pauses: [3, 7, 11, 17, 22, 29, 36, 42, 47, 50, 56, 63],
       },
       {
         sender: 'Harper',
         role: 'human',
         type: 'text',
         timestamp: '18:07',
-        content: '@Akarii — prep a social teaser for the episode.',
-        pauses: [7, 12, 17, 22, 29, 36, 40, 44],
+        content: "We need a social teaser that doesn't sound like clickbait.",
+        pauses: [3, 8, 10, 16, 22, 27, 35, 41, 47, 55],
+      },
+      {
+        sender: 'Harper',
+        role: 'human',
+        type: 'text',
+        timestamp: '18:07',
+        content: '@Akarii write a teaser line + alt text for a 15s clip.',
+        pauses: [7, 12, 17, 23, 25, 31, 36, 40, 44, 50, 52, 58],
       },
       {
         sender: 'Akarii',
         role: 'ai',
         type: 'rich',
         timestamp: '18:07',
-        content: `Teaser copy: *"Proprietary vs open‑source AI — which wins, and why? We're going deep with Sarah Chen from Neural Labs. Premieres Friday."*  
-I also cut a 15‑sec teaser clip from prior footage and saved it to the assets folder.`,
+        content: `## Social Teaser
+
+**Main copy:**  
+*Proprietary vs open-source AI—where each wins, and why the future won't be either/or. New episode with [Guest Name], dropping Friday.*
+
+## Alt text for video
+
+*Host and guest debate trade-offs between open and proprietary models; quick cuts of key quotes with animated waveform overlay; logo end card with release date.*`,
         pauses: [
-          8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216,
+          8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128,
+          136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216, 224, 232, 240,
+          248, 256, 264, 272, 280, 288, 296, 304, 312, 320, 328, 336, 344,
         ],
         preDelayMs: 350,
+      },
+      {
+        sender: 'Lenny',
+        role: 'human',
+        type: 'text',
+        timestamp: '18:08',
+        content: "That lands. I'll record a cold open around those lines.",
+        pauses: [5, 11, 17, 22, 24, 31, 36, 40, 48],
       },
     ],
   },
@@ -1026,4 +1437,8 @@ export const SCENARIO_CORE_VALUES = {
   4: 'Context-aware alerts protect team priorities — never lose sight of core goals during pivots.',
   5: 'Competitive timing intelligence — Akarii identifies market opportunities and optimal launch windows.',
   6: 'Crisis response coordination — rapid strategic pivots with data-driven recommendations.',
+  7: 'User-centered design collaboration — Akarii helps teams create intuitive interfaces through structured feedback.',
+  8: 'Content creation at scale — from headlines to social variants, Akarii maintains brand consistency across channels.',
+  9: 'Investment research acceleration — comprehensive market analysis and competitive intelligence in real-time.',
+  10: 'Content planning optimization — structured episode outlines and engaging social teasers for maximum impact.',
 };
