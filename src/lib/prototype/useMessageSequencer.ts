@@ -328,13 +328,31 @@ export function useMessageSequencer({
         }, postDelay);
 
       } else {
-        // Character-by-character typing for POV user
-        let currentIndex = 0;
-        const pauses = message.pauses || [];
+        // POV user: Listen for actual send button completion event
+        console.log('🎯 POV User Message Setup - Waiting for send event:', {
+          messageIndex,
+          sender: message.sender,
+          content: content.substring(0, 30) + '...',
+          messageId: `${scenario.id}-${messageIndex}`
+        });
         
-        const typeNextChar = () => {
-          if (!isActiveRef.current || currentIndex >= content.length) {
-            // Message complete
+        const handleUserMessageSent = (event: CustomEvent) => {
+          const { messageId: sentMessageId } = event.detail;
+          const expectedMessageId = `${scenario.id}-${messageIndex}`;
+          
+          console.log('🔔 UserMessageSent event received:', {
+            sentMessageId,
+            expectedMessageId,
+            matches: sentMessageId === expectedMessageId
+          });
+          
+          if (sentMessageId === expectedMessageId && isActiveRef.current) {
+            console.log('💬 User message bubble appearing instantly (after input cleared):', {
+              messageIndex,
+              sender: message.sender
+            });
+            
+            // Message appears instantly after send button animation
             setState(prevState => {
               const newMessages = [...prevState.messages];
               newMessages[messageIndex] = {
@@ -352,8 +370,7 @@ export function useMessageSequencer({
 
             onMessageComplete?.(message, messageIndex);
 
-            // Wait post delay, then proceed to next message (instant for POV user)
-            const postDelay = message.sender === scenario.pov ? 50 : (message.postDelayMs || 350);
+            // Proceed to next message immediately 
             timeoutRef.current = setTimeout(() => {
               if (isActiveRef.current) {
                 const nextIndex = messageIndex + 1;
@@ -373,42 +390,22 @@ export function useMessageSequencer({
                   }, 3000);
                 }
               }
-            }, postDelay);
-            return;
-          }
-
-          // Add next character
-          const newDisplayedContent = content.substring(0, currentIndex + 1);
-          setState(prevState => {
-            const newMessages = [...prevState.messages];
-            newMessages[messageIndex] = {
-              ...newMessages[messageIndex],
-              displayedContent: newDisplayedContent,
-            };
+            }, 100); // Minimal delay before next message
             
-            return {
-              ...prevState,
-              messages: newMessages,
-            };
-          });
-
-          currentIndex++;
-
-          // Calculate delay for next character
-          const charsPerMinute = wpm * 5;
-          const charsPerSecond = charsPerMinute / 60;
-          const baseDelay = 1000 / charsPerSecond;
-          const randomDelay = 30 + Math.random() * 50;
-          const pauseDelay = pauses.includes(currentIndex) ? 200 + Math.random() * 400 : 0;
-          
-          const totalDelay = baseDelay + randomDelay + pauseDelay;
-          
-          timeoutRef.current = setTimeout(typeNextChar, totalDelay);
+            // Clean up event listener
+            window.removeEventListener('userMessageSent', handleUserMessageSent as EventListener);
+          }
         };
-
-        // Start typing with pre-delay
-        const preDelay = message.preDelayMs || 250;
-        timeoutRef.current = setTimeout(typeNextChar, preDelay);
+        
+        // Add event listener
+        window.addEventListener('userMessageSent', handleUserMessageSent as EventListener);
+        
+        // Cleanup function to prevent memory leaks
+        const originalTimeout = timeoutRef.current;
+        timeoutRef.current = setTimeout(() => {
+          // Fallback cleanup if event never fires
+          window.removeEventListener('userMessageSent', handleUserMessageSent as EventListener);
+        }, 10000); // 10 second fallback cleanup
       }
       
     }, typingIndicatorDuration);
