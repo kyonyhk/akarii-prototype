@@ -786,7 +786,7 @@ export default function PrototypeChatPage() {
           <div className="flex-1"></div>
 
           {/* Message Input Area */}
-          <div className="flex items-center gap-1 md:gap-2 pointer-events-auto px-2 md:px-6 pb-7 md:pb-6">
+          <div className="flex items-start gap-1 md:gap-2 pointer-events-auto px-2 md:px-6 pb-7 md:pb-6">
             <div className="w-10 md:w-12 h-10 md:h-12 flex flex-col justify-center items-center border border-white/10 bg-white/1 backdrop-blur-sm rounded-[40px] hover:bg-white/5 cursor-pointer">
               <FileIcon
                 size={16}
@@ -794,9 +794,9 @@ export default function PrototypeChatPage() {
                 color="#DBDBDB"
               />
             </div>
-            <div className="h-10 md:h-12 flex flex-row justify-center flex-1 bg-white/1 border border-white/10 rounded-[40px] px-4 py-2 backdrop-blur-sm">
+            <div className="min-h-10 md:min-h-12 flex items-center flex-1 bg-white/1 border border-white/10 rounded-[40px] px-4 py-2 backdrop-blur-sm">
               {inputTypingContent ? (
-                <div className="w-full app-paragraph2 text-white/80 flex items-center">
+                <div className="w-full app-paragraph2 text-white/80 leading-relaxed">
                   {inputTypingContent}
                   <span className="animate-pulse ml-1">|</span>
                 </div>
