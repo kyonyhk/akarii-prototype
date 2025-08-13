@@ -118,7 +118,8 @@ export default function PrototypeChatPage() {
       return; // Already typing this message
     }
 
-    console.log('🎯 Starting input typing for:', content, 'ID:', messageId);
+    const startTime = Date.now();
+    console.log('🎯 Starting input typing for:', content, 'ID:', messageId, 'Length:', content.length, 'Start time:', startTime);
     isInputTypingActiveRef.current = true;
     lastInputMessageIdRef.current = messageId;
 
@@ -128,7 +129,7 @@ export default function PrototypeChatPage() {
     }
 
     let currentIndex = 0;
-    const wpm = 120; // Faster human typing for demo
+    const wpm = 180; // 1.5x faster human typing for demo (was 120)
     const charsPerMinute = wpm * 5;
     const charsPerSecond = charsPerMinute / 60;
     const baseDelay = 1000 / charsPerSecond;
@@ -145,16 +146,25 @@ export default function PrototypeChatPage() {
           baseDelay + Math.random() * 20
         );
       } else {
-        console.log('✅ Input typing complete for:', content);
+        const endTime = Date.now();
+        const typingDuration = endTime - startTime;
+        console.log('✅ Input typing complete for:', content, 'Duration:', typingDuration + 'ms', 'End time:', endTime);
         // Trigger send button animation
         setIsSendButtonAnimating(true);
-        setTimeout(() => setIsSendButtonAnimating(false), 200);
-
-        // Typing complete, clear input after brief pause
-        inputTypingTimeoutRef.current = setTimeout(() => {
+        setTimeout(() => {
+          setIsSendButtonAnimating(false);
+          console.log('📤 Send button animation complete at:', Date.now(), '(+200ms from typing end)');
+          
+          // Clear input immediately when send animation completes
           setInputTypingContent('');
           isInputTypingActiveRef.current = false;
-        }, 600);
+          console.log('🧹 Input cleared immediately with send animation');
+          
+          // Trigger custom event to notify message sequencer
+          window.dispatchEvent(new CustomEvent('userMessageSent', { 
+            detail: { messageId, content } 
+          }));
+        }, 200);
       }
     };
 
