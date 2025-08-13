@@ -177,7 +177,7 @@ Option C: Staged rollout by usage tier (3 votes)`,
 
 **Context:** 5 votes cast, 3 in favor of C, consensus reached in under 4 minutes
 
-[Expand for Details]`,
+View Details`,
         pauses: [18, 28, 38, 58, 78, 98, 118, 138, 158, 178, 198, 218],
         preDelayMs: 300,
       },
@@ -732,7 +732,7 @@ These keep action verbs upfront so users feel in control.`,
 - **Watch Work**: *Pause or tweak the process anytime.*  
 - **See Results**: *Copy code or send it straight to your editor.*
 
-Saved to \`/ui-content/claude-code\`. Want a 1‑page UX spec export?`,
+Saved to the design docs folder. Want a 1‑page UX spec export?`,
         pauses: [
           10, 18, 26, 34, 42, 50, 58, 66, 74, 82, 90, 98, 106, 114, 122, 130, 138, 146, 154, 162, 170, 178, 186, 194, 202, 210, 218, 226, 234, 242, 250, 258, 266, 274, 282, 290,
         ],
@@ -807,7 +807,7 @@ Both are inbox‑grabbing; #1 leans thought‑leadership, #2 leans product.`,
         role: 'ai',
         type: 'rich',
         timestamp: '13:12',
-        content: `Pulled from \`/docs/launch-brief\`:
+        content: `Pulled from the launch brief document:
 
 *Our AI writing assistant brings structured creativity to your work — combining instant drafting, context awareness, and team‑shared memory so every piece you write is aligned and on‑message.*
 
@@ -822,7 +822,7 @@ Both are inbox‑grabbing; #1 leans thought‑leadership, #2 leans product.`,
         role: 'human',
         type: 'text',
         timestamp: '13:13',
-        content: '@Akarii use headline #1. Drop assets in `/launch-assets` and tag "Launch Day".',
+        content: '@Akarii use headline #1. Drop assets in the launch folder and tag "Launch Day".',
         pauses: [7, 13, 17, 22, 29, 35, 40, 45, 55, 60, 65, 70, 76],
       },
       {
@@ -861,7 +861,7 @@ Both are inbox‑grabbing; #1 leans thought‑leadership, #2 leans product.`,
         type: 'rich',
         timestamp: '16:21',
         content: `Est. **$5.2B (2024)**, ~**17% CAGR** through 2028. Drivers: cross‑border e‑commerce growth, last‑mile automation, predictive routing.  
-Sources linked in \`/market-research/SEA-logistics\`. Want a country breakdown next?`,
+Sources compiled in our market research files. Want a country breakdown next?`,
         pauses: [
           4, 12, 20, 28, 36, 44, 52, 60, 68, 76, 84, 92, 100, 108, 116, 124, 132, 140, 148, 156, 164, 172, 180, 188, 196, 204, 212, 220,
         ],
@@ -919,7 +919,7 @@ Suggest featuring this in the memo's **Moat** section with a before/after cost m
         role: 'human',
         type: 'text',
         timestamp: '16:24',
-        content: '@Akarii please draft the Moat section and drop into `/memos/ai-logistics`.',
+        content: '@Akarii please draft the Moat section and add it to the investment memo.',
         pauses: [7, 13, 20, 27, 34, 40, 45, 50, 55, 65, 75],
       },
       {
@@ -949,7 +949,7 @@ Suggest featuring this in the memo's **Moat** section with a before/after cost m
         role: 'human',
         type: 'text',
         timestamp: '18:05',
-        content: '@Akarii — draft an outline for our guest (CEO of [Fictional AI Startup]). Theme: open‑source vs proprietary AI.',
+        content: '@Akarii — draft an outline for our guest (CEO of Neural Labs). Theme: open‑source vs proprietary AI.',
         pauses: [7, 12, 17, 24, 31, 38, 43, 48, 52, 62, 69, 76, 83, 90, 97, 104, 111, 118],
       },
       {
@@ -1007,8 +1007,8 @@ I can tailor these to the guest's background if you share a brief.`,
         role: 'ai',
         type: 'rich',
         timestamp: '18:07',
-        content: `Teaser copy: *"Proprietary vs open‑source AI — which wins, and why? We're going deep with [Guest Name]. Premieres Friday."*  
-I also cut a 15‑sec teaser clip from prior footage and saved it to \`/promo-assets\`.`,
+        content: `Teaser copy: *"Proprietary vs open‑source AI — which wins, and why? We're going deep with Sarah Chen from Neural Labs. Premieres Friday."*  
+I also cut a 15‑sec teaser clip from prior footage and saved it to the assets folder.`,
         pauses: [
           8, 16, 24, 32, 40, 48, 56, 64, 72, 80, 88, 96, 104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200, 208, 216,
         ],
