@@ -1,4 +1,4 @@
-export type Sender = "Trish" | "Sam" | "Akarii" | "System" | "Scott Wu" | "Walden Yan" | "Steven Hao" | "Jeff Wang" | "Kevin Lu" | "Mike Krieger" | "Daniela Amodei" | "Dario Amodei" | "Kevin Weil" | "Kate Rouch" | "Brad Lightcap";
+export type Sender = "Trish" | "Sam" | "Akarii" | "System" | "Scott Wu" | "Walden Yan" | "Steven Hao" | "Jeff Wang" | "Kevin Lu" | "Mike Krieger" | "Daniela Amodei" | "Dario Amodei" | "Kevin Weil" | "Kate Rouch" | "Brad Lightcap" | "Alex" | "Jamie" | "Maya" | "Dan" | "Mira" | "Cole" | "Priya" | "Leo" | "Harper" | "Lenny";
 export type Role = "human" | "ai" | "system";
 export type MsgType = "text" | "rich" | "alert" | "vote" | "card" | "reaction";
 
@@ -17,7 +17,7 @@ export interface Message {
 export interface Scenario {
   id: number;
   name: string;
-  pov: "Trish" | "Scott Wu" | "Jeff Wang" | "Mike Krieger" | "Kevin Weil";
+  pov: "Trish" | "Scott Wu" | "Jeff Wang" | "Mike Krieger" | "Kevin Weil" | "Alex" | "Dan" | "Priya" | "Harper";
   thread: { title: string; goal?: string; channel?: string; tz?: string };
   messages: Message[];
 }

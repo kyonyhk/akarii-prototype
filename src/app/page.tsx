@@ -54,6 +54,14 @@ export default function PrototypeChatPage() {
         return 'Mike Krieger'; // Anthropic CPO
       case 6:
         return 'Kevin Weil'; // OpenAI CPO
+      case 7:
+        return 'Alex'; // Conductor Engineer
+      case 8:
+        return 'Dan'; // Every Editor
+      case 9:
+        return 'Priya'; // VC Partner
+      case 10:
+        return 'Harper'; // Podcast Producer
       default:
         return 'Trish';
     }
@@ -226,6 +234,10 @@ export default function PrototypeChatPage() {
       'leadership-sync': 4,
       'launch-ops': 5,
       'war-room': 6,
+      'product-design': 7,
+      'launch-room': 8,
+      'investment-review': 9,
+      'show-run': 10,
     };
     return channelToScenarioMap[channel] || 1;
   };
@@ -402,6 +414,90 @@ export default function PrototypeChatPage() {
             ],
           },
         };
+      case 7:
+        return {
+          title: 'UI Design Strategy',
+          content: {
+            option: 'User-friendly multi-agent flow',
+            pros: [
+              'Clear step-by-step process',
+              'Non-technical user friendly',
+              'Action verbs for control',
+            ],
+            cons: [
+              'More complex navigation',
+              'Additional UI states',
+            ],
+            metric: 'Ship a friendly multi-agent UI',
+            owners: [
+              { name: 'Alex', role: 'Engineer', avatar: 'gray' },
+              { name: 'Jamie', role: 'Designer', avatar: 'gray' },
+            ],
+          },
+        };
+      case 8:
+        return {
+          title: 'Launch Execution',
+          content: {
+            option: 'Headline #1 with coordinated assets',
+            pros: [
+              'Clear thought-leadership angle',
+              'Coordinated launch assets',
+              'Accessibility considerations',
+            ],
+            cons: [
+              'Compressed timeline',
+              'Multiple deliverables',
+            ],
+            metric: 'Ship today\'s newsletter and tool launch',
+            owners: [
+              { name: 'Dan', role: 'Editor', avatar: 'gray' },
+              { name: 'Mira', role: 'Writer', avatar: 'gray' },
+            ],
+          },
+        };
+      case 9:
+        return {
+          title: 'Investment Decision',
+          content: {
+            option: 'Focus on sub-10ms optimization edge',
+            pros: [
+              'Clear technical differentiator',
+              'Hard to replicate advantage',
+              'Market size validation',
+            ],
+            cons: [
+              'Competitive landscape risks',
+              'Execution complexity',
+            ],
+            metric: 'Decide whether to advance an AI logistics deal',
+            owners: [
+              { name: 'Priya', role: 'Partner', avatar: 'gray' },
+              { name: 'Leo', role: 'Associate', avatar: 'gray' },
+            ],
+          },
+        };
+      case 10:
+        return {
+          title: 'Episode Planning',
+          content: {
+            option: 'Structured flow with strong openers',
+            pros: [
+              'Balanced narrative depth',
+              'Strong opener questions',
+              'Social media ready',
+            ],
+            cons: [
+              'Guest coordination needed',
+              'Multiple asset creation',
+            ],
+            metric: 'Lock outline, questions, and promo copy',
+            owners: [
+              { name: 'Harper', role: 'Producer', avatar: 'gray' },
+              { name: 'Lenny', role: 'Host', avatar: 'gray' },
+            ],
+          },
+        };
       default:
         return {
           title: 'Chosen Path',
@@ -474,6 +570,10 @@ export default function PrototypeChatPage() {
                 'leadership-sync',
                 'launch-ops',
                 'war-room',
+                'product-design',
+                'launch-room',
+                'investment-review',
+                'show-run',
               ].map((channel) => (
                 <div
                   key={channel}
@@ -855,6 +955,10 @@ export default function PrototypeChatPage() {
                     'leadership-sync',
                     'launch-ops',
                     'war-room',
+                    'product-design',
+                    'launch-room',
+                    'investment-review',
+                    'show-run',
                   ].map((channel) => (
                     <div
                       key={channel}

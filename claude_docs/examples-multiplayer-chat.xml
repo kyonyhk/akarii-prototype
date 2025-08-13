@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AkariiScenarios xmlns="https://akarii.app/scenarios" version="1.0" generatedAt="2025-08-13T10:00:00+08:00">
+  <!-- Campaign: Multiplayer Chat (Simulated demos. Fictionalized content. No affiliation.) -->
+  
+  <!-- Scenario 1: Conductor – Designing a Claude Code Agent UI -->
+  <Scenario id="conductor-claude-ui" title="Designing a Claude Code Agent UI" perspective="Conductor" goal="Ship a friendly multi-agent UI" channel="product-design" tz="+08:00" user="Alex (Engineer)" simulated="true">
+    <Participants>
+      <Person name="Alex" role="Engineer" company="Conductor"/>
+      <Person name="Jamie" role="Designer" company="Conductor"/>
+      <Person name="Maya" role="Engineer" company="Conductor"/>
+      <Person name="Akarii" role="AI"/>
+    </Participants>
+    <Messages markdown="true">
+      <Message sender="Alex" role="human" type="text" time="09:01">@Akarii — can you map the steps from *prompt → agent selection → code output*?</Message>
+      <Message sender="Akarii" role="ai" type="text" time="09:02"><![CDATA[
+Sure. Here’s a flow tailored to your Claude Code multi‑agent setup, prioritizing clarity:
+
+**Step 1 — Prompt Entry**: user writes the request (e.g., “Build a Node.js script to parse JSON”).  
+**Step 2 — Agent Selection**: dropdown of Claude agents with one‑line capability tags (“API integration”, “Refactor”, “Tests”).  
+**Step 3 — Execution Log**: live stream of reasoning/steps so progress is visible.  
+**Step 4 — Output Preview**: syntax‑highlighted code with **Copy · Rerun · Send to Editor**.
+
+Want me to rephrase labels for non‑technical users?
+      ]]></Message>
+      <Message sender="Jamie" role="human" type="text" time="09:03">Yes—friendly without losing clarity.</Message>
+      <Message sender="Akarii" role="ai" type="text" time="09:03"><![CDATA[
+Updated labels:  
+1) **Ask** — “Tell me what you’d like to build.”  
+2) **Choose Agent** — “Pick the helper best suited for your job.”  
+3) **Watch Work** — “See the AI think and work in real time.”  
+4) **See Results** — “Review and use the final code.”
+
+These keep action verbs upfront so users feel in control.
+      ]]></Message>
+      <Message sender="Maya" role="human" type="text" time="09:04">@Akarii — draft tooltip copy for each step.</Message>
+      <Message sender="Akarii" role="ai" type="text" time="09:05"><![CDATA[
+Tooltips:  
+- **Ask**: *Be specific. Mention language, framework, or an example.*  
+- **Choose Agent**: *Hover to see what each agent excels at.*  
+- **Watch Work**: *Pause or tweak the process anytime.*  
+- **See Results**: *Copy code or send it straight to your editor.*
+
+Saved to `/ui-content/claude-code`. Want a 1‑page UX spec export?
+      ]]></Message>
+    </Messages>
+  </Scenario>
+
+  <!-- Scenario 2: Every – Live Newsletter + Product Launch Coordination -->
+  <Scenario id="every-newsletter-launch" title="Newsletter + Product Launch Sprint" perspective="Every" goal="Ship today’s newsletter and tool launch" channel="launch-room" tz="+08:00" user="Dan (Editor)" simulated="true">
+    <Participants>
+      <Person name="Dan" role="Editor" company="Every"/>
+      <Person name="Mira" role="Writer" company="Every"/>
+      <Person name="Cole" role="Engineer" company="Every"/>
+      <Person name="Akarii" role="AI"/>
+    </Participants>
+    <Messages markdown="true">
+      <Message sender="Dan" role="human" type="text" time="13:10">@Akarii — headline for today’s newsletter. Theme: human‑AI collaboration.</Message>
+      <Message sender="Akarii" role="ai" type="text" time="13:10"><![CDATA[
+Option A: **“When AI Joins the Meeting, Work Gets Smarter.”**  
+It’s clear and ties the benefit to a familiar setting (meetings). Want punchier alternates?
+      ]]></Message>
+      <Message sender="Mira" role="human" type="text" time="13:11">Yes—two bolder options, please.</Message>
+      <Message sender="Akarii" role="ai" type="text" time="13:11"><![CDATA[
+Bolder options:  
+1) **“The Smartest Person in the Room Isn’t a Person.”**  
+2) **“Your New Favorite Teammate Is Made of Code.”**
+
+Both are inbox‑grabbing; #1 leans thought‑leadership, #2 leans product.
+      ]]></Message>
+      <Message sender="Cole" role="human" type="text" time="13:12">@Akarii — pull product description from the latest launch doc and condense to 50 words.</Message>
+      <Message sender="Akarii" role="ai" type="text" time="13:12"><![CDATA[
+Pulled from `/docs/launch-brief`:
+
+*Our AI writing assistant brings structured creativity to your work — combining instant drafting, context awareness, and team‑shared memory so every piece you write is aligned and on‑message.*
+
+→ 50 words. Want a tweet‑length version for social too?
+      ]]></Message>
+      <Message sender="Dan" role="human" type="text" time="13:13">Use headline #1. Drop assets in `/launch-assets` and tag “Launch Day”.</Message>
+      <Message sender="Akarii" role="ai" type="text" time="13:13">Done. Files uploaded and tagged. I also generated an alt text pack for accessibility.</Message>
+    </Messages>
+  </Scenario>
+
+  <!-- Scenario 3: VC Firm – Deal Memo Deep Dive -->
+  <Scenario id="vc-deal-memo" title="Deal Memo Deep Dive" perspective="VC" goal="Decide whether to advance an AI logistics deal" channel="investment-review" tz="+08:00" user="Priya (Partner)" simulated="true">
+    <Participants>
+      <Person name="Priya" role="Partner" company="Fictional VC"/>
+      <Person name="Leo" role="Associate" company="Fictional VC"/>
+      <Person name="Akarii" role="AI"/>
+    </Participants>
+    <Messages markdown="true">
+      <Message sender="Priya" role="human" type="text" time="16:20">@Akarii — TAM for AI‑enabled logistics in Southeast Asia?</Message>
+      <Message sender="Akarii" role="ai" type="text" time="16:21"><![CDATA[
+Est. **$5.2B (2024)**, ~**17% CAGR** through 2028. Drivers: cross‑border e‑commerce growth, last‑mile automation, predictive routing.  
+Sources linked in `/market-research/SEA-logistics`. Want a country breakdown next?
+      ]]></Message>
+      <Message sender="Leo" role="human" type="text" time="16:21">Before that: top 5 competitors with stage + differentiator.</Message>
+      <Message sender="Akarii" role="ai" type="text" time="16:22"><![CDATA[
+**Competitor | Stage | Differentiator**  
+RouteIQ | Series B | Real‑time customs clearance API  
+LogiBot | Series A | Autonomous last‑mile drones  
+CargoAI | Series C | Multilingual freight marketplace  
+SwiftChain | Seed | Blockchain‑based shipment tracking  
+OptiFleet | Series B | Route planning latency <10ms
+
+Highlight gaps to exploit?
+      ]]></Message>
+      <Message sender="Priya" role="human" type="text" time="16:22">Yes—where does our target have an edge?</Message>
+      <Message sender="Akarii" role="ai" type="text" time="16:23"><![CDATA[
+Edge: **sub‑10ms real‑time route optimization** in dense urban traffic across SEA.  
+Implication: enables near same‑day reliability; hard for slower systems to match.  
+Suggest featuring this in the memo’s **Moat** section with a before/after cost model. Want me to draft that section?
+      ]]></Message>
+      <Message sender="Leo" role="human" type="text" time="16:24">Please draft the Moat section and drop into `/memos/ai-logistics`.</Message>
+      <Message sender="Akarii" role="ai" type="text" time="16:24">Drafted and saved. Added citations and a one‑slide summary for IC.</Message>
+    </Messages>
+  </Scenario>
+
+  <!-- Scenario 4: AI Podcast – Episode Prep -->
+  <Scenario id="ai-podcast-episode-prep" title="Episode Prep: Open‑Source vs Proprietary" perspective="Podcast" goal="Lock outline, questions, and promo copy" channel="show-run" tz="+08:00" user="Harper (Producer)" simulated="true">
+    <Participants>
+      <Person name="Harper" role="Producer" company="Fictional AI Podcast"/>
+      <Person name="Lenny" role="Host" company="Fictional AI Podcast"/>
+      <Person name="Akarii" role="AI"/>
+    </Participants>
+    <Messages markdown="true">
+      <Message sender="Harper" role="human" type="text" time="18:05">@Akarii — draft an outline for our guest (CEO of [Fictional AI Startup]). Theme: open‑source vs proprietary AI.</Message>
+      <Message sender="Akarii" role="ai" type="text" time="18:05"><![CDATA[
+Proposed flow:  
+1) Guest intro & background  
+2) State of open‑source models  
+3) Proprietary advantages & limitations  
+4) Future hybrid approaches  
+5) Audience Q&A
+
+Balanced for narrative + depth. Want talking points per section?
+      ]]></Message>
+      <Message sender="Lenny" role="human" type="text" time="18:06">Yes—also give me 3 strong opener questions.</Message>
+      <Message sender="Akarii" role="ai" type="text" time="18:06"><![CDATA[
+Openers:  
+1) “What’s the most misunderstood thing about open‑source AI today?”  
+2) “If you had to bet on one model family for 2030, which would it be—and why?”  
+3) “Where’s the biggest capability gap in today’s AI toolchain?”
+
+I can tailor these to the guest’s background if you share a brief.
+      ]]></Message>
+      <Message sender="Harper" role="human" type="text" time="18:07">@Akarii — prep a social teaser for the episode.</Message>
+      <Message sender="Akarii" role="ai" type="text" time="18:07"><![CDATA[
+Teaser copy: *“Proprietary vs open‑source AI — which wins, and why? We’re going deep with [Guest Name]. Premieres Friday.”*  
+I also cut a 15‑sec teaser clip from prior footage and saved it to `/promo-assets`.
+      ]]></Message>
+    </Messages>
+  </Scenario>
+</AkariiScenarios>
