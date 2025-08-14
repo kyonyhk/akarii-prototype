@@ -119,7 +119,16 @@ export default function PrototypeChatPage() {
     }
 
     const startTime = Date.now();
-    console.log('🎯 Starting input typing for:', content, 'ID:', messageId, 'Length:', content.length, 'Start time:', startTime);
+    console.log(
+      '🎯 Starting input typing for:',
+      content,
+      'ID:',
+      messageId,
+      'Length:',
+      content.length,
+      'Start time:',
+      startTime
+    );
     isInputTypingActiveRef.current = true;
     lastInputMessageIdRef.current = messageId;
 
@@ -148,22 +157,35 @@ export default function PrototypeChatPage() {
       } else {
         const endTime = Date.now();
         const typingDuration = endTime - startTime;
-        console.log('✅ Input typing complete for:', content, 'Duration:', typingDuration + 'ms', 'End time:', endTime);
+        console.log(
+          '✅ Input typing complete for:',
+          content,
+          'Duration:',
+          typingDuration + 'ms',
+          'End time:',
+          endTime
+        );
         // Trigger send button animation
         setIsSendButtonAnimating(true);
         setTimeout(() => {
           setIsSendButtonAnimating(false);
-          console.log('📤 Send button animation complete at:', Date.now(), '(+200ms from typing end)');
-          
+          console.log(
+            '📤 Send button animation complete at:',
+            Date.now(),
+            '(+200ms from typing end)'
+          );
+
           // Clear input immediately when send animation completes
           setInputTypingContent('');
           isInputTypingActiveRef.current = false;
           console.log('🧹 Input cleared immediately with send animation');
-          
+
           // Trigger custom event to notify message sequencer
-          window.dispatchEvent(new CustomEvent('userMessageSent', { 
-            detail: { messageId, content } 
-          }));
+          window.dispatchEvent(
+            new CustomEvent('userMessageSent', {
+              detail: { messageId, content },
+            })
+          );
         }, 200);
       }
     };
@@ -434,10 +456,7 @@ export default function PrototypeChatPage() {
               'Non-technical user friendly',
               'Action verbs for control',
             ],
-            cons: [
-              'More complex navigation',
-              'Additional UI states',
-            ],
+            cons: ['More complex navigation', 'Additional UI states'],
             metric: 'Ship a friendly multi-agent UI',
             owners: [
               { name: 'Alex', role: 'Engineer', avatar: 'gray' },
@@ -455,11 +474,8 @@ export default function PrototypeChatPage() {
               'Coordinated launch assets',
               'Accessibility considerations',
             ],
-            cons: [
-              'Compressed timeline',
-              'Multiple deliverables',
-            ],
-            metric: 'Ship today\'s newsletter and tool launch',
+            cons: ['Compressed timeline', 'Multiple deliverables'],
+            metric: "Ship today's newsletter and tool launch",
             owners: [
               { name: 'Dan', role: 'Editor', avatar: 'gray' },
               { name: 'Mira', role: 'Writer', avatar: 'gray' },
@@ -476,10 +492,7 @@ export default function PrototypeChatPage() {
               'Hard to replicate advantage',
               'Market size validation',
             ],
-            cons: [
-              'Competitive landscape risks',
-              'Execution complexity',
-            ],
+            cons: ['Competitive landscape risks', 'Execution complexity'],
             metric: 'Decide whether to advance an AI logistics deal',
             owners: [
               { name: 'Priya', role: 'Partner', avatar: 'gray' },
@@ -497,10 +510,7 @@ export default function PrototypeChatPage() {
               'Strong opener questions',
               'Social media ready',
             ],
-            cons: [
-              'Guest coordination needed',
-              'Multiple asset creation',
-            ],
+            cons: ['Guest coordination needed', 'Multiple asset creation'],
             metric: 'Lock outline, questions, and promo copy',
             owners: [
               { name: 'Harper', role: 'Producer', avatar: 'gray' },
@@ -749,7 +759,7 @@ export default function PrototypeChatPage() {
 
         {/* Mobile Chat Header Container - 8px below navigation */}
         <div className="md:hidden absolute top-[64px] left-4 right-4 z-30 pointer-events-auto">
-          <div className="px-6 py-3 bg-white/1 border border-white/10 text-white/80 flex flex-row items-center justify-between rounded-[40px] backdrop-blur-sm">
+          <div className="px-4 py-3 bg-white/1 border border-white/10 text-white/80 flex flex-row items-center justify-between rounded-[40px] backdrop-blur-sm">
             <div className="app-subheading text-white/70 mb-1">
               #{activeScenario.thread.channel || 'general'}
             </div>
